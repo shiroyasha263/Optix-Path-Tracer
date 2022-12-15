@@ -14,7 +14,8 @@ Now we make type out our first line of code, we start by adding the include libr
 #include <cuda_runtime.h>
 
 #include <sutil/Exception.h>
-#include <sutil/sutil.h>```
+#include <sutil/sutil.h>
+```
 
 Then we start with creating a function to initialize cuda, check the number of devices and create a optixInit
 
@@ -27,7 +28,8 @@ Then we start with creating a function to initialize cuda, check the number of d
 	std::cout << "Found " << numDevices << "Cuda Devices\n";
 
 	OPTIX_CHECK( optixInit() );
-}```
+}
+```
 
 Now finally we make our main function where will try to check if optix is initialised without any issues or not
 
@@ -45,4 +47,5 @@ Now finally we make our main function where will try to check if optix is initia
 		exit(1);
 	}
 	return 0;
-}```
+}
+```
