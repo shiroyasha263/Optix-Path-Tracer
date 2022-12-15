@@ -1,0 +1,5 @@
+# CMake generation dependency list for this directory.
+C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/sutil/CMakeFiles/sutil.dir/__/cuda/sutil_generated_sphere.cu.ptx.depend
+C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/sutil/CMakeFiles/sutil.dir/__/cuda/sutil_generated_whitted.cu.ptx.depend
+C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMake/FindCUDA/run_nvcc.cmake
+C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/sutil/CMakeLists.txt

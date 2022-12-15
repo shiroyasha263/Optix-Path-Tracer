@@ -1,0 +1,39 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.23/Modules/CMakeCInformation.cmake
+C:/Program Files/CMake/share/cmake-3.23/Modules/CMakeCXXInformation.cmake
+C:/Program Files/CMake/share/cmake-3.23/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake
+C:/Program Files/CMake/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake
+C:/Program Files/CMake/share/cmake-3.23/Modules/CMakeGenericSystem.cmake
+C:/Program Files/CMake/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake
+C:/Program Files/CMake/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake
+C:/Program Files/CMake/share/cmake-3.23/Modules/CMakeRCInformation.cmake
+C:/Program Files/CMake/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake
+C:/Program Files/CMake/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake
+C:/Program Files/CMake/share/cmake-3.23/Modules/CheckCXXCompilerFlag.cmake
+C:/Program Files/CMake/share/cmake-3.23/Modules/CheckCXXSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake
+C:/Program Files/CMake/share/cmake-3.23/Modules/Compiler/MSVC-C.cmake
+C:/Program Files/CMake/share/cmake-3.23/Modules/Compiler/MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-3.23/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-3.23/Modules/Internal/CheckCompilerFlag.cmake
+C:/Program Files/CMake/share/cmake-3.23/Modules/Internal/CheckFlagCommonConfig.cmake
+C:/Program Files/CMake/share/cmake-3.23/Modules/Internal/CheckSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.23/Modules/Platform/Windows-MSVC-C.cmake
+C:/Program Files/CMake/share/cmake-3.23/Modules/Platform/Windows-MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-3.23/Modules/Platform/Windows-MSVC.cmake
+C:/Program Files/CMake/share/cmake-3.23/Modules/Platform/Windows.cmake
+C:/Program Files/CMake/share/cmake-3.23/Modules/Platform/WindowsPaths.cmake
+C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/CMakeFiles/3.23.1/CMakeCCompiler.cmake
+C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/CMakeFiles/3.23.1/CMakeCXXCompiler.cmake
+C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/CMakeFiles/3.23.1/CMakeRCCompiler.cmake
+C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/CMakeFiles/3.23.1/CMakeSystem.cmake
+C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMake/CompilerInfo.cmake
+C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMake/ConfigCompilerFlags.cmake
+C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMake/FindCUDA.cmake
+C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMake/FindCUDA/select_compute_arch.cmake
+C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMake/FindOptiX.cmake
+C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMake/Macros.cmake
+C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMake/sse_support.h.in
+C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMakeLists.txt
+C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/sampleConfig.h.in

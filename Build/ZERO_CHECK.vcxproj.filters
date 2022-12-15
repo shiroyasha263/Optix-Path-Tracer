@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\CMakeFiles\39955460c00329f348307b64ef3c1c6a\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{21B4A188-D9DF-36D1-AF7B-189A2C0B0DED}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

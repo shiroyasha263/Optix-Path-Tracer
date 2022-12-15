@@ -1,0 +1,5 @@
+# CMake generation dependency list for this directory.
+C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/DemandLoading/CMakeFiles/PagingSystemKernels.dir/PagingSystemKernels_generated_PagingSystemKernels.cu.obj.depend
+C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMake/FindCUDA/run_nvcc.cmake
+C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/lib/DemandLoading/CMakeLists.txt
+C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/lib/DemandLoading/include/DemandLoading/demandLoadingConfig.h.in
