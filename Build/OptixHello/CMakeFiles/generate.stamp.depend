@@ -1,4 +1,2 @@
 # CMake generation dependency list for this directory.
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixHello/CMakeFiles/optixHello.dir/optixHello_generated_draw_solid_color.cu.ptx.depend
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMake/FindCUDA/run_nvcc.cmake
 C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/OptixHello/CMakeLists.txt

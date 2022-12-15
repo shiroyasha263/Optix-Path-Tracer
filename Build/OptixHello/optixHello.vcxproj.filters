@@ -6,33 +6,16 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\cuda\helpers.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixHello\optixHello.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixHello\draw_solid_color.cu">
-      <Filter>CUDA Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixHello\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\lib\ptx\optixHello_generated_draw_solid_color.cu.ptx">
-      <Filter>PTX Files</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Filter Include="CUDA Files">
-      <UniqueIdentifier>{AA01296C-8C52-3A01-8663-BAF28505ED59}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files">
       <UniqueIdentifier>{286C58BF-A2B2-330D-AA6D-4C16B59C1839}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="PTX Files">
-      <UniqueIdentifier>{671B97D7-B1FE-3E12-AE5D-C984D2ADB095}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
       <UniqueIdentifier>{331EA507-3B09-3374-A59C-F2B3EB1791E0}</UniqueIdentifier>
