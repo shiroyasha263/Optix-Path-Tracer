@@ -35,6 +35,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixHello/cmake_install.cmake")
+  include("C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixPipeline/cmake_install.cmake")
   include("C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/sutil/cmake_install.cmake")
   include("C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/DemandLoading/cmake_install.cmake")
   include("C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ImageSource/cmake_install.cmake")

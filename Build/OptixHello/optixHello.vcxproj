@@ -328,7 +328,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixHello\optixHello.cpp" />
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixHello\optixHello.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\ZERO_CHECK.vcxproj">

@@ -6,17 +6,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixHello\optixHello.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
     <CustomBuild Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixHello\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{286C58BF-A2B2-330D-AA6D-4C16B59C1839}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files">
       <UniqueIdentifier>{331EA507-3B09-3374-A59C-F2B3EB1791E0}</UniqueIdentifier>
     </Filter>

@@ -116,7 +116,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=Optix-Tutorial
+CMAKE_PROJECT_NAME:STATIC=OptiX-Samples
 
 //RC compiler
 CMAKE_RC_COMPILER:FILEPATH=rc
@@ -265,6 +265,9 @@ CUDA_NVRTC_ENABLED:BOOL=OFF
 //Semi-colon delimit multiple arguments.
 CUDA_NVRTC_FLAGS:STRING=-std=c++11;-arch;compute_50;-use_fast_math;-lineinfo;-default-device;-rdc;true;-D__x86_64
 
+//"OpenCL" library
+CUDA_OpenCL_LIBRARY:FILEPATH=C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.6/lib/x64/OpenCL.lib
+
 //Propage C/CXX_FLAGS and friends to the host compiler via -Xcompile
 CUDA_PROPAGATE_HOST_FLAGS:BOOL=ON
 
@@ -330,8 +333,38 @@ CUDA_nppc_LIBRARY:FILEPATH=C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v1
 //"nppi" library
 CUDA_nppi_LIBRARY:FILEPATH=CUDA_nppi_LIBRARY-NOTFOUND
 
+//"nppial" library
+CUDA_nppial_LIBRARY:FILEPATH=C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.6/lib/x64/nppial.lib
+
+//"nppicc" library
+CUDA_nppicc_LIBRARY:FILEPATH=C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.6/lib/x64/nppicc.lib
+
+//"nppidei" library
+CUDA_nppidei_LIBRARY:FILEPATH=C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.6/lib/x64/nppidei.lib
+
+//"nppif" library
+CUDA_nppif_LIBRARY:FILEPATH=C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.6/lib/x64/nppif.lib
+
+//"nppig" library
+CUDA_nppig_LIBRARY:FILEPATH=C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.6/lib/x64/nppig.lib
+
+//"nppim" library
+CUDA_nppim_LIBRARY:FILEPATH=C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.6/lib/x64/nppim.lib
+
+//"nppist" library
+CUDA_nppist_LIBRARY:FILEPATH=C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.6/lib/x64/nppist.lib
+
+//"nppisu" library
+CUDA_nppisu_LIBRARY:FILEPATH=C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.6/lib/x64/nppisu.lib
+
+//"nppitc" library
+CUDA_nppitc_LIBRARY:FILEPATH=C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.6/lib/x64/nppitc.lib
+
 //"npps" library
 CUDA_npps_LIBRARY:FILEPATH=C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.6/lib/x64/npps.lib
+
+//"nvToolsExt" library
+CUDA_nvToolsExt_LIBRARY:FILEPATH=CUDA_nvToolsExt_LIBRARY-NOTFOUND
 
 //"nvcuvenc" library
 CUDA_nvcuvenc_LIBRARY:FILEPATH=CUDA_nvcuvenc_LIBRARY-NOTFOUND
@@ -406,6 +439,18 @@ OPENGL_glu_LIBRARY:STRING=glu32
 
 //Path to a file.
 OpenEXR_INCLUDE_DIR:PATH=OpenEXR_INCLUDE_DIR-NOTFOUND
+
+//Value Computed by CMake
+OptiX-Samples_BINARY_DIR:STATIC=C:/Users/Vishu/Downloads/Optix Ray Tracer/Build
+
+//Value Computed by CMake
+OptiX-Samples_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+OptiX-Samples_SOURCE_DIR:STATIC=C:/Users/Vishu/Downloads/Optix Ray Tracer/Source
+
+//The directory containing a CMake configuration file for OptiX.
+OptiX_DIR:PATH=OptiX_DIR-NOTFOUND
 
 //Path to a file.
 OptiX_INCLUDE:PATH=C:/Users/Vishu/Downloads/Optix Ray Tracer/include
@@ -551,7 +596,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MT
 CMAKE_MT-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=10
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=11
 //Platform information initialized
 CMAKE_PLATFORM_INFO_INITIALIZED:INTERNAL=1
 //noop for ranlib
@@ -603,7 +648,7 @@ COMPILER_LIBRARY_PATH-ADVANCED:INTERNAL=1
 CUDA_64_BIT_DEVICE_CODE-ADVANCED:INTERNAL=0
 //List of intermediate files that are part of the cuda dependency
 // scanning.
-CUDA_ADDITIONAL_CLEAN_FILES:INTERNAL=C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/sutil/CMakeFiles/sutil.dir/__/cuda/sutil_generated_sphere.cu.ptx.depend;C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/sutil/CMakeFiles/sutil.dir/__/cuda/sutil_generated_whitted.cu.ptx.depend;C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/DemandLoading/CMakeFiles/PagingSystemKernels.dir//PagingSystemKernels_generated_PagingSystemKernels.cu.obj.depend;C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ImageSource/CMakeFiles/DeviceMandelbrotImageKernels.dir//DeviceMandelbrotImageKernels_generated_DeviceMandelbrotImageKernels.cu.obj.depend;C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ImageSource/CMakeFiles/DeviceConstantImageKernels.dir//DeviceConstantImageKernels_generated_DeviceConstantImageKernels.cu.obj.depend;C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixHello/CMakeFiles/optixHello.dir//optixHello_generated_draw_solid_color.cu.ptx.depend
+CUDA_ADDITIONAL_CLEAN_FILES:INTERNAL=C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixPipeline/CMakeFiles/OptixPipeline.dir//OptixPipeline_generated_devicePrograms.cu.ptx.depend;C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/sutil/CMakeFiles/sutil.dir/__/cuda/sutil_generated_sphere.cu.ptx.depend;C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/sutil/CMakeFiles/sutil.dir/__/cuda/sutil_generated_whitted.cu.ptx.depend;C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/DemandLoading/CMakeFiles/PagingSystemKernels.dir//PagingSystemKernels_generated_PagingSystemKernels.cu.obj.depend;C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ImageSource/CMakeFiles/DeviceMandelbrotImageKernels.dir//DeviceMandelbrotImageKernels_generated_DeviceMandelbrotImageKernels.cu.obj.depend;C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ImageSource/CMakeFiles/DeviceConstantImageKernels.dir//DeviceConstantImageKernels_generated_DeviceConstantImageKernels.cu.obj.depend;C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixPipeline/CMakeFiles/cuda_compile_ptx.dir//cuda_compile_ptx_generated_devicePrograms.cu.ptx.depend;C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixPipeline/CMakeFiles/OptixPipeline.dir//OptixPipeline_generated_deviceProgram.cu.ptx.depend
 //ADVANCED property for variable: CUDA_ATTACH_VS_BUILD_RULE_TO_CUDA_FILE
 CUDA_ATTACH_VS_BUILD_RULE_TO_CUDA_FILE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CUDA_BUILD_CUBIN
@@ -636,6 +681,8 @@ CUDA_NVCC_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 CUDA_NVCC_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CUDA_NVRTC_FLAGS
 CUDA_NVRTC_FLAGS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_OpenCL_LIBRARY
+CUDA_OpenCL_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CUDA_PROPAGATE_HOST_FLAGS
 CUDA_PROPAGATE_HOST_FLAGS-ADVANCED:INTERNAL=1
 //This is the value of the last time CUDA_SDK_ROOT_DIR was set
@@ -679,8 +726,28 @@ CUDA_make2cmake:INTERNAL=C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMake/
 CUDA_nppc_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CUDA_nppi_LIBRARY
 CUDA_nppi_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_nppial_LIBRARY
+CUDA_nppial_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_nppicc_LIBRARY
+CUDA_nppicc_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_nppidei_LIBRARY
+CUDA_nppidei_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_nppif_LIBRARY
+CUDA_nppif_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_nppig_LIBRARY
+CUDA_nppig_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_nppim_LIBRARY
+CUDA_nppim_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_nppist_LIBRARY
+CUDA_nppist_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_nppisu_LIBRARY
+CUDA_nppisu_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_nppitc_LIBRARY
+CUDA_nppitc_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CUDA_npps_LIBRARY
 CUDA_npps_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_nvToolsExt_LIBRARY
+CUDA_nvToolsExt_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CUDA_nvcuvenc_LIBRARY
 CUDA_nvcuvenc_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CUDA_nvcuvid_LIBRARY

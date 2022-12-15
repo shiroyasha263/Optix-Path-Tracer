@@ -1,10 +1,96 @@
-project(Optix-Tutorial)
+#
+# Copyright (c) 2021, NVIDIA CORPORATION. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+#  * Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+#  * Redistributions in binary form must reproduce the above copyright
+#    notice, this list of conditions and the following disclaimer in the
+#    documentation and/or other materials provided with the distribution.
+#  * Neither the name of NVIDIA CORPORATION nor the names of its
+#    contributors may be used to endorse or promote products derived
+#    from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ``AS IS'' AND ANY
+# EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+# PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+# CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+# EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+# PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+# PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY
+# OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
 
+# Welcome to the OptiX SDK build.  We have chosen CMake, because it can generate multiple
+# build systems for multiple architectures from a single script.  There are many resources
+# for CMake on-line at http://www.cmake.org and their wiki page,
+# http://www.cmake.org/Wiki/CMake, in addition to the documentation that comes with the
+# distribution.  There is also a book available if you wish to delve more deeply into
+# various topics.
+
+# If you wish to create your own project and use the SDK as a template there are a number
+# of things you should do.
+#
+# 1. You should copy the contents of the SDK to a place of your choice.
+#
+# 2. You can remove any sample's directory you don't wish to build.  Be careful about
+#    the following directories.
+#
+#    a. CMake - contains helper scripts that make this all work.  You should keep this.
+#
+#    b. sutil and putil
+#              - Almost all of the samples make use of this shared code one way or another, so
+#               you should probably keep them until you have your own frameowrk for your
+#               code.
+#
+#    d. data  - This directory contains the cow.obj file used as an example for
+#               many of the samples.  You can move cow.obj anywhere as long as
+#               you fix all the file paths in the samples you wish to use it in.
+#
+# 3. You should update the list of sub directories that CMake needs to process below (look
+#    for the comment "List of samples found in subdirectories.")
+#
+
+# The basic flow of execution of this file is to do the following.
+#
+# 1. Setup the project and other global settings.  This involves processing some helper
+#    scripts.
+#
+# 2. Look for external dependencies, CUDA, and OptiX.
+#
+# 3. Process all the subdirectories' CMakeLists.txt files.  These files create all the
+#    executable and library targets that are used to build the SDK.
+#
+# 4. As a convenience on Windows, copy the OptiX dlls into the build directories, so OptiX
+#    doesn't have to be in the path to run the samples.
+#
+# 5. Set a CMake variable that indicates we have configured for the first time.  This
+#    allows us to override and set varibles' defaults while allowing them to be modified
+#    later.
+
+# If you have any questions, don't feel shy about posting to the OptiX forums:
+# https://devtalk.nvidia.com/default/board/90/
+
+
+# This sets up the name of our project.  For our purposes the main thing this controls is
+# the name of the VS solution file.
+project(OptiX-Samples)
+
+# This enforces a particular version of CMake that we require to process the script files
+# properly.  We rely on VERSION_GREATER_EQUAL which requires CMake v. 3.7.
 cmake_minimum_required(VERSION 3.7 FATAL_ERROR)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+# As of CMake 2.6 policies were introduced in order to provide a mechanism for
+# adding backwards compatibility one feature at a time.  We will just specify
+# that all policies will use version 2.8.12 semantics.
 cmake_policy(VERSION 2.8.12)
 
 if( POLICY CMP0072 )
@@ -17,20 +103,29 @@ if( POLICY CMP0074 )
   cmake_policy(SET CMP0074 NEW)
 endif()
 
+# Add paths to our CMake code to the module path, so they can be found automatically by
+# CMake.
 set(CMAKE_MODULE_PATH
   "${CMAKE_SOURCE_DIR}/../Source/CMake"
   ${CMAKE_MODULE_PATH}
   )
 
-#Set default build to release
+# Set the default build to Release.  Note this doesn't do anything for the VS
+# default build target which defaults to Debug when you first start it.
 IF(NOT CMAKE_BUILD_TYPE)
   SET(CMAKE_BUILD_TYPE "Release" CACHE STRING
       "Choose the type of build, options are: Debug Release RelWithDebInfo MinSizeRel."
       FORCE)
 ENDIF(NOT CMAKE_BUILD_TYPE)
 
+# Tells CMake to build all the libraries as shared libraries by default.  This can be
+# overrided by individual libraries later.
 option(BUILD_SHARED_LIBS "Build shared libraries" ON)
 
+##########
+# Process our custom setup scripts here.
+
+# Enable C++11. Needs to be done before the include of ConfigCompilerFlags.cmake below.
 set(GCC_LIBSTDCPP11 ON)
 
 # Include all CMake Macros.
@@ -182,6 +277,10 @@ if( CUDA_NVRTC_ENABLED AND SAMPLES_INPUT_GENERATE_OPTIXIR )
     message( SEND_ERROR "CUDA_NVRTC_ENABLED is only compatible with SAMPLES_INPUT_GENERATE_PTX. Please disable CUDA_NVRTC_ENABLED unless enabling SAMPLES_INPUT_GENERATE_PTX." )
   endif()
 endif()
+
+
+##################################################################
+# SUtil compilation
 
 set(SAMPLES_PTX_DIR "${CMAKE_BINARY_DIR}/lib/ptx")
 set(SAMPLES_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
@@ -343,36 +442,35 @@ endfunction()
 # Just make sure you rename all the occurances of the sample's name in the C code as well
 # and the CMakeLists.txt file.
 
-add_subdirectory( OptixHello)
-# add_subdirectory( optixBoundValues       )
-# add_subdirectory( optixCallablePrograms  )
-# add_subdirectory( optixCompileWithTasks  )
-# add_subdirectory( optixCurves            )
-# add_subdirectory( optixCustomPrimitive   )
-# add_subdirectory( optixCutouts           )
-# add_subdirectory( optixDemandLoadSimple  )
-# add_subdirectory( optixDemandTexture     )
-# add_subdirectory( optixDenoiser          )
-# add_subdirectory( optixDynamicGeometry   )
-# add_subdirectory( optixDynamicMaterials  )
-# add_subdirectory( optixHair              )
-# add_subdirectory( optixHello             )
-# add_subdirectory( optixPrototype         )
-# add_subdirectory( optixMeshViewer        )
-# add_subdirectory( optixModuleCreateAbort )
-# add_subdirectory( optixMotionGeometry    )
-# add_subdirectory( optixMultiGPU          )
-# add_subdirectory( optixNVLink            )
-# add_subdirectory( optixOpticalFlow       )
-# add_subdirectory( optixPathTracer        )
-# add_subdirectory( optixPathTracerNew     )
-# add_subdirectory( optixRaycasting        )
-# add_subdirectory( optixSimpleMotionBlur  )
-# add_subdirectory( optixSphere            )
-# add_subdirectory( optixTriangle          )
-# add_subdirectory( optixVolumeViewer      )
-# add_subdirectory( optixWhitted           )
+add_subdirectory(OptixHello)
+add_subdirectory(OptixPipeline)
 
+#add_subdirectory( optixBoundValues       )
+#add_subdirectory( optixCallablePrograms  )
+#add_subdirectory( optixCompileWithTasks  )
+#add_subdirectory( optixCurves            )
+#add_subdirectory( optixCustomPrimitive   )
+#add_subdirectory( optixCutouts           )
+#add_subdirectory( optixDemandLoadSimple  )
+#add_subdirectory( optixDemandTexture     )
+#add_subdirectory( optixDenoiser          )
+#add_subdirectory( optixDynamicGeometry   )
+#add_subdirectory( optixDynamicMaterials  )
+#add_subdirectory( optixHair              )
+#add_subdirectory( optixHello             )
+#add_subdirectory( optixMeshViewer        )
+#add_subdirectory( optixModuleCreateAbort )
+#add_subdirectory( optixMotionGeometry    )
+#add_subdirectory( optixMultiGPU          )
+#add_subdirectory( optixNVLink            )
+#add_subdirectory( optixOpticalFlow       )
+#add_subdirectory( optixPathTracer        )
+#add_subdirectory( optixRaycasting        )
+#add_subdirectory( optixSimpleMotionBlur  )
+#add_subdirectory( optixSphere            )
+#add_subdirectory( optixTriangle          )
+#add_subdirectory( optixVolumeViewer      )
+#add_subdirectory( optixWhitted           )
 
 # Our sutil library.  The rules to build it are found in the subdirectory.
 add_subdirectory(sutil)
