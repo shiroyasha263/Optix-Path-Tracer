@@ -185,6 +185,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{816352D8-C8AA-38C5-9C3C-23A1F78ABCC4}</Project>
       <Name>OptixPipeline</Name>
     </ProjectReference>
+    <ProjectReference Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixWindow\OptixWindow.vcxproj">
+      <Project>{4A9EFAFD-DAED-35CA-9BAE-FE7D68CFCA35}</Project>
+      <Name>OptixWindow</Name>
+    </ProjectReference>
     <ProjectReference Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\support\glad.vcxproj">
       <Project>{CF5C0E27-9E50-3075-B391-9F586067FDE3}</Project>
       <Name>glad</Name>

@@ -14,7 +14,7 @@ public:
 
     void initLaunchParams(unsigned int width, unsigned int height);
 
-    void launchSubFrame();
+    void launchSubFrame(sutil::CUDAOutputBuffer<uchar4>& output_buffer);
 
     //void displaySubFrame();
 
@@ -34,7 +34,7 @@ public:
 
     ~RenderState();
 
-private:
+public:
     OptixDeviceContext             optixContext = 0;
 
     OptixModule                    ptx_module = 0;

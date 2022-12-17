@@ -42,7 +42,6 @@ extern "C" __global__ void __miss__radiance()
 //------------------------------------------------------------------------------
 extern "C" __global__ void __raygen__renderFrame()
 {
-    const int frameID = params.subframe_index;
     if (params.subframe_index == 0 &&
         optixGetLaunchIndex().x == 0 &&
         optixGetLaunchIndex().y == 0) {
@@ -65,16 +64,11 @@ extern "C" __global__ void __raygen__renderFrame()
     const int ix = optixGetLaunchIndex().x;
     const int iy = optixGetLaunchIndex().y;
 
-    const int r = ((ix + frameID) % 256);
-    const int g = ((iy + frameID) % 256);
-    const int b = ((ix + iy + frameID) % 256);
-
-    // convert to 32-bit rgba value (we explicitly set alpha to 0xff
-    // to make stb_image_write happy ...
-    const uint32_t rgba = 0xff000000
-        | (r << 0) | (g << 8) | (b << 16);
+    const float r = ((float)((ix) % 256) ) / 255.0f;
+    const float g = ((float)((iy) % 256) ) / 255.0f;
+    const float b = ((float)((ix + iy) % 256) ) / 255.0f;
 
     // and write to frame buffer ...
     const uint32_t fbIndex = ix + iy * params.img_width;
-    params.frame_buffer[fbIndex] = rgba;
+    params.frame_buffer[fbIndex] = make_color(make_float3(r, g, b));
 }

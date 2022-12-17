@@ -26,17 +26,16 @@ void RenderState::initLaunchParams(unsigned int width, unsigned int height) {
     CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_params), sizeof(Params)));
 }
 
-void RenderState::launchSubFrame() {
+void RenderState::launchSubFrame(sutil::CUDAOutputBuffer<uchar4>& output_buffer) {
 
-    if (params.img_width == 0) return;
-
+    // Launch
+    uchar4* result_buffer_data = output_buffer.map();
+    params.frame_buffer = result_buffer_data;
     CUDA_CHECK(cudaMemcpyAsync(
         reinterpret_cast<void*>(d_params),
         &params, sizeof(Params),
         cudaMemcpyHostToDevice, stream
     ));
-
-    params.subframe_index++;
 
     OPTIX_CHECK(optixLaunch(
         pipeline,
@@ -46,10 +45,10 @@ void RenderState::launchSubFrame() {
         &sbt,
         params.img_width,   // launch width
         params.img_height,  // launch height
-        1                   // launch depth
+        1                     // launch depth
     ));
-
-    cudaDeviceSynchronize();
+    output_buffer.unmap();
+    CUDA_SYNC_CHECK();
 
 }
 
@@ -287,10 +286,10 @@ void RenderState::resize(const unsigned int width, const unsigned int height) {
     if (color_buffer) cudaFree(reinterpret_cast<void*>(color_buffer));
 
     //Error might be here somewhere
-    CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&color_buffer), width * height * sizeof(uint32_t)));
+    CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&color_buffer), width * height * sizeof(uchar4)));
     params.img_width = width;
     params.img_height = height;
-    params.frame_buffer = reinterpret_cast<uint32_t*>(color_buffer);
+    params.frame_buffer = reinterpret_cast<uchar4*>(color_buffer);
 }
 
 void RenderState::downloadPixels(uint32_t pixels[]) {
