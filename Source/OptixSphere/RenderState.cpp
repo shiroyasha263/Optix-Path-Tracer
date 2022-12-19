@@ -24,6 +24,7 @@ void RenderState::initLaunchParams(unsigned int width, unsigned int height) {
 
     CUDA_CHECK(cudaStreamCreate(&stream));
     CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_params), sizeof(Params)));
+    params.handle = gas_handle;
 }
 
 void RenderState::launchSubFrame(sutil::CUDAOutputBuffer<uchar4>& output_buffer) {
@@ -292,10 +293,6 @@ void RenderState::resize(const unsigned int width, const unsigned int height) {
     params.frame_buffer = reinterpret_cast<uchar4*>(color_buffer);
 }
 
-void RenderState::downloadPixels(uint32_t pixels[]) {
-    CUDA_CHECK(cudaMemcpy(pixels, reinterpret_cast<void*>(color_buffer), params.img_width * params.img_height * sizeof(uint32_t), cudaMemcpyDeviceToHost));
-}
-
 RenderState::RenderState() {
 
     initLaunchParams(768, 768);
@@ -317,6 +314,7 @@ RenderState::RenderState() {
     std::cout << "#osc: context, module, pipeline, etc, all set up ..." << std::endl;
 
     std::cout << "#osc: Optix 7 Sample fully set up" << std::endl;
+    params.handle = 0;
 }
 
 RenderState::RenderState(unsigned int width, unsigned int height) {

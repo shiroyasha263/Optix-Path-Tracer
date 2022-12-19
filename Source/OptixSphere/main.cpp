@@ -34,8 +34,6 @@
 #include <sampleConfig.h>
 
 #include "RenderState.h"
-#define STB_IMAGE_WRITE_IMPLEMENTATION
-#include "stb_image_write.h"
 
 #include <iomanip>
 #include <iostream>
@@ -66,8 +64,8 @@ void handleCameraUpdate(Params& params)
     camera_changed = false;
 
     camera.setAspectRatio(static_cast<float>(params.img_width) / static_cast<float>(params.img_height));
-    // params.eye = camera.eye();
-     //camera.UVWFrame(params.U, params.V, params.W);
+    params.eye = camera.eye();
+    camera.UVWFrame(params.U, params.V, params.W);
 }
 
 
@@ -140,6 +138,8 @@ static void mouseButtonCallback(GLFWwindow* window, int button, int action, int 
 
 static void cursorPosCallback(GLFWwindow* window, double xpos, double ypos)
 {
+
+    //Might be on this line
     Params* params = static_cast<Params*>(glfwGetWindowUserPointer(window));
 
     if (mouse_button == GLFW_MOUSE_BUTTON_LEFT)
@@ -203,7 +203,8 @@ static void scrollCallback(GLFWwindow* window, double xscroll, double yscroll)
 }
 
 //Initialise camera
-void initCameraState() {
+void initCameraState()
+{
     camera.setEye(make_float3(278.0f, 273.0f, -900.0f));
     camera.setLookat(make_float3(278.0f, 273.0f, 330.0f));
     camera.setUp(make_float3(0.0f, 1.0f, 0.0f));
@@ -245,11 +246,18 @@ int main(int ac, char** av)
         //Parse command line option
         std::string outfile;
 
+        initCameraState();
         RenderState state(width, height);
 
         if (outfile.empty()) {
             GLFWwindow* window = sutil::initUI("optixWindow", state.params.img_width, state.params.img_height);
-            setCallbacks(window, state.params);
+            glfwSetMouseButtonCallback(window, mouseButtonCallback);
+            glfwSetCursorPosCallback(window, cursorPosCallback);
+            glfwSetWindowSizeCallback(window, windowSizeCallback);
+            glfwSetWindowIconifyCallback(window, windowIconifyCallback);
+            glfwSetKeyCallback(window, keyCallback);
+            glfwSetScrollCallback(window, scrollCallback);
+            glfwSetWindowUserPointer(window, &state.params);
 
             //
             // Render Loop

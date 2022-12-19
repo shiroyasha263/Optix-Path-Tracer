@@ -4,6 +4,7 @@
 #include <sutil/sutil.h>
 #include <sutil/CUDAOutputBuffer.h>
 #include "Params.h"
+#include <sutil/vec_math.h>
 
 
 class RenderState {
@@ -51,6 +52,8 @@ public:
 
     OptixShaderBindingTable        sbt = {};
     CUdeviceptr                    color_buffer;
+
+    OptixTraversableHandle         gas_handle = 0;
 };
 
 struct __align__(OPTIX_SBT_RECORD_ALIGNMENT) RaygenRecord {
@@ -66,10 +69,4 @@ struct __align__(OPTIX_SBT_RECORD_ALIGNMENT) MissRecord {
 struct __align__(OPTIX_SBT_RECORD_ALIGNMENT) HitGroupRecord {
     __align__(OPTIX_SBT_RECORD_ALIGNMENT) char header[OPTIX_SBT_RECORD_HEADER_SIZE];
     int objectID;
-};
-
-enum RayType
-{
-    RAY_TYPE_RADIANCE = 0,
-    RAY_TYPE_COUNT
 };

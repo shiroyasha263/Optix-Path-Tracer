@@ -18,8 +18,28 @@ extern "C" __constant__ Params params;
 // one group of them to set up the SBT)
 //------------------------------------------------------------------------------
 
-extern "C" __global__ void __closesthit__radiance()
-{ /*! for this simple example, this will remain empty */
+static __forceinline__ __device__ void* unpackPointer(unsigned int u0, unsigned int u1) {
+    const unsigned long long uptr = static_cast<unsigned long long>(u0) << 32 | u1;
+    void* ptr = reinterpret_cast<void*>(uptr);
+    return ptr;
+}
+
+static __forceinline__ __device__ void* packPointer(void* ptr, unsigned int& u0, unsigned int& u1) {
+    const unsigned long long uptr = reinterpret_cast<unsigned long long>(ptr);
+    u0 = uptr >> 32;
+    u1 = uptr & 0x00000000ffffffff;
+}
+
+template<typename T>
+static __forceinline__ __device__ T* getPRD() {
+    const unsigned int u0 = optixGetPayload_0();
+    const unsigned int u1 = optixGetPayload_1();
+    return (reinterpret_cast<T*>(unpackPointer(u0, u1)));
+}
+
+extern "C" __global__ void __closesthit__radiance() {
+    float3& result = *(float3*)getPRD<float3>();
+    result = make_float3(0.0f);
 }
 
 
@@ -31,8 +51,9 @@ extern "C" __global__ void __closesthit__radiance()
 // need to have _some_ dummy function to set up a valid SBT
 // ------------------------------------------------------------------------------
 
-extern "C" __global__ void __miss__radiance()
-{ /*! for this simple example, this will remain empty */
+extern "C" __global__ void __miss__radiance() {
+    float3& result = *(float3*)getPRD<float3>();
+    result = make_float3(1.0f);
 }
 
 
@@ -42,6 +63,44 @@ extern "C" __global__ void __miss__radiance()
 //------------------------------------------------------------------------------
 extern "C" __global__ void __raygen__renderFrame()
 {
+
+    const unsigned int w = params.img_width;
+    const unsigned int h = params.img_height;
+    const float3 eye = params.eye;
+    const float3 U = params.U;
+    const float3 V = params.V;
+    const float3 W = params.W;
+    const uint3 idx = optixGetLaunchIndex();
+    const unsigned int subframe_index = params.subframe_index;
+
+    float3 result = make_float3(0.0f);
+    int i = params.samples_per_launch;
+    
+    const float2 d = 2.0f * make_float2(
+        static_cast<float>(idx.x) / static_cast<float>(w),
+        static_cast<float>(idx.y) / static_cast<float>(h)) - 1.0f;
+
+    float3 rayDir = normalize(d.x * U + d.y * V + W);
+    float3 origin = eye;
+
+    unsigned int u0, u1;
+    packPointer(&result, u0, u1);
+
+    optixTrace(
+        params.handle,
+        origin,
+        rayDir,
+        0.0f,
+        1e20f,
+        0.0f,
+        OptixVisibilityMask(255),
+        OPTIX_RAY_FLAG_DISABLE_ANYHIT,
+        0,
+        1,
+        0,
+        u0, u1
+    );
+
     if (params.subframe_index == 0 &&
         optixGetLaunchIndex().x == 0 &&
         optixGetLaunchIndex().y == 0) {
@@ -61,14 +120,8 @@ extern "C" __global__ void __raygen__renderFrame()
     // ------------------------------------------------------------------
 
     // compute a test pattern based on pixel ID
-    const int ix = optixGetLaunchIndex().x;
-    const int iy = optixGetLaunchIndex().y;
-
-    const float r = ((float)((ix) % 256) ) / 255.0f;
-    const float g = ((float)((iy) % 256) ) / 255.0f;
-    const float b = ((float)((ix + iy) % 256) ) / 255.0f;
 
     // and write to frame buffer ...
-    const uint32_t fbIndex = ix + iy * params.img_width;
-    params.frame_buffer[fbIndex] = make_color(make_float3(r, g, b));
+    const uint32_t fbIndex = idx.x + idx.y * params.img_width;
+    params.frame_buffer[fbIndex] = make_color(result);
 }
