@@ -1,4 +1,5 @@
 #include "RenderState.h"
+#include <cuda/sphere.h>
 
 template <typename T>
 struct Record
@@ -452,20 +453,6 @@ void RenderState::createProgramGroups() {
             log, &sizeof_log,
             &radiance_miss_group
         ));
-
-        memset(&miss_prog_group_desc, 0, sizeof(OptixProgramGroupDesc));
-        miss_prog_group_desc.kind = OPTIX_PROGRAM_GROUP_KIND_MISS;
-        miss_prog_group_desc.miss.module = nullptr;  // NULL miss program for occlusion rays
-        miss_prog_group_desc.miss.entryFunctionName = nullptr;
-        sizeof_log = sizeof(log);
-        OPTIX_CHECK_LOG(optixProgramGroupCreate(
-            context, &miss_prog_group_desc,
-            1,  // num program groups
-            &program_group_options,
-            log,
-            &sizeof_log,
-            &occlusion_miss_group
-        ));
     }
 
     {
@@ -483,21 +470,6 @@ void RenderState::createProgramGroups() {
             &sizeof_log,
             &radiance_hit_group
         ));
-
-        memset(&hit_prog_group_desc, 0, sizeof(OptixProgramGroupDesc));
-        hit_prog_group_desc.kind = OPTIX_PROGRAM_GROUP_KIND_HITGROUP;
-        hit_prog_group_desc.hitgroup.moduleCH = ptx_module;
-        hit_prog_group_desc.hitgroup.entryFunctionNameCH = "__closesthit__occlusion";
-        sizeof_log = sizeof(log);
-        OPTIX_CHECK(optixProgramGroupCreate(
-            context,
-            &hit_prog_group_desc,
-            1,  // num program groups
-            &program_group_options,
-            log,
-            &sizeof_log,
-            &occlusion_hit_group
-        ));
     }
 }
 
@@ -506,9 +478,7 @@ void RenderState::createPipeline() {
     {
         raygen_prog_group,
         radiance_miss_group,
-        occlusion_miss_group,
         radiance_hit_group,
-        occlusion_hit_group
     };
 
     OptixPipelineLinkOptions pipeline_link_options = {};
@@ -533,9 +503,7 @@ void RenderState::createPipeline() {
     OptixStackSizes stack_sizes = {};
     OPTIX_CHECK(optixUtilAccumulateStackSizes(raygen_prog_group, &stack_sizes));
     OPTIX_CHECK(optixUtilAccumulateStackSizes(radiance_miss_group, &stack_sizes));
-    OPTIX_CHECK(optixUtilAccumulateStackSizes(occlusion_miss_group, &stack_sizes));
     OPTIX_CHECK(optixUtilAccumulateStackSizes(radiance_hit_group, &stack_sizes));
-    OPTIX_CHECK(optixUtilAccumulateStackSizes(occlusion_hit_group, &stack_sizes));
 
     uint32_t max_trace_depth = 2;
     uint32_t max_cc_depth = 0;
@@ -583,15 +551,13 @@ void RenderState::createSBT() {
     const size_t miss_record_size = sizeof(MissRecord);
     CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_miss_records), miss_record_size * RAY_TYPE_COUNT));
 
-    MissRecord ms_sbt[2];
-    OPTIX_CHECK(optixSbtRecordPackHeader(radiance_miss_group, &ms_sbt[0]));
-    ms_sbt[0].data.bg_color = make_float4(0.0f);
-    OPTIX_CHECK(optixSbtRecordPackHeader(occlusion_miss_group, &ms_sbt[1]));
-    ms_sbt[1].data.bg_color = make_float4(0.0f);
+    MissRecord ms_sbt;
+    OPTIX_CHECK(optixSbtRecordPackHeader(radiance_miss_group, &ms_sbt));
+    ms_sbt.data.bg_color = make_float4(0.0f);
 
     CUDA_CHECK(cudaMemcpy(
         reinterpret_cast<void*>(d_miss_records),
-        ms_sbt,
+        &ms_sbt,
         miss_record_size * RAY_TYPE_COUNT,
         cudaMemcpyHostToDevice
     ));
@@ -613,13 +579,6 @@ void RenderState::createSBT() {
             hitgroup_records[sbt_idx].data.emission_color = g_emission_colors[i];
             hitgroup_records[sbt_idx].data.diffuse_color = g_diffuse_colors[i];
             hitgroup_records[sbt_idx].data.vertices = reinterpret_cast<float4*>(d_vertices);
-        }
-
-        {
-            const int sbt_idx = i * RAY_TYPE_COUNT + 1;  // SBT for occlusion ray-type for ith material
-            memset(&hitgroup_records[sbt_idx], 0, hitgroup_record_size);
-
-            OPTIX_CHECK(optixSbtRecordPackHeader(occlusion_hit_group, &hitgroup_records[sbt_idx]));
         }
     }
 
@@ -644,8 +603,6 @@ void RenderState::cleanUp() {
     OPTIX_CHECK(optixProgramGroupDestroy(raygen_prog_group));
     OPTIX_CHECK(optixProgramGroupDestroy(radiance_miss_group));
     OPTIX_CHECK(optixProgramGroupDestroy(radiance_hit_group));
-    OPTIX_CHECK(optixProgramGroupDestroy(occlusion_hit_group));
-    OPTIX_CHECK(optixProgramGroupDestroy(occlusion_miss_group));
     OPTIX_CHECK(optixModuleDestroy(ptx_module));
     OPTIX_CHECK(optixDeviceContextDestroy(context));
 

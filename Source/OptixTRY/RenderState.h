@@ -60,9 +60,7 @@ public:
 
     OptixProgramGroup              raygen_prog_group = 0;
     OptixProgramGroup              radiance_miss_group = 0;
-    OptixProgramGroup              occlusion_miss_group = 0;
     OptixProgramGroup              radiance_hit_group = 0;
-    OptixProgramGroup              occlusion_hit_group = 0;
 
     CUstream                       stream = 0;
     Params                         params;

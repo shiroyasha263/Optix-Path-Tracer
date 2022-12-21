@@ -211,10 +211,10 @@ void displaySubframe(sutil::CUDAOutputBuffer<uchar4>& output_buffer, sutil::GLDi
 
 void initCameraState()
 {
-    camera.setEye(make_float3(278.0f, 273.0f, -900.0f));
-    camera.setLookat(make_float3(278.0f, 273.0f, 330.0f));
-    camera.setUp(make_float3(0.0f, 1.0f, 0.0f));
-    camera.setFovY(35.0f);
+    camera.setEye(make_float3(0.0f, 0.0f, 3.0f));
+    camera.setLookat(make_float3(0.0f, 0.0f, 0.0f));
+    camera.setUp(make_float3(0.0f, 1.0f, 3.0f));
+    camera.setFovY(50.0f);
     camera_changed = true;
 
     trackball.setCamera(&camera);
@@ -235,7 +235,7 @@ void initCameraState()
 
 int main(int argc, char* argv[])
 {
-    RenderState state(768, 768);
+    RenderState state(1024, 768);
     sutil::CUDAOutputBufferType output_buffer_type = sutil::CUDAOutputBufferType::GL_INTEROP;
 
     //
