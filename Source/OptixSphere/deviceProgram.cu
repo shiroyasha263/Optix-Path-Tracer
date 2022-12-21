@@ -30,16 +30,23 @@ static __forceinline__ __device__ void* packPointer(void* ptr, unsigned int& u0,
     u1 = uptr & 0x00000000ffffffff;
 }
 
-template<typename T>
-static __forceinline__ __device__ T* getPRD() {
+//template<typename T>
+static __forceinline__ __device__ float3* getPRD() {
     const unsigned int u0 = optixGetPayload_0();
     const unsigned int u1 = optixGetPayload_1();
-    return (reinterpret_cast<T*>(unpackPointer(u0, u1)));
+    return (reinterpret_cast<float3*>(unpackPointer(u0, u1)));
 }
 
 extern "C" __global__ void __closesthit__radiance() {
-    float3& result = *(float3*)getPRD<float3>();
-    result = make_float3(0.0f);
+    printf("This has actually been hit, closest hit\n");
+    float3& result = *getPRD();
+    result = make_float3(1.0f);
+}
+
+extern "C" __global__ void __anyhit__radiance() {
+    printf("This has actually been hit, closest hit\n");
+    float3& result = *getPRD();
+    result = make_float3(1.0f);
 }
 
 
@@ -52,8 +59,8 @@ extern "C" __global__ void __closesthit__radiance() {
 // ------------------------------------------------------------------------------
 
 extern "C" __global__ void __miss__radiance() {
-    float3& result = *(float3*)getPRD<float3>();
-    result = make_float3(1.0f);
+    float3& result = *getPRD();
+    result = make_float3(0.0f);
 }
 
 
@@ -63,65 +70,37 @@ extern "C" __global__ void __miss__radiance() {
 //------------------------------------------------------------------------------
 extern "C" __global__ void __raygen__renderFrame()
 {
-
-    const unsigned int w = params.img_width;
-    const unsigned int h = params.img_height;
-    const float3 eye = params.eye;
-    const float3 U = params.U;
-    const float3 V = params.V;
-    const float3 W = params.W;
     const uint3 idx = optixGetLaunchIndex();
-    const unsigned int subframe_index = params.subframe_index;
+    const uint3 dim = optixGetLaunchDimensions();
 
-    float3 result = make_float3(0.0f);
-    int i = params.samples_per_launch;
+    const float3      U = params.U;
+    const float3      V = params.V;
+    const float3      W = params.W;
+    const float2      d = 2.0f * make_float2(
+        static_cast<float>(idx.x) / static_cast<float>(dim.x),
+        static_cast<float>(idx.y) / static_cast<float>(dim.y)
+    ) - 1.0f;
+
+    const float3 origin = params.eye;
+    const float3 direction = normalize(d.x * U + d.y * V + W);
+    float3       payload_rgb = make_float3(0.5f, 0.5f, 0.5f);
     
-    const float2 d = 2.0f * make_float2(
-        static_cast<float>(idx.x) / static_cast<float>(w),
-        static_cast<float>(idx.y) / static_cast<float>(h)) - 1.0f;
-
-    float3 rayDir = normalize(d.x * U + d.y * V + W);
-    float3 origin = eye;
-
     unsigned int u0, u1;
-    packPointer(&result, u0, u1);
+    packPointer(&payload_rgb, u0, u1);
 
-    optixTrace(
-        params.handle,
+    optixTrace(params.handle,
         origin,
-        rayDir,
+        direction,
+        0.00f,  // tmin
+        1e16f,  // tmax
         0.0f,
-        1e20f,
-        0.0f,
-        OptixVisibilityMask(255),
-        OPTIX_RAY_FLAG_DISABLE_ANYHIT,
+        OptixVisibilityMask(1),
+        OPTIX_RAY_FLAG_NONE,
         0,
         1,
         0,
-        u0, u1
-    );
+        u0, u1);
 
-    if (params.subframe_index == 0 &&
-        optixGetLaunchIndex().x == 0 &&
-        optixGetLaunchIndex().y == 0) {
-        // we could of course also have used optixGetLaunchDims to query
-        // the launch size, but accessing the optixLaunchParams here
-        // makes sure they're not getting optimized away (because
-        // otherwise they'd not get used)
-        printf("############################################\n");
-        printf("Hello world from OptiX 7 raygen program!\n(within a %ix%i-sized launch)\n",
-            params.img_width,
-            params.img_height);
-        printf("############################################\n");
-    }
-
-    // ------------------------------------------------------------------
-    // for this example, produce a simple test pattern:
-    // ------------------------------------------------------------------
-
-    // compute a test pattern based on pixel ID
-
-    // and write to frame buffer ...
     const uint32_t fbIndex = idx.x + idx.y * params.img_width;
-    params.frame_buffer[fbIndex] = make_color(result);
+    params.frame_buffer[fbIndex] = make_color(payload_rgb);
 }

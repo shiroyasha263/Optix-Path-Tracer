@@ -5,68 +5,68 @@
 #include <sutil/CUDAOutputBuffer.h>
 #include "Params.h"
 #include <sutil/vec_math.h>
-
+#include <optix_stubs.h>
+#include <iomanip>
+#include <optix_stack_size.h>
+#include <sutil/CUDAOutputBuffer.h>
+#include <sutil/Camera.h>
 
 class RenderState {
 public:
     RenderState();
-
-    RenderState(unsigned int width, unsigned int height);
-
+	RenderState(unsigned int width, unsigned int height);
+	void launchSubFrame(sutil::CUDAOutputBuffer<uchar4>& output_buffer);
+	void resize(unsigned int width, unsigned int height);
+public:
     void initLaunchParams(unsigned int width, unsigned int height);
-
-    void launchSubFrame(sutil::CUDAOutputBuffer<uchar4>& output_buffer);
-
-    //void displaySubFrame();
 
     void createContext();
 
     void createModule();
 
-    void createProgramGroup();
+    void createRaygenPrograms();
+
+    void createMissPrograms();
+
+    void createHitgroupPrograms();
 
     void createPipeline();
 
     void createSBT();
 
-    void resize(const unsigned int width, const unsigned int height);
-
-    void downloadPixels(uint32_t pixels[]);
-
-    ~RenderState();
-
+    void buildAccel();
 public:
-    OptixDeviceContext             optixContext = 0;
+    CUstream           stream;
+   
+    OptixDeviceContext optixContext;
 
-    OptixModule                    ptx_module = 0;
-    OptixPipelineCompileOptions    pipeline_compile_options = {};
-    OptixPipeline                  pipeline = 0;
+    OptixPipeline               pipeline;
+    OptixPipelineCompileOptions pipelineCompileOptions = {};
+    OptixPipelineLinkOptions    pipelineLinkOptions = {};
 
-    OptixProgramGroup              raygen_prog = 0;
-    OptixProgramGroup              miss_prog = 0;
-    OptixProgramGroup              hitgroup_prog = 0;
+    OptixModule                 module;
+    OptixModule                 sphere_module;
+    OptixModuleCompileOptions   moduleCompileOptions = {};
 
-    CUstream                       stream = 0;
-    Params                         params;
-    Params* d_params;
+    std::vector<OptixProgramGroup> raygenPGs;
+    CUdeviceptr raygenRecordsBuffer;
+    std::vector<OptixProgramGroup> missPGs;
+    CUdeviceptr missRecordsBuffer;
+    std::vector<OptixProgramGroup> hitgroupPGs;
+    CUdeviceptr hitgroupRecordsBuffer;
+    OptixShaderBindingTable sbt = {};
 
-    OptixShaderBindingTable        sbt = {};
-    CUdeviceptr                    color_buffer;
+    Params params;
+    Params*   d_params;
+    /*! @} */
 
-    OptixTraversableHandle         gas_handle = 0;
-};
+    CUdeviceptr colorBuffer;
 
-struct __align__(OPTIX_SBT_RECORD_ALIGNMENT) RaygenRecord {
-    __align__(OPTIX_SBT_RECORD_ALIGNMENT) char header[OPTIX_SBT_RECORD_HEADER_SIZE];
-    void* data;
-};
+    /*! the camera we are to render with. */
+    sutil::Camera camera;
 
-struct __align__(OPTIX_SBT_RECORD_ALIGNMENT) MissRecord {
-    __align__(OPTIX_SBT_RECORD_ALIGNMENT) char header[OPTIX_SBT_RECORD_HEADER_SIZE];
-    void* data;
-};
-
-struct __align__(OPTIX_SBT_RECORD_ALIGNMENT) HitGroupRecord {
-    __align__(OPTIX_SBT_RECORD_ALIGNMENT) char header[OPTIX_SBT_RECORD_HEADER_SIZE];
-    int objectID;
+    /*! the model we are going to trace rays against */
+    CUdeviceptr vertexBuffer;
+    CUdeviceptr indexBuffer;
+    CUdeviceptr asBuffer;
 };

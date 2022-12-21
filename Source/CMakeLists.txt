@@ -446,6 +446,7 @@ add_subdirectory(OptixHello)
 add_subdirectory(OptixPipeline)
 add_subdirectory(OptixWindow)
 add_subdirectory(OptixSphere)
+add_subdirectory(OptixTRY)
 
 #add_subdirectory( optixBoundValues       )
 #add_subdirectory( optixCallablePrograms  )
