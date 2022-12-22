@@ -55,6 +55,7 @@ public:
     CUdeviceptr                    d_vertices = 0;
 
     OptixModule                    ptx_module = 0;
+    OptixModule                    sphere_module = 0;
     OptixPipelineCompileOptions    pipeline_compile_options = {};
     OptixPipeline                  pipeline = 0;
 
@@ -67,4 +68,7 @@ public:
     Params* d_params;
 
     OptixShaderBindingTable        sbt = {};
+
+    CUdeviceptr                    d_vertex_buffer = 0;
+    CUdeviceptr                    d_radius_buffer = 0;
 };

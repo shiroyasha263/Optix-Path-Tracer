@@ -21,7 +21,16 @@ extern "C" {
 struct RadiancePRD
 {
     // TODO: move some state directly into payload registers?
-    float3 color;
+    float3       emitted;
+    float3       radiance;
+    float3       attenuation;
+    float3       origin;
+    float3       direction;
+    float3       color;
+    unsigned int seed;
+    int          countEmitted;
+    int          done;
+    int          pad;
 };
 
 
@@ -154,51 +163,117 @@ extern "C" __global__ void __raygen__rg()
     const uint3  idx = optixGetLaunchIndex();
     const int    subframe_index = params.subframe_index;
 
+    unsigned int seed = tea<4>(idx.y * w + idx.x, subframe_index);
+
     float3 result = make_float3(0.0f);
     int i = params.samples_per_launch;
 
-    const float2 d = 2.0f * make_float2(
-        static_cast<float>(idx.x) / static_cast<float>(w),
-        static_cast<float>(idx.y) / static_cast<float>(h)
-    ) - 1.0f;
+    do
+    {
+        // The center of each pixel is at fraction (0.5,0.5)
+        const float2 subpixel_jitter = make_float2(rnd(seed), rnd(seed));
 
-    float3 ray_direction = normalize(d.x * U + d.y * V + W);
-    float3 ray_origin = eye;
+        const float2 d = 2.0f * make_float2(
+            (static_cast<float>(idx.x) + subpixel_jitter.x) / static_cast<float>(w),
+            (static_cast<float>(idx.y) + subpixel_jitter.y) / static_cast<float>(h)
+        ) - 1.0f;
+        float3 ray_direction = normalize(d.x * U + d.y * V + W);
+        float3 ray_origin = eye;
 
-    RadiancePRD prd;
-    prd.color = make_float3(0.0f);
+        RadiancePRD prd;
+        prd.color = make_float3(0.f);
+        prd.radiance = make_float3(0.f);
+        prd.attenuation = make_float3(1.f);
+        prd.countEmitted = true;
+        prd.done = false;
+        prd.seed = seed;
 
-    unsigned int u0, u1;
-    packPointer(&prd, u0, u1);
+        int depth = 0;
+        for (;;) {
+            traceRadiance(
+                params.handle,
+                ray_origin,
+                ray_direction,
+                0.001f,  // tmin       // TODO: smarter offset
+                1e16f,  // tmax
+                &prd);
 
-    optixTrace(
-        params.handle,
-        ray_origin,
-        ray_direction,
-        0.f,
-        1e20f,
-        0.0f,
-        OptixVisibilityMask(255),
-        OPTIX_RAY_FLAG_DISABLE_ANYHIT,
-        RAY_TYPE_RADIANCE,
-        RAY_TYPE_COUNT,
-        RAY_TYPE_RADIANCE,
-        u0, u1
-    );
+            if (prd.done || depth >= 50) // TODO RR, variable for depth
+                break;
 
-    const unsigned int image_index = idx.y * params.width + idx.x;
-    params.frame_buffer[image_index] = make_color(prd.color);
+            ray_origin = prd.origin;
+            ray_direction = prd.direction;
+
+            ++depth;
+        }
+
+        result += prd.attenuation;
+
+    } while (--i);
+
+    const uint3    launch_index = optixGetLaunchIndex();
+    const unsigned int image_index = launch_index.y * params.width + launch_index.x;
+    float3         accum_color = result / static_cast<float>(params.samples_per_launch);
+
+    if (subframe_index > 0)
+    {
+        const float                 a = 1.0f / static_cast<float>(subframe_index + 1);
+        const float3 accum_color_prev = make_float3(params.accum_buffer[image_index]);
+        accum_color = lerp(accum_color_prev, accum_color, a);
+    }
+    params.accum_buffer[image_index] = make_float4(accum_color, 1.0f);
+    params.frame_buffer[image_index] = make_color(accum_color);
 }
-
 
 extern "C" __global__ void __miss__radiance()
 {
     RadiancePRD* prd = getPRD();
-    prd->color = make_float3(0.0f);
+    prd->attenuation *= make_float3(0.5, 0.7, 1.0);
+    prd->done = true;
 }
 
 extern "C" __global__ void __closesthit__radiance()
 {
+    const HitGroupData& sbtData
+        = *(const HitGroupData*)optixGetSbtDataPointer();
+
+    const int primID = optixGetPrimitiveIndex();
+
+    const float3 center = sbtData.vertex[primID];
+    const float radius = sbtData.radius[primID];
+
+    float  t_hit = optixGetRayTmax();
+    // Backface hit not used.
+    //float  t_hit2 = __uint_as_float( optixGetAttribute_0() ); 
+
+    const float3 ray_orig = optixGetWorldRayOrigin();
+    const float3 ray_dir = normalize(optixGetWorldRayDirection());
+
+    float3 P = ray_orig + ray_dir * t_hit;
+    float3 normal = normalize(P - center);
+
+    const float3 N = faceforward(normal, -ray_dir, normal);
+
     RadiancePRD* prd = getPRD();
-    prd->color = make_float3(1.0f);
+
+    if (prd->countEmitted)
+        prd->emitted = make_float3(0.0f);
+    else
+        prd->emitted = make_float3(0.0f);
+
+    unsigned int seed = prd->seed;
+
+    {
+        const float z1 = rnd(seed);
+        const float z2 = rnd(seed);
+
+        float3 w_in;
+        cosine_sample_hemisphere(z1, z2, w_in);
+        Onb onb(N);
+        onb.inverse_transform(w_in);
+        prd->direction = w_in;
+        prd->origin = P;
+
+        prd->attenuation *= sbtData.diffuse_color;
+    }
 }

@@ -211,9 +211,9 @@ void displaySubframe(sutil::CUDAOutputBuffer<uchar4>& output_buffer, sutil::GLDi
 
 void initCameraState()
 {
-    camera.setEye(make_float3(0.0f, 0.0f, 3.0f));
+    camera.setEye(make_float3(0.0f, 1.0f, 2.0f));
     camera.setLookat(make_float3(0.0f, 0.0f, 0.0f));
-    camera.setUp(make_float3(0.0f, 1.0f, 3.0f));
+    camera.setUp(make_float3(0.0f, 1.0f, 0.0f));
     camera.setFovY(50.0f);
     camera_changed = true;
 
@@ -287,7 +287,7 @@ int main(int argc, char* argv[])
 
         if (outfile.empty())
         {
-            GLFWwindow* window = sutil::initUI("optixPathTracer", state.params.width, state.params.height);
+            GLFWwindow* window = sutil::initUI("optixWindow", state.params.width, state.params.height);
             glfwSetMouseButtonCallback(window, mouseButtonCallback);
             glfwSetCursorPosCallback(window, cursorPosCallback);
             glfwSetWindowSizeCallback(window, windowSizeCallback);

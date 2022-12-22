@@ -31,7 +31,7 @@ struct Instance
 };
 
 const int32_t TRIANGLE_COUNT = 32;
-const int32_t MAT_COUNT = 4;
+const int32_t MAT_COUNT = 1;
 
 const static std::array<Vertex, TRIANGLE_COUNT * 3> g_vertices =
 { {
@@ -187,9 +187,6 @@ static std::array<uint32_t, TRIANGLE_COUNT> g_mat_indices = { {
 const std::array<float3, MAT_COUNT> g_emission_colors =
 { {
     {  0.0f,  0.0f,  0.0f },
-    {  0.0f,  0.0f,  0.0f },
-    {  0.0f,  0.0f,  0.0f },
-    { 15.0f, 15.0f,  5.0f }
 
 } };
 
@@ -197,9 +194,6 @@ const std::array<float3, MAT_COUNT> g_emission_colors =
 const std::array<float3, MAT_COUNT> g_diffuse_colors =
 { {
     { 0.80f, 0.80f, 0.80f },
-    { 0.05f, 0.80f, 0.05f },
-    { 0.80f, 0.05f, 0.05f },
-    { 0.50f, 0.00f, 0.00f }
 } };
 
 static void context_log_cb(unsigned int level, const char* tag, const char* message, void* /*cbdata */)
@@ -278,92 +272,78 @@ void RenderState::buildMeshAccel()
     //
     // copy mesh data to device
     //
-    const size_t vertices_size_in_bytes = g_vertices.size() * sizeof(Vertex);
-    CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_vertices), vertices_size_in_bytes));
-    CUDA_CHECK(cudaMemcpy(
-        reinterpret_cast<void*>(d_vertices),
-        g_vertices.data(), vertices_size_in_bytes,
-        cudaMemcpyHostToDevice
-    ));
-
-    CUdeviceptr  d_mat_indices = 0;
-    const size_t mat_indices_size_in_bytes = g_mat_indices.size() * sizeof(uint32_t);
-    CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_mat_indices), mat_indices_size_in_bytes));
-    CUDA_CHECK(cudaMemcpy(
-        reinterpret_cast<void*>(d_mat_indices),
-        g_mat_indices.data(),
-        mat_indices_size_in_bytes,
-        cudaMemcpyHostToDevice
-    ));
-
-    //
-    // Build triangle GAS
-    //
-    uint32_t triangle_input_flags[MAT_COUNT] =  // One per SBT record for this build input
-    {
-        OPTIX_GEOMETRY_FLAG_DISABLE_ANYHIT,
-        OPTIX_GEOMETRY_FLAG_DISABLE_ANYHIT,
-        OPTIX_GEOMETRY_FLAG_DISABLE_ANYHIT,
-        OPTIX_GEOMETRY_FLAG_DISABLE_ANYHIT
-    };
-
-    OptixBuildInput triangle_input = {};
-    triangle_input.type = OPTIX_BUILD_INPUT_TYPE_TRIANGLES;
-    triangle_input.triangleArray.vertexFormat = OPTIX_VERTEX_FORMAT_FLOAT3;
-    triangle_input.triangleArray.vertexStrideInBytes = sizeof(Vertex);
-    triangle_input.triangleArray.numVertices = static_cast<uint32_t>(g_vertices.size());
-    triangle_input.triangleArray.vertexBuffers = &d_vertices;
-    triangle_input.triangleArray.flags = triangle_input_flags;
-    triangle_input.triangleArray.numSbtRecords = MAT_COUNT;
-    triangle_input.triangleArray.sbtIndexOffsetBuffer = d_mat_indices;
-    triangle_input.triangleArray.sbtIndexOffsetSizeInBytes = sizeof(uint32_t);
-    triangle_input.triangleArray.sbtIndexOffsetStrideInBytes = sizeof(uint32_t);
-
     OptixAccelBuildOptions accel_options = {};
-    accel_options.buildFlags = OPTIX_BUILD_FLAG_ALLOW_COMPACTION;
+    accel_options.buildFlags = OPTIX_BUILD_FLAG_ALLOW_COMPACTION | OPTIX_BUILD_FLAG_ALLOW_RANDOM_VERTEX_ACCESS;
     accel_options.operation = OPTIX_BUILD_OPERATION_BUILD;
 
-    OptixAccelBufferSizes gas_buffer_sizes;
-    OPTIX_CHECK(optixAccelComputeMemoryUsage(
-        context,
-        &accel_options,
-        &triangle_input,
-        1,  // num_build_inputs
-        &gas_buffer_sizes
-    ));
+    // sphere build input
 
-    CUdeviceptr d_temp_buffer;
-    CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_temp_buffer), gas_buffer_sizes.tempSizeInBytes));
+    std::vector<float3> sphereVertex;
+    std::vector<float> sphereRadius;
+
+    sphereVertex.push_back(make_float3(0.0f));
+    sphereVertex.push_back(make_float3(0.0f, -100.5f, 0.0f));
+
+    sphereRadius.push_back(0.5f);
+    sphereRadius.push_back(100.0f);
+
+    d_vertex_buffer;
+    CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_vertex_buffer), sphereVertex.size() * sizeof(float3)));
+    CUDA_CHECK(cudaMemcpy(reinterpret_cast<void*>(d_vertex_buffer), sphereVertex.data(),
+        sphereVertex.size() * sizeof(float3), cudaMemcpyHostToDevice));
+
+    d_radius_buffer;
+    CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_radius_buffer), sphereRadius.size() * sizeof(float)));
+    CUDA_CHECK(cudaMemcpy(reinterpret_cast<void*>(d_radius_buffer), sphereRadius.data(), sphereRadius.size() * sizeof(float),
+        cudaMemcpyHostToDevice));
+
+    OptixBuildInput sphere_input = {};
+
+    sphere_input.type = OPTIX_BUILD_INPUT_TYPE_SPHERES;
+    sphere_input.sphereArray.vertexBuffers = &d_vertex_buffer;
+    sphere_input.sphereArray.numVertices = (int)sphereVertex.size();
+    sphere_input.sphereArray.radiusBuffers = &d_radius_buffer;
+
+    uint32_t sphere_input_flags[1] = { OPTIX_GEOMETRY_FLAG_NONE };
+    sphere_input.sphereArray.flags = sphere_input_flags;
+
+    // in this example we have one SBT entry, and no per-primitive
+    // materials:
+    sphere_input.sphereArray.numSbtRecords = 1;
+    sphere_input.sphereArray.sbtIndexOffsetBuffer = 0; // THE HELL IS THIS?
+    sphere_input.sphereArray.sbtIndexOffsetSizeInBytes = 0;
+    sphere_input.sphereArray.sbtIndexOffsetStrideInBytes = 0;
+
+    OptixAccelBufferSizes gas_buffer_sizes;
+    OPTIX_CHECK(optixAccelComputeMemoryUsage(context, &accel_options, &sphere_input, 1, &gas_buffer_sizes));
+    CUdeviceptr d_temp_buffer_gas;
+    CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_temp_buffer_gas), gas_buffer_sizes.tempSizeInBytes));
 
     // non-compacted output
     CUdeviceptr d_buffer_temp_output_gas_and_compacted_size;
     size_t      compactedSizeOffset = roundUp<size_t>(gas_buffer_sizes.outputSizeInBytes, 8ull);
-    CUDA_CHECK(cudaMalloc(
-        reinterpret_cast<void**>(&d_buffer_temp_output_gas_and_compacted_size),
-        compactedSizeOffset + 8
-    ));
+    CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_buffer_temp_output_gas_and_compacted_size),
+        compactedSizeOffset + 8));
 
     OptixAccelEmitDesc emitProperty = {};
     emitProperty.type = OPTIX_PROPERTY_TYPE_COMPACTED_SIZE;
     emitProperty.result = (CUdeviceptr)((char*)d_buffer_temp_output_gas_and_compacted_size + compactedSizeOffset);
 
-    OPTIX_CHECK(optixAccelBuild(
-        context,
-        0,                                  // CUDA stream
-        &accel_options,
-        &triangle_input,
-        1,                                  // num build inputs
-        d_temp_buffer,
-        gas_buffer_sizes.tempSizeInBytes,
-        d_buffer_temp_output_gas_and_compacted_size,
-        gas_buffer_sizes.outputSizeInBytes,
-        &gas_handle,
-        &emitProperty,                      // emitted property list
-        1                                   // num emitted properties
+    OPTIX_CHECK(optixAccelBuild(context,
+        0,  // CUDA stream
+        &accel_options, &sphere_input,
+        1,  // num build inputs
+        d_temp_buffer_gas, gas_buffer_sizes.tempSizeInBytes,
+        d_buffer_temp_output_gas_and_compacted_size, gas_buffer_sizes.outputSizeInBytes, &gas_handle,
+        &emitProperty,  // emitted property list
+        1               // num emitted properties
     ));
 
-    CUDA_CHECK(cudaFree(reinterpret_cast<void*>(d_temp_buffer)));
-    CUDA_CHECK(cudaFree(reinterpret_cast<void*>(d_mat_indices)));
+    d_gas_output_buffer = d_buffer_temp_output_gas_and_compacted_size;
+
+    CUDA_CHECK(cudaFree((void*)d_temp_buffer_gas));
+    CUDA_CHECK(cudaFree((void*)d_vertex_buffer));
+    CUDA_CHECK(cudaFree((void*)d_radius_buffer));
 
     size_t compacted_gas_size;
     CUDA_CHECK(cudaMemcpy(&compacted_gas_size, (void*)emitProperty.result, sizeof(size_t), cudaMemcpyDeviceToHost));
@@ -400,6 +380,7 @@ void RenderState::createModule() {
     pipeline_compile_options.exceptionFlags = OPTIX_EXCEPTION_FLAG_NONE;
 #endif
     pipeline_compile_options.pipelineLaunchParamsVariableName = "params";
+    pipeline_compile_options.usesPrimitiveTypeFlags = OPTIX_PRIMITIVE_TYPE_FLAGS_SPHERE;
 
     size_t      inputSize = 0;
     const char* input = sutil::getInputData(OPTIX_SAMPLE_NAME, OPTIX_SAMPLE_DIR, "deviceProgram.cu", inputSize);
@@ -416,6 +397,17 @@ void RenderState::createModule() {
         &sizeof_log,
         &ptx_module
     ));
+
+    OptixBuiltinISOptions builtin_is_options = {};
+
+    builtin_is_options.usesMotionBlur = false;
+    builtin_is_options.builtinISModuleType = OPTIX_PRIMITIVE_TYPE_SPHERE;
+    OPTIX_CHECK_LOG(optixBuiltinISModuleGet(
+        context,
+        &module_compile_options,
+        &pipeline_compile_options,
+        &builtin_is_options,
+        &sphere_module));
 }
 
 void RenderState::createProgramGroups() {
@@ -460,6 +452,10 @@ void RenderState::createProgramGroups() {
         hit_prog_group_desc.kind = OPTIX_PROGRAM_GROUP_KIND_HITGROUP;
         hit_prog_group_desc.hitgroup.moduleCH = ptx_module;
         hit_prog_group_desc.hitgroup.entryFunctionNameCH = "__closesthit__radiance";
+        hit_prog_group_desc.hitgroup.moduleAH = nullptr;
+        hit_prog_group_desc.hitgroup.entryFunctionNameAH = nullptr;
+        hit_prog_group_desc.hitgroup.moduleIS = sphere_module;
+        hit_prog_group_desc.hitgroup.entryFunctionNameIS = nullptr;
         sizeof_log = sizeof(log);
         OPTIX_CHECK_LOG(optixProgramGroupCreate(
             context,
@@ -532,6 +528,9 @@ void RenderState::createPipeline() {
 }
 
 void RenderState::createSBT() {
+
+    // For a single raygen program, we create a record storage in the table
+    // where we assign this raygen record data to it
     CUdeviceptr  d_raygen_record;
     const size_t raygen_record_size = sizeof(RayGenRecord);
     CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_raygen_record), raygen_record_size));
@@ -546,7 +545,8 @@ void RenderState::createSBT() {
         cudaMemcpyHostToDevice
     ));
 
-
+    // For a single miss program, we create a record storage in the table
+    // where we assign this miss record data to it
     CUdeviceptr  d_miss_records;
     const size_t miss_record_size = sizeof(MissRecord);
     CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_miss_records), miss_record_size * RAY_TYPE_COUNT));
@@ -562,6 +562,9 @@ void RenderState::createSBT() {
         cudaMemcpyHostToDevice
     ));
 
+    //Things change here as compared to before, here we do the same thing but for
+    //every different type of rays and object
+    //In this example we are only using one type of object so not an issue
     CUdeviceptr  d_hitgroup_records;
     const size_t hitgroup_record_size = sizeof(HitGroupRecord);
     CUDA_CHECK(cudaMalloc(
@@ -572,14 +575,14 @@ void RenderState::createSBT() {
     HitGroupRecord hitgroup_records[RAY_TYPE_COUNT * MAT_COUNT];
     for (int i = 0; i < MAT_COUNT; ++i)
     {
-        {
-            const int sbt_idx = i * RAY_TYPE_COUNT + 0;  // SBT for radiance ray-type for ith material
-
-            OPTIX_CHECK(optixSbtRecordPackHeader(radiance_hit_group, &hitgroup_records[sbt_idx]));
-            hitgroup_records[sbt_idx].data.emission_color = g_emission_colors[i];
-            hitgroup_records[sbt_idx].data.diffuse_color = g_diffuse_colors[i];
-            hitgroup_records[sbt_idx].data.vertices = reinterpret_cast<float4*>(d_vertices);
-        }
+        //Since we only have one type of object
+        int objectType = 0;
+        HitGroupRecord rec;
+        OPTIX_CHECK(optixSbtRecordPackHeader(radiance_hit_group, &rec));
+        rec.data.diffuse_color = make_float3(0.5f);
+        rec.data.vertex = reinterpret_cast<float3*>(d_vertex_buffer);
+        rec.data.radius = reinterpret_cast<float*>(d_radius_buffer);
+        hitgroup_records[i] = rec;
     }
 
     CUDA_CHECK(cudaMemcpy(

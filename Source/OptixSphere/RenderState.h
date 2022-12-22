@@ -1,72 +1,71 @@
 #pragma once
 
+#include <glad/glad.h>  // Needs to be included before gl_interop
+
+#include <cuda_gl_interop.h>
+#include <cuda_runtime.h>
+
 #include <optix.h>
-#include <sutil/sutil.h>
-#include <sutil/CUDAOutputBuffer.h>
-#include "Params.h"
-#include <sutil/vec_math.h>
 #include <optix_stubs.h>
-#include <iomanip>
-#include <optix_stack_size.h>
+
+#include <sampleConfig.h>
+
 #include <sutil/CUDAOutputBuffer.h>
 #include <sutil/Camera.h>
+#include <sutil/Exception.h>
+#include <sutil/GLDisplay.h>
+#include <sutil/Matrix.h>
+#include <sutil/Trackball.h>
+#include <sutil/sutil.h>
+#include <sutil/vec_math.h>
+#include <optix_stack_size.h>
 
-class RenderState {
-public:
-    RenderState();
-	RenderState(unsigned int width, unsigned int height);
-	void launchSubFrame(sutil::CUDAOutputBuffer<uchar4>& output_buffer);
-	void resize(unsigned int width, unsigned int height);
-public:
-    void initLaunchParams(unsigned int width, unsigned int height);
+#include <GLFW/glfw3.h>
 
+#include "Params.h"
+
+#include <array>
+#include <cstring>
+#include <fstream>
+#include <iomanip>
+#include <iostream>
+#include <sstream>
+#include <string>
+
+class RenderState
+{
+public:
+    RenderState(unsigned int width, unsigned int height);
+    void initLaunchParams();
+    void launchSubframe(sutil::CUDAOutputBuffer<uchar4>& output_buffer);
     void createContext();
-
+    void buildMeshAccel();
     void createModule();
-
-    void createRaygenPrograms();
-
-    void createMissPrograms();
-
-    void createHitgroupPrograms();
-
+    void createProgramGroups();
     void createPipeline();
-
     void createSBT();
+    void cleanUp();
 
-    void buildAccel();
 public:
-    CUstream           stream;
-   
-    OptixDeviceContext optixContext;
 
-    OptixPipeline               pipeline;
-    OptixPipelineCompileOptions pipelineCompileOptions = {};
-    OptixPipelineLinkOptions    pipelineLinkOptions = {};
+    OptixDeviceContext context = 0;
 
-    OptixModule                 module;
-    OptixModule                 sphere_module;
-    OptixModuleCompileOptions   moduleCompileOptions = {};
+    OptixTraversableHandle         gas_handle = 0;  // Traversable handle for triangle AS
+    CUdeviceptr                    d_gas_output_buffer = 0;  // Triangle AS memory
+    CUdeviceptr                    d_vertices = 0;
 
-    std::vector<OptixProgramGroup> raygenPGs;
-    CUdeviceptr raygenRecordsBuffer;
-    std::vector<OptixProgramGroup> missPGs;
-    CUdeviceptr missRecordsBuffer;
-    std::vector<OptixProgramGroup> hitgroupPGs;
-    CUdeviceptr hitgroupRecordsBuffer;
-    OptixShaderBindingTable sbt = {};
+    OptixModule                    ptx_module = 0;
+    OptixModule                    sphere_module = 0;
+    OptixPipelineCompileOptions    pipeline_compile_options = {};
+    OptixPipeline                  pipeline = 0;
 
-    Params params;
-    Params*   d_params;
-    /*! @} */
+    OptixProgramGroup              raygen_prog_group = 0;
+    OptixProgramGroup              radiance_miss_group = 0;
+    OptixProgramGroup              radiance_hit_group = 0;
 
-    CUdeviceptr colorBuffer;
+    CUstream                       stream = 0;
+    Params                         params;
+    Params* d_params;
 
-    /*! the camera we are to render with. */
-    sutil::Camera camera;
-
-    /*! the model we are going to trace rays against */
-    CUdeviceptr vertexBuffer;
-    CUdeviceptr indexBuffer;
-    CUdeviceptr asBuffer;
+    OptixShaderBindingTable        sbt = {};
 };
