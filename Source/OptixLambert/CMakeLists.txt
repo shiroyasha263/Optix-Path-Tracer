@@ -1,4 +1,4 @@
-OPTIX_add_sample_executable( OptixLambert target_name
+OPTIX_add_sample_executable( OptixTRY target_name
   main.cpp
   params.h
   RenderState.h

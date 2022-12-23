@@ -1,0 +1,4 @@
+# CMake generation dependency list for this directory.
+C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixLambert/CMakeFiles/OptixTRY.dir/OptixTRY_generated_deviceProgram.cu.ptx.depend
+C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMake/FindCUDA/run_nvcc.cmake
+C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/OptixLambert/CMakeLists.txt

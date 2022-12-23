@@ -181,6 +181,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{A0DE7B95-D3D5-3F6F-95D4-C3D7C166534E}</Project>
       <Name>ImageSource</Name>
     </ProjectReference>
+    <ProjectReference Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixTRY\OptixLambert.vcxproj">
+      <Project>{600DC9EF-BE2B-3E20-B6C2-73950527457D}</Project>
+      <Name>OptixLambert</Name>
+    </ProjectReference>
     <ProjectReference Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixPipeline\OptixPipeline.vcxproj">
       <Project>{816352D8-C8AA-38C5-9C3C-23A1F78ABCC4}</Project>
       <Name>OptixPipeline</Name>
@@ -189,7 +193,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{4799C8F9-F92C-304E-AF46-540E6017EA4C}</Project>
       <Name>OptixSphere</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixTRY\OptixTRY.vcxproj">
+    <ProjectReference Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixLambert\OptixTRY.vcxproj">
       <Project>{6A4AE643-4A2D-3CC8-9321-4E92C3A99CC0}</Project>
       <Name>OptixTRY</Name>
     </ProjectReference>
