@@ -31,7 +31,9 @@ struct Instance
 };
 
 const int32_t TRIANGLE_COUNT = 32;
-const int32_t MAT_COUNT = 1;
+
+//TWEAK THIS WHENEVER CHANGE NUMBER OF OBJECTS
+const int32_t MAT_COUNT = 2;
 
 const static std::array<Vertex, TRIANGLE_COUNT * 3> g_vertices =
 { {
@@ -269,53 +271,61 @@ void RenderState::createContext()
 
 void RenderState::buildMeshAccel()
 {
+
+    d_vertex_buffer.resize(meshes.size());
+    d_radius_buffer.resize(meshes.size());
+
+    ///
+    // Spherical Inputs
+    ///
+    std::vector<OptixBuildInput> sphere_input(meshes.size());
+    std::vector<CUdeviceptr> d_vertex(meshes.size());
+    std::vector<CUdeviceptr> d_radius(meshes.size());
+    std::vector<uint32_t> sphere_input_flags(meshes.size());
+
+    for (int meshID = 0; meshID < meshes.size(); meshID++) {
+        SphereicalMesh& model = meshes[meshID];
+
+        CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_vertex_buffer[meshID]), sizeof(float3)));
+        CUDA_CHECK(cudaMemcpy(reinterpret_cast<void*>(d_vertex_buffer[meshID]), &model.center,
+            sizeof(float3), cudaMemcpyHostToDevice));
+
+        CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_radius_buffer[meshID]), sizeof(float)));
+        CUDA_CHECK(cudaMemcpy(reinterpret_cast<void*>(d_radius_buffer[meshID]), &model.radius,
+            sizeof(float), cudaMemcpyHostToDevice));
+
+        sphere_input[meshID] = {};
+        sphere_input[meshID].type = OPTIX_BUILD_INPUT_TYPE_SPHERES;
+
+        // create local variables, because we need a *pointer* to the
+        // device pointers
+        d_vertex[meshID] = d_vertex_buffer[meshID];
+        d_radius[meshID] = d_radius_buffer[meshID];
+
+        sphere_input[meshID].sphereArray.vertexBuffers = &d_vertex[meshID];
+        sphere_input[meshID].sphereArray.numVertices = 1;
+        sphere_input[meshID].sphereArray.radiusBuffers = &d_radius[meshID];
+
+        sphere_input_flags[meshID] = 0;
+
+        sphere_input[meshID].sphereArray.flags = &sphere_input_flags[meshID];
+        sphere_input[meshID].sphereArray.numSbtRecords = 1;
+        sphere_input[meshID].sphereArray.sbtIndexOffsetBuffer = 0;
+        sphere_input[meshID].sphereArray.sbtIndexOffsetSizeInBytes = 0;
+        sphere_input[meshID].sphereArray.sbtIndexOffsetStrideInBytes = 0;
+    }
+
+
     //
     // copy mesh data to device
     //
     OptixAccelBuildOptions accel_options = {};
     accel_options.buildFlags = OPTIX_BUILD_FLAG_ALLOW_COMPACTION | OPTIX_BUILD_FLAG_ALLOW_RANDOM_VERTEX_ACCESS;
+    accel_options.motionOptions.numKeys = 1;
     accel_options.operation = OPTIX_BUILD_OPERATION_BUILD;
 
-    // sphere build input
-
-    std::vector<float3> sphereVertex;
-    std::vector<float> sphereRadius;
-
-    sphereVertex.push_back(make_float3(0.0f));
-    sphereVertex.push_back(make_float3(0.0f, -100.5f, 0.0f));
-
-    sphereRadius.push_back(0.5f);
-    sphereRadius.push_back(100.0f);
-
-    d_vertex_buffer;
-    CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_vertex_buffer), sphereVertex.size() * sizeof(float3)));
-    CUDA_CHECK(cudaMemcpy(reinterpret_cast<void*>(d_vertex_buffer), sphereVertex.data(),
-        sphereVertex.size() * sizeof(float3), cudaMemcpyHostToDevice));
-
-    d_radius_buffer;
-    CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_radius_buffer), sphereRadius.size() * sizeof(float)));
-    CUDA_CHECK(cudaMemcpy(reinterpret_cast<void*>(d_radius_buffer), sphereRadius.data(), sphereRadius.size() * sizeof(float),
-        cudaMemcpyHostToDevice));
-
-    OptixBuildInput sphere_input = {};
-
-    sphere_input.type = OPTIX_BUILD_INPUT_TYPE_SPHERES;
-    sphere_input.sphereArray.vertexBuffers = &d_vertex_buffer;
-    sphere_input.sphereArray.numVertices = (int)sphereVertex.size();
-    sphere_input.sphereArray.radiusBuffers = &d_radius_buffer;
-
-    uint32_t sphere_input_flags[1] = { OPTIX_GEOMETRY_FLAG_NONE };
-    sphere_input.sphereArray.flags = sphere_input_flags;
-
-    // in this example we have one SBT entry, and no per-primitive
-    // materials:
-    sphere_input.sphereArray.numSbtRecords = 1;
-    sphere_input.sphereArray.sbtIndexOffsetBuffer = 0; // THE HELL IS THIS?
-    sphere_input.sphereArray.sbtIndexOffsetSizeInBytes = 0;
-    sphere_input.sphereArray.sbtIndexOffsetStrideInBytes = 0;
-
     OptixAccelBufferSizes gas_buffer_sizes;
-    OPTIX_CHECK(optixAccelComputeMemoryUsage(context, &accel_options, &sphere_input, 1, &gas_buffer_sizes));
+    OPTIX_CHECK(optixAccelComputeMemoryUsage(context, &accel_options, sphere_input.data(), (int)meshes.size(), &gas_buffer_sizes));
     CUdeviceptr d_temp_buffer_gas;
     CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_temp_buffer_gas), gas_buffer_sizes.tempSizeInBytes));
 
@@ -331,8 +341,8 @@ void RenderState::buildMeshAccel()
 
     OPTIX_CHECK(optixAccelBuild(context,
         0,  // CUDA stream
-        &accel_options, &sphere_input,
-        1,  // num build inputs
+        &accel_options, sphere_input.data(),
+        (int)meshes.size(),  // num build inputs
         d_temp_buffer_gas, gas_buffer_sizes.tempSizeInBytes,
         d_buffer_temp_output_gas_and_compacted_size, gas_buffer_sizes.outputSizeInBytes, &gas_handle,
         &emitProperty,  // emitted property list
@@ -342,8 +352,6 @@ void RenderState::buildMeshAccel()
     d_gas_output_buffer = d_buffer_temp_output_gas_and_compacted_size;
 
     CUDA_CHECK(cudaFree((void*)d_temp_buffer_gas));
-    CUDA_CHECK(cudaFree((void*)d_vertex_buffer));
-    CUDA_CHECK(cudaFree((void*)d_radius_buffer));
 
     size_t compacted_gas_size;
     CUDA_CHECK(cudaMemcpy(&compacted_gas_size, (void*)emitProperty.result, sizeof(size_t), cudaMemcpyDeviceToHost));
@@ -573,16 +581,15 @@ void RenderState::createSBT() {
     ));
 
     HitGroupRecord hitgroup_records[RAY_TYPE_COUNT * MAT_COUNT];
-    for (int i = 0; i < MAT_COUNT; ++i)
+    for (int meshID = 0; meshID < MAT_COUNT; meshID++)
     {
         //Since we only have one type of object
-        int objectType = 0;
         HitGroupRecord rec;
         OPTIX_CHECK(optixSbtRecordPackHeader(radiance_hit_group, &rec));
-        rec.data.diffuse_color = make_float3(0.5f);
-        rec.data.vertex = reinterpret_cast<float3*>(d_vertex_buffer);
-        rec.data.radius = reinterpret_cast<float*>(d_radius_buffer);
-        hitgroup_records[i] = rec;
+        rec.data.diffuse_color = meshes[meshID].diffuse_color;
+        rec.data.vertex = reinterpret_cast<float3*>(d_vertex_buffer[meshID]);
+        rec.data.radius = reinterpret_cast<float*>(d_radius_buffer[meshID]);
+        hitgroup_records[meshID] = rec;
     }
 
     CUDA_CHECK(cudaMemcpy(
@@ -622,6 +629,20 @@ void RenderState::cleanUp() {
 RenderState::RenderState(unsigned int width, unsigned int height) {
     params.width = width;
     params.height = height;
+
+    SphereicalMesh mesh;
+    mesh.center = make_float3(0.0f);
+    mesh.radius = 0.5f;
+    mesh.diffuse_color = make_float3(0.5f, 0.5f, 0.5f);
+
+    meshes.push_back(mesh);
+
+
+    mesh.center = make_float3(0.0f, -100.5f, 0.0f);
+    mesh.radius = 100.0f;
+    mesh.diffuse_color = make_float3(0.5f, 0.5f, 0.5f);
+
+    meshes.push_back(mesh);
 
     createContext();
     buildMeshAccel();

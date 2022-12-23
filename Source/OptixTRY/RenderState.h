@@ -32,6 +32,19 @@
 #include <sstream>
 #include <string>
 
+enum MaterialType {
+    DIFFUSE,
+    SPECULAR,
+    DIELECTRIC
+};
+
+struct SphereicalMesh {
+    float3 center;
+    float radius;
+    float3 diffuse_color;
+    MaterialType material;
+};
+
 class RenderState
 {
 public:
@@ -69,6 +82,7 @@ public:
 
     OptixShaderBindingTable        sbt = {};
 
-    CUdeviceptr                    d_vertex_buffer = 0;
-    CUdeviceptr                    d_radius_buffer = 0;
+    std::vector<SphereicalMesh>    meshes;
+    std::vector<CUdeviceptr>       d_vertex_buffer;
+    std::vector<CUdeviceptr>       d_radius_buffer;
 };
