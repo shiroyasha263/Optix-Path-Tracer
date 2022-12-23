@@ -33,7 +33,7 @@ struct Instance
 const int32_t TRIANGLE_COUNT = 32;
 
 //TWEAK THIS WHENEVER CHANGE NUMBER OF OBJECTS
-const int32_t MAT_COUNT = 4;
+const int32_t MAT_COUNT = 5;
 
 const static std::array<Vertex, TRIANGLE_COUNT * 3> g_vertices =
 { {
@@ -651,13 +651,20 @@ RenderState::RenderState(unsigned int width, unsigned int height) {
     mesh.diffuse_color = make_float3(0.8f, 0.8f, 0.8f);
     mesh.material = SPECULAR;
     meshes.push_back(mesh);
-    
-    
+
+    mesh.center = make_float3(-1.0f, 0.0f, 0.0f);
+    mesh.radius = -0.4f;
+    mesh.diffuse_color = make_float3(0.8f, 0.6f, 0.2f);
+    mesh.material = DIELECTRIC;
+    meshes.push_back(mesh);
+
     mesh.center = make_float3(-1.0f, 0.0f, 0.0f);
     mesh.radius = 0.5f;
     mesh.diffuse_color = make_float3(0.8f, 0.6f, 0.2f);
     mesh.material = DIELECTRIC;
     meshes.push_back(mesh);
+
+    std::cout << meshes.size() << "\n";
 
     createContext();
     buildMeshAccel();
