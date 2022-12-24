@@ -55,7 +55,14 @@ struct HitGroupData
 {
     float3  emission_color;
     float3  diffuse_color;
-    float3* vertex;
-    float* radius;
+    float3 vertex;
+    float radius;
+    MaterialType material;
+};
+
+struct SphereicalMesh {
+    float3 center;
+    float radius;
+    float3 diffuse_color;
     MaterialType material;
 };

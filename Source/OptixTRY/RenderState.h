@@ -23,6 +23,7 @@
 #include <GLFW/glfw3.h>
 
 #include "Params.h"
+#include "build.h"
 
 #include <array>
 #include <cstring>
@@ -31,13 +32,6 @@
 #include <iostream>
 #include <sstream>
 #include <string>
-
-struct SphereicalMesh {
-    float3 center;
-    float radius;
-    float3 diffuse_color;
-    MaterialType material;
-};
 
 class RenderState
 {
@@ -76,7 +70,5 @@ public:
 
     OptixShaderBindingTable        sbt = {};
 
-    std::vector<SphereicalMesh>    meshes;
-    std::vector<CUdeviceptr>       d_vertex_buffer;
-    std::vector<CUdeviceptr>       d_radius_buffer;
+    buildInputList                 meshList;
 };

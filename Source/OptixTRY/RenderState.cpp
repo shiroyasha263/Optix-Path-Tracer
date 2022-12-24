@@ -18,7 +18,6 @@ struct Vertex
     float x, y, z, pad;
 };
 
-
 struct IndexedTriangle
 {
     uint32_t v1, v2, v3, pad;
@@ -33,7 +32,7 @@ struct Instance
 const int32_t TRIANGLE_COUNT = 32;
 
 //TWEAK THIS WHENEVER CHANGE NUMBER OF OBJECTS
-const int32_t MAT_COUNT = 5;
+const int32_t MAT_COUNT = 4;
 
 const static std::array<Vertex, TRIANGLE_COUNT * 3> g_vertices =
 { {
@@ -184,8 +183,6 @@ static std::array<uint32_t, TRIANGLE_COUNT> g_mat_indices = { {
     3, 3                           // Ceiling light -- emmissive
 } };
 
-
-
 const std::array<float3, MAT_COUNT> g_emission_colors =
 { {
     {  0.0f,  0.0f,  0.0f },
@@ -271,50 +268,17 @@ void RenderState::createContext()
 
 void RenderState::buildMeshAccel()
 {
-
-    d_vertex_buffer.resize(meshes.size());
-    d_radius_buffer.resize(meshes.size());
-
     ///
     // Spherical Inputs
     ///
-    std::vector<OptixBuildInput> sphere_input(meshes.size());
-    std::vector<CUdeviceptr> d_vertex(meshes.size());
-    std::vector<CUdeviceptr> d_radius(meshes.size());
-    std::vector<uint32_t> sphere_input_flags(meshes.size());
+    std::vector<OptixBuildInput> build_inputs(meshList.objects.size());
 
-    for (int meshID = 0; meshID < meshes.size(); meshID++) {
-        SphereicalMesh& model = meshes[meshID];
-
-        CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_vertex_buffer[meshID]), sizeof(float3)));
-        CUDA_CHECK(cudaMemcpy(reinterpret_cast<void*>(d_vertex_buffer[meshID]), &model.center,
-            sizeof(float3), cudaMemcpyHostToDevice));
-
-        CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_radius_buffer[meshID]), sizeof(float)));
-        CUDA_CHECK(cudaMemcpy(reinterpret_cast<void*>(d_radius_buffer[meshID]), &model.radius,
-            sizeof(float), cudaMemcpyHostToDevice));
-
-        sphere_input[meshID] = {};
-        sphere_input[meshID].type = OPTIX_BUILD_INPUT_TYPE_SPHERES;
-
-        // create local variables, because we need a *pointer* to the
-        // device pointers
-        d_vertex[meshID] = d_vertex_buffer[meshID];
-        d_radius[meshID] = d_radius_buffer[meshID];
-
-        sphere_input[meshID].sphereArray.vertexBuffers = &d_vertex[meshID];
-        sphere_input[meshID].sphereArray.numVertices = 1;
-        sphere_input[meshID].sphereArray.radiusBuffers = &d_radius[meshID];
-
-        sphere_input_flags[meshID] = 0;
-
-        sphere_input[meshID].sphereArray.flags = &sphere_input_flags[meshID];
-        sphere_input[meshID].sphereArray.numSbtRecords = 1;
-        sphere_input[meshID].sphereArray.sbtIndexOffsetBuffer = 0;
-        sphere_input[meshID].sphereArray.sbtIndexOffsetSizeInBytes = 0;
-        sphere_input[meshID].sphereArray.sbtIndexOffsetStrideInBytes = 0;
+    for (int meshID = 0; meshID < meshList.objects.size(); meshID++) {
+        OptixBuildInput build_input;
+        uint32_t build_flags;
+        meshList.objects[meshID]->build(build_input, build_flags);
+        build_inputs[meshID] = build_input;
     }
-
 
     //
     // copy mesh data to device
@@ -325,7 +289,7 @@ void RenderState::buildMeshAccel()
     accel_options.operation = OPTIX_BUILD_OPERATION_BUILD;
 
     OptixAccelBufferSizes gas_buffer_sizes;
-    OPTIX_CHECK(optixAccelComputeMemoryUsage(context, &accel_options, sphere_input.data(), (int)meshes.size(), &gas_buffer_sizes));
+    OPTIX_CHECK(optixAccelComputeMemoryUsage(context, &accel_options, build_inputs.data(), (int)meshList.objects.size(), &gas_buffer_sizes));
     CUdeviceptr d_temp_buffer_gas;
     CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_temp_buffer_gas), gas_buffer_sizes.tempSizeInBytes));
 
@@ -341,8 +305,8 @@ void RenderState::buildMeshAccel()
 
     OPTIX_CHECK(optixAccelBuild(context,
         0,  // CUDA stream
-        &accel_options, sphere_input.data(),
-        (int)meshes.size(),  // num build inputs
+        &accel_options, build_inputs.data(),
+        (int)meshList.objects.size(),  // num build inputs
         d_temp_buffer_gas, gas_buffer_sizes.tempSizeInBytes,
         d_buffer_temp_output_gas_and_compacted_size, gas_buffer_sizes.outputSizeInBytes, &gas_handle,
         &emitProperty,  // emitted property list
@@ -586,10 +550,10 @@ void RenderState::createSBT() {
         //Since we only have one type of object
         HitGroupRecord rec;
         OPTIX_CHECK(optixSbtRecordPackHeader(radiance_hit_group, &rec));
-        rec.data.diffuse_color = meshes[meshID].diffuse_color;
-        rec.data.vertex = reinterpret_cast<float3*>(d_vertex_buffer[meshID]);
-        rec.data.radius = reinterpret_cast<float*>(d_radius_buffer[meshID]);
-        rec.data.material = meshes[meshID].material;
+        rec.data.diffuse_color = meshList.objects[meshID]->get_sphere().diffuse_color;
+        rec.data.vertex = meshList.objects[meshID]->get_sphere().center;
+        rec.data.radius = meshList.objects[meshID]->get_sphere().radius;
+        rec.data.material = meshList.objects[meshID]->get_sphere().material;
         hitgroup_records[meshID] = rec;
     }
 
@@ -631,40 +595,18 @@ RenderState::RenderState(unsigned int width, unsigned int height) {
     params.width = width;
     params.height = height;
 
-    SphereicalMesh mesh;
-    mesh.center = make_float3(0.0f);
-    mesh.radius = -0.5f;
-    mesh.diffuse_color = make_float3(0.7f, 0.3f, 0.3f);
-    mesh.material = DIFFUSE;
-    meshes.push_back(mesh);
-
-
-    mesh.center = make_float3(0.0f, -100.5f, 0.0f);
-    mesh.radius = 100.0f;
-    mesh.diffuse_color = make_float3(0.8f, 0.8f, 0.0f);
-    mesh.material = DIFFUSE;
-    meshes.push_back(mesh);
-
-
-    mesh.center = make_float3(1.1f, 0.0f, 0.0f);
-    mesh.radius = 0.5f;
-    mesh.diffuse_color = make_float3(0.8f, 0.8f, 0.8f);
-    mesh.material = SPECULAR;
-    meshes.push_back(mesh);
-
-    mesh.center = make_float3(-1.1f, 0.0f, 0.0f);
-    mesh.radius = -0.4f;
-    mesh.diffuse_color = make_float3(0.8f, 0.6f, 0.2f);
-    mesh.material = DIELECTRIC;
-    meshes.push_back(mesh);
-
-    mesh.center = make_float3(-1.1f, 0.0f, 0.0f);
-    mesh.radius = 0.5f;
-    mesh.diffuse_color = make_float3(0.8f, 0.6f, 0.2f);
-    mesh.material = DIELECTRIC;
-    meshes.push_back(mesh);
-
-    std::cout << meshes.size() << "\n";
+    meshList.clear();
+    
+    meshList.add(make_shared<sphereBuild>(make_float3(0.0f), 0.5f, DIFFUSE,
+         make_float3(0.7f, 0.3f, 0.3f)));
+    meshList.add(make_shared<sphereBuild>(make_float3(0.0f, -100.5f, 0.0f), 100.f, DIFFUSE,
+         make_float3(0.8f, 0.8f, 0.0f)));
+    meshList.add(make_shared<sphereBuild>(make_float3(1.1f, 0.0f, 0.0f), 0.5f, SPECULAR,
+         make_float3(0.8f, 0.8f, 0.8f)));
+    meshList.add(make_shared<sphereBuild>(make_float3(-1.1f, 0.0f, 0.0f), 0.5f, DIELECTRIC,
+         make_float3(0.7f, 0.3f, 0.3f)));
+    meshList.add(make_shared<sphereBuild>(make_float3(-1.1f, 0.0f, 0.0f), -0.4f, DIELECTRIC,
+         make_float3(0.7f, 0.3f, 0.3f)));
 
     createContext();
     buildMeshAccel();
@@ -673,4 +615,21 @@ RenderState::RenderState(unsigned int width, unsigned int height) {
     createPipeline();
     createSBT();
     initLaunchParams();
+}
+
+void sphereBuild::build(OptixBuildInput& build_input, uint32_t& build_input_flags) const {
+	build_input = {};
+	build_input.type = OPTIX_BUILD_INPUT_TYPE_SPHERES;
+
+	build_input.sphereArray.vertexBuffers = &d_vertex;
+	build_input.sphereArray.numVertices = 1;
+	build_input.sphereArray.radiusBuffers = &d_radius;
+
+	build_input_flags = 0;
+
+	build_input.sphereArray.flags = &build_input_flags;
+	build_input.sphereArray.numSbtRecords = 1;
+	build_input.sphereArray.sbtIndexOffsetBuffer = 0;
+	build_input.sphereArray.sbtIndexOffsetSizeInBytes = 0;
+	build_input.sphereArray.sbtIndexOffsetStrideInBytes = 0;
 }

@@ -409,8 +409,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   <ItemGroup>
     <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\main.cpp" />
     <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\Params.h" />
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\build.h" />
     <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\RenderState.h" />
+    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\build.h" />
+    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\build.cpp" />
     <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\RenderState.cpp" />
     <None Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\lib\ptx\OptixTry_generated_deviceProgram.cu.ptx">
     </None>

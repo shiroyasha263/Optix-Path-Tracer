@@ -325,8 +325,8 @@ extern "C" __global__ void __closesthit__radiance()
 
     const int primID = optixGetPrimitiveIndex();
 
-    const float3 center = sbtData.vertex[primID];
-    const float radius = sbtData.radius[primID];
+    const float3 center = sbtData.vertex;
+    const float radius = sbtData.radius;
 
     float  t_hit = optixGetRayTmax();
 

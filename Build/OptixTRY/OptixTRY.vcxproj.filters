@@ -4,6 +4,9 @@
     <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\build.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\RenderState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -12,10 +15,10 @@
     <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\Params.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\build.h">
+    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\RenderState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\RenderState.h">
+    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\build.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
