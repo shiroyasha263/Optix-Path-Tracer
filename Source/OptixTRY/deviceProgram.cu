@@ -359,16 +359,16 @@ extern "C" __global__ void __closesthit__radiance()
     else
         prd->emitted = make_float3(0.0f);
     {
-        float3 attenuation = sbtData.diffuse_color;
-        if (sbtData.material == SPECULAR) {
+        float3 attenuation = sbtData.material.diffuse_color;
+        if (sbtData.materialType == SPECULAR) {
             bool test = false;
-            specular_scatter(ray_in, hitData, prd, attenuation, 0.5f);
+            specular_scatter(ray_in, hitData, prd, attenuation, sbtData.material.fuzz);
         }
-        else if(sbtData.material == DIFFUSE) {
+        else if(sbtData.materialType == DIFFUSE) {
             diffuse_scatter(ray_in, hitData, prd, attenuation);
         }
-        else if (sbtData.material == DIELECTRIC) {
-            dielectric_scatter(ray_in, hitData, prd, attenuation, 1.5f);
+        else if (sbtData.materialType == DIELECTRIC) {
+            dielectric_scatter(ray_in, hitData, prd, attenuation, sbtData.material.eta);
         }
         prd->attenuation *= attenuation;
     }

@@ -12,6 +12,18 @@ enum MaterialType {
     DIELECTRIC
 };
 
+enum PrimitiveTyoe {
+    TRIANGLE,
+    SPHERE
+};
+
+struct Material {
+    float3 emission;
+    float3 diffuse_color;
+    float fuzz;
+    float eta;
+};
+
 struct ParallelogramLight
 {
     float3 corner;
@@ -57,12 +69,14 @@ struct HitGroupData
     float3  diffuse_color;
     float3 vertex;
     float radius;
-    MaterialType material;
+    MaterialType materialType;
+    Material material;
 };
 
 struct SphereicalMesh {
     float3 center;
     float radius;
     float3 diffuse_color;
-    MaterialType material;
+    MaterialType materialType;
+    Material material;
 };

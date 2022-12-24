@@ -553,6 +553,7 @@ void RenderState::createSBT() {
         rec.data.diffuse_color = meshList.objects[meshID]->get_sphere().diffuse_color;
         rec.data.vertex = meshList.objects[meshID]->get_sphere().center;
         rec.data.radius = meshList.objects[meshID]->get_sphere().radius;
+        rec.data.materialType = meshList.objects[meshID]->get_sphere().materialType;
         rec.data.material = meshList.objects[meshID]->get_sphere().material;
         hitgroup_records[meshID] = rec;
     }
@@ -596,17 +597,17 @@ RenderState::RenderState(unsigned int width, unsigned int height) {
     params.height = height;
 
     meshList.clear();
-    
-    meshList.add(make_shared<sphereBuild>(make_float3(0.0f), 0.5f, DIFFUSE,
-         make_float3(0.7f, 0.3f, 0.3f)));
-    meshList.add(make_shared<sphereBuild>(make_float3(0.0f, -100.5f, 0.0f), 100.f, DIFFUSE,
-         make_float3(0.8f, 0.8f, 0.0f)));
-    meshList.add(make_shared<sphereBuild>(make_float3(1.1f, 0.0f, 0.0f), 0.5f, SPECULAR,
-         make_float3(0.8f, 0.8f, 0.8f)));
-    meshList.add(make_shared<sphereBuild>(make_float3(-1.1f, 0.0f, 0.0f), 0.5f, DIELECTRIC,
-         make_float3(0.7f, 0.3f, 0.3f)));
-    meshList.add(make_shared<sphereBuild>(make_float3(-1.1f, 0.0f, 0.0f), -0.4f, DIELECTRIC,
-         make_float3(0.7f, 0.3f, 0.3f)));
+
+    meshList.add(make_shared<sphereBuild>(make_float3(0.0f), 0.5f, DIFFUSE, make_float3(0.0f),
+        make_float3(0.7f, 0.3f, 0.3f), 0.5f, 1.5f));
+    meshList.add(make_shared<sphereBuild>(make_float3(0.0f, -100.5f, 0.0f), 100.f, DIFFUSE, make_float3(0.0f),
+        make_float3(0.8f, 0.8f, 0.0f), 0.5f, 1.5f));
+    meshList.add(make_shared<sphereBuild>(make_float3(1.1f, 0.0f, 0.0f), 0.5f, SPECULAR, make_float3(0.0f),
+        make_float3(0.8f, 0.8f, 0.8f), 0.5f, 1.5f));
+    meshList.add(make_shared<sphereBuild>(make_float3(-1.1f, 0.0f, 0.0f), 0.5f, DIELECTRIC, make_float3(0.0f),
+        make_float3(0.7f, 0.3f, 0.3f), 0.5f, 1.5f));
+    meshList.add(make_shared<sphereBuild>(make_float3(-1.1f, 0.0f, 0.0f), -0.4f, DIELECTRIC, make_float3(0.0f),
+        make_float3(0.7f, 0.3f, 0.3f), 0.5f, 1.5f));
 
     createContext();
     buildMeshAccel();

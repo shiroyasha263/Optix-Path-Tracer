@@ -20,7 +20,8 @@ public:
 
 class sphereBuild : public buildInput {
 public:
-	sphereBuild(float3 center, float radius, MaterialType material, float3 diffuse_color) {
+	sphereBuild(float3 center, float radius, MaterialType materialType, float3 emission_color,
+		float3 diffusion_color, float fuzz, float eta) {
 		CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_vertex), sizeof(float3)));
 		CUDA_CHECK(cudaMemcpy(reinterpret_cast<void*>(d_vertex), &center,
 			sizeof(float3), cudaMemcpyHostToDevice));
@@ -31,8 +32,11 @@ public:
 
 		spherical_mesh.center = center;
 		spherical_mesh.radius = radius;
-		spherical_mesh.diffuse_color = diffuse_color;
-		spherical_mesh.material = material;
+		spherical_mesh.materialType = materialType;
+		spherical_mesh.material.diffuse_color = diffusion_color;
+		spherical_mesh.material.emission = emission_color;
+		spherical_mesh.material.fuzz = fuzz;
+		spherical_mesh.material.eta = eta;
 	};
 
 	virtual void build(OptixBuildInput& build_input, uint32_t& build_input_flags) const override;
