@@ -32,12 +32,6 @@
 #include <sstream>
 #include <string>
 
-enum MaterialType {
-    DIFFUSE,
-    SPECULAR,
-    DIELECTRIC
-};
-
 struct SphereicalMesh {
     float3 center;
     float radius;

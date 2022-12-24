@@ -1,26 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\main.cpp">
+    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixLambert\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\RenderState.cpp">
+    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixLambert\RenderState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\Params.h">
+    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixLambert\Params.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\RenderState.h">
+    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixLambert\RenderState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\deviceProgram.cu">
+    <CustomBuild Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixLambert\deviceProgram.cu">
       <Filter>CUDA Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixLambert\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\lib\ptx\OptixLambert_generated_deviceProgram.cu.ptx">

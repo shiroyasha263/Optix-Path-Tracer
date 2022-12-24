@@ -33,7 +33,7 @@ struct Instance
 const int32_t TRIANGLE_COUNT = 32;
 
 //TWEAK THIS WHENEVER CHANGE NUMBER OF OBJECTS
-const int32_t MAT_COUNT = 5;
+const int32_t MAT_COUNT = 2;
 
 const static std::array<Vertex, TRIANGLE_COUNT * 3> g_vertices =
 { {
@@ -589,7 +589,6 @@ void RenderState::createSBT() {
         rec.data.diffuse_color = meshes[meshID].diffuse_color;
         rec.data.vertex = reinterpret_cast<float3*>(d_vertex_buffer[meshID]);
         rec.data.radius = reinterpret_cast<float*>(d_radius_buffer[meshID]);
-        rec.data.material = meshes[meshID].material;
         hitgroup_records[meshID] = rec;
     }
 
@@ -633,38 +632,17 @@ RenderState::RenderState(unsigned int width, unsigned int height) {
 
     SphereicalMesh mesh;
     mesh.center = make_float3(0.0f);
-    mesh.radius = -0.5f;
-    mesh.diffuse_color = make_float3(0.7f, 0.3f, 0.3f);
-    mesh.material = DIFFUSE;
+    mesh.radius = 0.5f;
+    mesh.diffuse_color = make_float3(0.5f, 0.5f, 0.5f);
+
     meshes.push_back(mesh);
 
 
     mesh.center = make_float3(0.0f, -100.5f, 0.0f);
     mesh.radius = 100.0f;
-    mesh.diffuse_color = make_float3(0.8f, 0.8f, 0.0f);
-    mesh.material = DIFFUSE;
+    mesh.diffuse_color = make_float3(0.5f, 0.5f, 0.5f);
+
     meshes.push_back(mesh);
-
-
-    mesh.center = make_float3(1.0f, 0.0f, 0.0f);
-    mesh.radius = 0.5f;
-    mesh.diffuse_color = make_float3(0.8f, 0.8f, 0.8f);
-    mesh.material = SPECULAR;
-    meshes.push_back(mesh);
-
-    mesh.center = make_float3(-1.0f, 0.0f, 0.0f);
-    mesh.radius = -0.4f;
-    mesh.diffuse_color = make_float3(0.8f, 0.6f, 0.2f);
-    mesh.material = DIELECTRIC;
-    meshes.push_back(mesh);
-
-    mesh.center = make_float3(-1.0f, 0.0f, 0.0f);
-    mesh.radius = 0.5f;
-    mesh.diffuse_color = make_float3(0.8f, 0.6f, 0.2f);
-    mesh.material = DIELECTRIC;
-    meshes.push_back(mesh);
-
-    std::cout << meshes.size() << "\n";
 
     createContext();
     buildMeshAccel();

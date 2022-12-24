@@ -6,11 +6,6 @@ enum RayType
     RAY_TYPE_COUNT
 };
 
-enum MaterialType {
-    DIFFUSE,
-    SPECULAR,
-    DIELECTRIC
-};
 
 struct ParallelogramLight
 {
@@ -56,6 +51,5 @@ struct HitGroupData
     float3  emission_color;
     float3  diffuse_color;
     float3* vertex;
-    float* radius;
-    MaterialType material;
+    float*  radius;
 };

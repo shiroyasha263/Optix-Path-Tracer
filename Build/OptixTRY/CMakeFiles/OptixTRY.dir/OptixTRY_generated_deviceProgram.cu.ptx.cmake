@@ -65,8 +65,8 @@ endif()
 # Set these up as variables to make reading the generated file easier
 set(CMAKE_COMMAND "C:/Program Files/CMake/bin/cmake.exe") # path
 set(source_file "C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/OptixTRY/deviceProgram.cu") # path
-set(NVCC_generated_dependency_file "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixTRY/CMakeFiles/OptixTRY.dir//OptixTRY_generated_deviceProgram.cu.ptx.NVCC-depend") # path
-set(cmake_dependency_file "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixTRY/CMakeFiles/OptixTRY.dir//OptixTRY_generated_deviceProgram.cu.ptx.depend") # path
+set(NVCC_generated_dependency_file "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixTRY/CMakeFiles/OptixTry.dir//OptixTry_generated_deviceProgram.cu.ptx.NVCC-depend") # path
+set(cmake_dependency_file "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixTRY/CMakeFiles/OptixTry.dir//OptixTry_generated_deviceProgram.cu.ptx.depend") # path
 set(CUDA_make2cmake "C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMake/FindCUDA/make2cmake.cmake") # path
 set(CUDA_parse_cubin "C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMake/FindCUDA/parse_cubin.cmake") # path
 set(build_cubin OFF) # bool
@@ -74,8 +74,8 @@ set(CUDA_HOST_COMPILER "$(VCInstallDir)Tools/MSVC/$(VCToolsVersion)/bin/Host$(Pl
 # We won't actually use these variables for now, but we need to set this, in
 # order to force this file to be run again if it changes.
 set(generated_file_path "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/.") # path
-set(generated_file_internal "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/./OptixTRY_generated_deviceProgram.cu.ptx") # path
-set(generated_cubin_file_internal "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/./OptixTRY_generated_deviceProgram.cu.ptx.cubin.txt") # path
+set(generated_file_internal "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/./OptixTry_generated_deviceProgram.cu.ptx") # path
+set(generated_cubin_file_internal "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/./OptixTry_generated_deviceProgram.cu.ptx.cubin.txt") # path
 
 set(CUDA_REMOVE_GLOBAL_MEMORY_SPACE_WARNING ON)
 

@@ -1,6 +1,7 @@
-OPTIX_add_sample_executable( OptixLambert target_name
+OPTIX_add_sample_executable( OptixTry target_name
   main.cpp
   params.h
+  build.h
   RenderState.h
   RenderState.cpp
   deviceProgram.cu

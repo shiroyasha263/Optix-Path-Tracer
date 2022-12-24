@@ -270,16 +270,16 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\deviceProgram.cu">
+    <CustomBuild Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixLambert\deviceProgram.cu">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building NVCC ptx file lib/ptx/OptixLambert_generated_deviceProgram.cu.ptx</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd "C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixTRY\CMakeFiles\OptixLambert.dir"
+cd "C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixLambert\CMakeFiles\OptixLambert.dir"
 if %errorlevel% neq 0 goto :cmEnd
 C:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E make_directory "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/."
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D check_dependencies:BOOL=ON -D "CCBIN:PATH=$(VCInstallDir)Tools/MSVC/$(VCToolsVersion)/bin/Host$(Platform)/$(PlatformTarget)" -D build_configuration:STRING=$(ConfigurationName) -D "generated_file:STRING=C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/./OptixLambert_generated_deviceProgram.cu.ptx" -D "generated_cubin_file:STRING=C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/./OptixLambert_generated_deviceProgram.cu.ptx.cubin.txt" -D "generated_fatbin_file:STRING=C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/./OptixLambert_generated_deviceProgram.cu.ptx.fatbin.txt" -P "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixTRY/CMakeFiles/OptixLambert.dir//OptixLambert_generated_deviceProgram.cu.ptx.cmake"
+"C:\Program Files\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D check_dependencies:BOOL=ON -D "CCBIN:PATH=$(VCInstallDir)Tools/MSVC/$(VCToolsVersion)/bin/Host$(Platform)/$(PlatformTarget)" -D build_configuration:STRING=$(ConfigurationName) -D "generated_file:STRING=C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/./OptixLambert_generated_deviceProgram.cu.ptx" -D "generated_cubin_file:STRING=C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/./OptixLambert_generated_deviceProgram.cu.ptx.cubin.txt" -D "generated_fatbin_file:STRING=C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/./OptixLambert_generated_deviceProgram.cu.ptx.fatbin.txt" -P "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixLambert/CMakeFiles/OptixLambert.dir//OptixLambert_generated_deviceProgram.cu.ptx.cmake"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -287,18 +287,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixTRY\CMakeFiles\OptixLambert.dir\OptixLambert_generated_deviceProgram.cu.ptx.depend;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixTRY\CMakeFiles\OptixLambert.dir\OptixLambert_generated_deviceProgram.cu.ptx.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixLambert\CMakeFiles\OptixLambert.dir\OptixLambert_generated_deviceProgram.cu.ptx.depend;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixLambert\CMakeFiles\OptixLambert.dir\OptixLambert_generated_deviceProgram.cu.ptx.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\lib\ptx\OptixLambert_generated_deviceProgram.cu.ptx</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building NVCC ptx file lib/ptx/OptixLambert_generated_deviceProgram.cu.ptx</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd "C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixTRY\CMakeFiles\OptixLambert.dir"
+cd "C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixLambert\CMakeFiles\OptixLambert.dir"
 if %errorlevel% neq 0 goto :cmEnd
 C:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E make_directory "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/."
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D check_dependencies:BOOL=ON -D "CCBIN:PATH=$(VCInstallDir)Tools/MSVC/$(VCToolsVersion)/bin/Host$(Platform)/$(PlatformTarget)" -D build_configuration:STRING=$(ConfigurationName) -D "generated_file:STRING=C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/./OptixLambert_generated_deviceProgram.cu.ptx" -D "generated_cubin_file:STRING=C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/./OptixLambert_generated_deviceProgram.cu.ptx.cubin.txt" -D "generated_fatbin_file:STRING=C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/./OptixLambert_generated_deviceProgram.cu.ptx.fatbin.txt" -P "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixTRY/CMakeFiles/OptixLambert.dir//OptixLambert_generated_deviceProgram.cu.ptx.cmake"
+"C:\Program Files\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D check_dependencies:BOOL=ON -D "CCBIN:PATH=$(VCInstallDir)Tools/MSVC/$(VCToolsVersion)/bin/Host$(Platform)/$(PlatformTarget)" -D build_configuration:STRING=$(ConfigurationName) -D "generated_file:STRING=C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/./OptixLambert_generated_deviceProgram.cu.ptx" -D "generated_cubin_file:STRING=C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/./OptixLambert_generated_deviceProgram.cu.ptx.cubin.txt" -D "generated_fatbin_file:STRING=C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/./OptixLambert_generated_deviceProgram.cu.ptx.fatbin.txt" -P "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixLambert/CMakeFiles/OptixLambert.dir//OptixLambert_generated_deviceProgram.cu.ptx.cmake"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -306,18 +306,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixTRY\CMakeFiles\OptixLambert.dir\OptixLambert_generated_deviceProgram.cu.ptx.depend;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixTRY\CMakeFiles\OptixLambert.dir\OptixLambert_generated_deviceProgram.cu.ptx.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixLambert\CMakeFiles\OptixLambert.dir\OptixLambert_generated_deviceProgram.cu.ptx.depend;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixLambert\CMakeFiles\OptixLambert.dir\OptixLambert_generated_deviceProgram.cu.ptx.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\lib\ptx\OptixLambert_generated_deviceProgram.cu.ptx</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building NVCC ptx file lib/ptx/OptixLambert_generated_deviceProgram.cu.ptx</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd "C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixTRY\CMakeFiles\OptixLambert.dir"
+cd "C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixLambert\CMakeFiles\OptixLambert.dir"
 if %errorlevel% neq 0 goto :cmEnd
 C:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E make_directory "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/."
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D check_dependencies:BOOL=ON -D "CCBIN:PATH=$(VCInstallDir)Tools/MSVC/$(VCToolsVersion)/bin/Host$(Platform)/$(PlatformTarget)" -D build_configuration:STRING=$(ConfigurationName) -D "generated_file:STRING=C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/./OptixLambert_generated_deviceProgram.cu.ptx" -D "generated_cubin_file:STRING=C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/./OptixLambert_generated_deviceProgram.cu.ptx.cubin.txt" -D "generated_fatbin_file:STRING=C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/./OptixLambert_generated_deviceProgram.cu.ptx.fatbin.txt" -P "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixTRY/CMakeFiles/OptixLambert.dir//OptixLambert_generated_deviceProgram.cu.ptx.cmake"
+"C:\Program Files\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D check_dependencies:BOOL=ON -D "CCBIN:PATH=$(VCInstallDir)Tools/MSVC/$(VCToolsVersion)/bin/Host$(Platform)/$(PlatformTarget)" -D build_configuration:STRING=$(ConfigurationName) -D "generated_file:STRING=C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/./OptixLambert_generated_deviceProgram.cu.ptx" -D "generated_cubin_file:STRING=C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/./OptixLambert_generated_deviceProgram.cu.ptx.cubin.txt" -D "generated_fatbin_file:STRING=C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/./OptixLambert_generated_deviceProgram.cu.ptx.fatbin.txt" -P "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixLambert/CMakeFiles/OptixLambert.dir//OptixLambert_generated_deviceProgram.cu.ptx.cmake"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -325,18 +325,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixTRY\CMakeFiles\OptixLambert.dir\OptixLambert_generated_deviceProgram.cu.ptx.depend;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixTRY\CMakeFiles\OptixLambert.dir\OptixLambert_generated_deviceProgram.cu.ptx.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixLambert\CMakeFiles\OptixLambert.dir\OptixLambert_generated_deviceProgram.cu.ptx.depend;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixLambert\CMakeFiles\OptixLambert.dir\OptixLambert_generated_deviceProgram.cu.ptx.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\lib\ptx\OptixLambert_generated_deviceProgram.cu.ptx</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building NVCC ptx file lib/ptx/OptixLambert_generated_deviceProgram.cu.ptx</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd "C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixTRY\CMakeFiles\OptixLambert.dir"
+cd "C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixLambert\CMakeFiles\OptixLambert.dir"
 if %errorlevel% neq 0 goto :cmEnd
 C:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E make_directory "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/."
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D check_dependencies:BOOL=ON -D "CCBIN:PATH=$(VCInstallDir)Tools/MSVC/$(VCToolsVersion)/bin/Host$(Platform)/$(PlatformTarget)" -D build_configuration:STRING=$(ConfigurationName) -D "generated_file:STRING=C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/./OptixLambert_generated_deviceProgram.cu.ptx" -D "generated_cubin_file:STRING=C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/./OptixLambert_generated_deviceProgram.cu.ptx.cubin.txt" -D "generated_fatbin_file:STRING=C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/./OptixLambert_generated_deviceProgram.cu.ptx.fatbin.txt" -P "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixTRY/CMakeFiles/OptixLambert.dir//OptixLambert_generated_deviceProgram.cu.ptx.cmake"
+"C:\Program Files\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D check_dependencies:BOOL=ON -D "CCBIN:PATH=$(VCInstallDir)Tools/MSVC/$(VCToolsVersion)/bin/Host$(Platform)/$(PlatformTarget)" -D build_configuration:STRING=$(ConfigurationName) -D "generated_file:STRING=C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/./OptixLambert_generated_deviceProgram.cu.ptx" -D "generated_cubin_file:STRING=C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/./OptixLambert_generated_deviceProgram.cu.ptx.cubin.txt" -D "generated_fatbin_file:STRING=C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/./OptixLambert_generated_deviceProgram.cu.ptx.fatbin.txt" -P "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixLambert/CMakeFiles/OptixLambert.dir//OptixLambert_generated_deviceProgram.cu.ptx.cmake"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -344,17 +344,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixTRY\CMakeFiles\OptixLambert.dir\OptixLambert_generated_deviceProgram.cu.ptx.depend;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixTRY\CMakeFiles\OptixLambert.dir\OptixLambert_generated_deviceProgram.cu.ptx.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixLambert\CMakeFiles\OptixLambert.dir\OptixLambert_generated_deviceProgram.cu.ptx.depend;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixLambert\CMakeFiles\OptixLambert.dir\OptixLambert_generated_deviceProgram.cu.ptx.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\lib\ptx\OptixLambert_generated_deviceProgram.cu.ptx</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\CMakeLists.txt">
+    <CustomBuild Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixLambert\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/OptixTRY/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/OptixLambert/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Vishu/Downloads/Optix Ray Tracer/Source" "-BC:/Users/Vishu/Downloads/Optix Ray Tracer/Build" --check-stamp-file "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixTRY/CMakeFiles/generate.stamp"
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Vishu/Downloads/Optix Ray Tracer/Source" "-BC:/Users/Vishu/Downloads/Optix Ray Tracer/Build" --check-stamp-file "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixLambert/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -362,12 +362,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixTRY\CMakeFiles\OptixLambert.dir\OptixLambert_generated_deviceProgram.cu.ptx.depend;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\FindCUDA\run_nvcc.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixTRY\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixLambert\CMakeFiles\OptixLambert.dir\OptixLambert_generated_deviceProgram.cu.ptx.depend;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\FindCUDA\run_nvcc.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixLambert\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/OptixTRY/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/OptixLambert/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Vishu/Downloads/Optix Ray Tracer/Source" "-BC:/Users/Vishu/Downloads/Optix Ray Tracer/Build" --check-stamp-file "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixTRY/CMakeFiles/generate.stamp"
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Vishu/Downloads/Optix Ray Tracer/Source" "-BC:/Users/Vishu/Downloads/Optix Ray Tracer/Build" --check-stamp-file "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixLambert/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -375,12 +375,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixTRY\CMakeFiles\OptixLambert.dir\OptixLambert_generated_deviceProgram.cu.ptx.depend;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\FindCUDA\run_nvcc.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixTRY\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixLambert\CMakeFiles\OptixLambert.dir\OptixLambert_generated_deviceProgram.cu.ptx.depend;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\FindCUDA\run_nvcc.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixLambert\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/OptixTRY/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/OptixLambert/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Vishu/Downloads/Optix Ray Tracer/Source" "-BC:/Users/Vishu/Downloads/Optix Ray Tracer/Build" --check-stamp-file "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixTRY/CMakeFiles/generate.stamp"
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Vishu/Downloads/Optix Ray Tracer/Source" "-BC:/Users/Vishu/Downloads/Optix Ray Tracer/Build" --check-stamp-file "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixLambert/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -388,12 +388,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixTRY\CMakeFiles\OptixLambert.dir\OptixLambert_generated_deviceProgram.cu.ptx.depend;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\FindCUDA\run_nvcc.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixTRY\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixLambert\CMakeFiles\OptixLambert.dir\OptixLambert_generated_deviceProgram.cu.ptx.depend;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\FindCUDA\run_nvcc.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixLambert\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/OptixTRY/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/OptixLambert/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Vishu/Downloads/Optix Ray Tracer/Source" "-BC:/Users/Vishu/Downloads/Optix Ray Tracer/Build" --check-stamp-file "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixTRY/CMakeFiles/generate.stamp"
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Vishu/Downloads/Optix Ray Tracer/Source" "-BC:/Users/Vishu/Downloads/Optix Ray Tracer/Build" --check-stamp-file "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixLambert/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -401,16 +401,16 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixTRY\CMakeFiles\OptixLambert.dir\OptixLambert_generated_deviceProgram.cu.ptx.depend;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\FindCUDA\run_nvcc.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixTRY\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixLambert\CMakeFiles\OptixLambert.dir\OptixLambert_generated_deviceProgram.cu.ptx.depend;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\FindCUDA\run_nvcc.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixLambert\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\main.cpp" />
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\Params.h" />
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\RenderState.h" />
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\RenderState.cpp" />
+    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixLambert\main.cpp" />
+    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixLambert\Params.h" />
+    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixLambert\RenderState.h" />
+    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixLambert\RenderState.cpp" />
     <None Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\lib\ptx\OptixLambert_generated_deviceProgram.cu.ptx">
     </None>
   </ItemGroup>

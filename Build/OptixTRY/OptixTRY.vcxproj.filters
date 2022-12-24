@@ -12,6 +12,9 @@
     <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\Params.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\build.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\RenderState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -23,7 +26,7 @@
     <CustomBuild Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\lib\ptx\OptixTRY_generated_deviceProgram.cu.ptx">
+    <None Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\lib\ptx\OptixTry_generated_deviceProgram.cu.ptx">
       <Filter>PTX Files</Filter>
     </None>
   </ItemGroup>
