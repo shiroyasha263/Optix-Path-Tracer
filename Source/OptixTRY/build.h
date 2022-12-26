@@ -14,8 +14,20 @@ public:
 	virtual SphereicalMesh get_sphere() const{
 		return spherical_mesh;
 	}
+	virtual TriangularMesh get_triangles() const {
+		return triangular_mesh;
+	}
+	virtual MeshType get_mesh_type() const {
+		return meshType;
+	}
 public:
 	SphereicalMesh spherical_mesh;
+	TriangularMesh triangular_mesh;
+	MeshType	   meshType;
+	CUdeviceptr	   d_vertex;
+	CUdeviceptr	   d_radius;
+	CUdeviceptr	   d_vertices;
+	CUdeviceptr	   d_indices;
 };
 
 class sphereBuild : public buildInput {
@@ -37,20 +49,36 @@ public:
 		spherical_mesh.material.emission = emission_color;
 		spherical_mesh.material.fuzz = fuzz;
 		spherical_mesh.material.eta = eta;
+		meshType = SPHERICAL;
 	};
 
 	virtual void build(OptixBuildInput& build_input, uint32_t& build_input_flags) const override;
-
-public:
-	CUdeviceptr d_vertex;
-	CUdeviceptr d_radius;
 };
 
 class triangleBuild : public buildInput {
-
 public:
-	CUdeviceptr d_vertices;
-	CUdeviceptr d_indices;
+	triangleBuild(std::vector<float3>& vertices, std::vector<int3>& indices, MaterialType materialType, float3 emission_color,
+		float3 diffusion_color, float fuzz, float eta) {
+
+		CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_vertices), vertices.size() * sizeof(float3)));
+		CUDA_CHECK(cudaMemcpy(reinterpret_cast<void*>(d_vertices), vertices.data(),
+			vertices.size() * sizeof(float3), cudaMemcpyHostToDevice));
+
+		CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_indices), indices.size() * sizeof(int3)));
+		CUDA_CHECK(cudaMemcpy(reinterpret_cast<void*>(d_indices), indices.data(),
+			indices.size() * sizeof(int3), cudaMemcpyHostToDevice));
+
+		triangular_mesh.vertices = vertices;
+		triangular_mesh.indices = indices;
+		triangular_mesh.materialType = materialType;
+		triangular_mesh.material.diffuse_color = diffusion_color;
+		triangular_mesh.material.emission = emission_color;
+		triangular_mesh.material.fuzz = fuzz;
+		triangular_mesh.material.eta = eta;
+		meshType = TRIANGULAR;
+	};
+
+	virtual void build(OptixBuildInput& build_input, uint32_t& build_input_flags) const override;
 };
 
 class buildInputList {

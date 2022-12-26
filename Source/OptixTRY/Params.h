@@ -1,9 +1,15 @@
 #pragma once
+#include <vector>
 
 enum RayType
 {
     RAY_TYPE_RADIANCE = 0,
     RAY_TYPE_COUNT
+};
+
+enum MeshType {
+    SPHERICAL,
+    TRIANGULAR
 };
 
 enum MaterialType {
@@ -69,14 +75,24 @@ struct HitGroupData
     float3  diffuse_color;
     float3 vertex;
     float radius;
+    float3* vertices;
+    int3* indices;
     MaterialType materialType;
     Material material;
+    MeshType meshType;
 };
 
 struct SphereicalMesh {
     float3 center;
     float radius;
     float3 diffuse_color;
+    MaterialType materialType;
+    Material material;
+};
+
+struct TriangularMesh {
+    std::vector<float3> vertices;
+    std::vector<int3>   indices;
     MaterialType materialType;
     Material material;
 };

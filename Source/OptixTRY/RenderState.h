@@ -40,20 +40,28 @@ public:
     void initLaunchParams();
     void launchSubframe(sutil::CUDAOutputBuffer<uchar4>& output_buffer);
     void createContext();
-    void buildMeshAccel();
+    void buildSphereMeshAccel();
+    void buildTriangleMeshAccel();
+    void buildIAS();
     void createModule();
     void createProgramGroups();
     void createPipeline();
     void createSBT();
     void cleanUp();
+    void Scene();
 
 public:
 
     OptixDeviceContext context = 0;
 
     OptixTraversableHandle         gas_handle = 0;  // Traversable handle for triangle AS
+    OptixTraversableHandle         sphere_handle = 0;
+    OptixTraversableHandle         triangle_handle = 0;
+
     CUdeviceptr                    d_gas_output_buffer = 0;  // Triangle AS memory
     CUdeviceptr                    d_vertices = 0;
+    CUdeviceptr                    d_instances = 0;
+    CUdeviceptr                    d_ias_output_buffer = 0;
 
     OptixModule                    ptx_module = 0;
     OptixModule                    sphere_module = 0;
@@ -70,5 +78,6 @@ public:
 
     OptixShaderBindingTable        sbt = {};
 
-    buildInputList                 meshList;
+    buildInputList                 sphereMeshList;
+    buildInputList                 triangleMeshList;
 };

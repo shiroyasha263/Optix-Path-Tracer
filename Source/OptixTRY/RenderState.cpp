@@ -32,7 +32,14 @@ struct Instance
 const int32_t TRIANGLE_COUNT = 32;
 
 //TWEAK THIS WHENEVER CHANGE NUMBER OF OBJECTS
-const int32_t MAT_COUNT = 4;
+const int32_t MAT_COUNT = 5;
+const int32_t INST_COUNT = 2;
+
+const std::array<Instance, INST_COUNT> g_instances =
+{ {
+        {{1, 0, 0, 0.0f, 0, 1, 0, 0, 0, 0, 1, 0}},
+        {{1, 0, 0, 0.0f, 0, 1, 0, 0, 0, 0, 1, 0}}
+} };
 
 const static std::array<Vertex, TRIANGLE_COUNT * 3> g_vertices =
 { {
@@ -266,17 +273,17 @@ void RenderState::createContext()
     OPTIX_CHECK(optixDeviceContextCreate(cu_ctx, &options, &context));
 }
 
-void RenderState::buildMeshAccel()
+void RenderState::buildSphereMeshAccel()
 {
     ///
     // Spherical Inputs
     ///
-    std::vector<OptixBuildInput> build_inputs(meshList.objects.size());
+    std::vector<OptixBuildInput> build_inputs(sphereMeshList.objects.size());
 
-    for (int meshID = 0; meshID < meshList.objects.size(); meshID++) {
+    for (int meshID = 0; meshID < sphereMeshList.objects.size(); meshID++) {
         OptixBuildInput build_input;
         uint32_t build_flags;
-        meshList.objects[meshID]->build(build_input, build_flags);
+        sphereMeshList.objects[meshID]->build(build_input, build_flags);
         build_inputs[meshID] = build_input;
     }
 
@@ -289,7 +296,7 @@ void RenderState::buildMeshAccel()
     accel_options.operation = OPTIX_BUILD_OPERATION_BUILD;
 
     OptixAccelBufferSizes gas_buffer_sizes;
-    OPTIX_CHECK(optixAccelComputeMemoryUsage(context, &accel_options, build_inputs.data(), (int)meshList.objects.size(), &gas_buffer_sizes));
+    OPTIX_CHECK(optixAccelComputeMemoryUsage(context, &accel_options, build_inputs.data(), (int)sphereMeshList.objects.size(), &gas_buffer_sizes));
     CUdeviceptr d_temp_buffer_gas;
     CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_temp_buffer_gas), gas_buffer_sizes.tempSizeInBytes));
 
@@ -306,9 +313,9 @@ void RenderState::buildMeshAccel()
     OPTIX_CHECK(optixAccelBuild(context,
         0,  // CUDA stream
         &accel_options, build_inputs.data(),
-        (int)meshList.objects.size(),  // num build inputs
+        (int)sphereMeshList.objects.size(),  // num build inputs
         d_temp_buffer_gas, gas_buffer_sizes.tempSizeInBytes,
-        d_buffer_temp_output_gas_and_compacted_size, gas_buffer_sizes.outputSizeInBytes, &gas_handle,
+        d_buffer_temp_output_gas_and_compacted_size, gas_buffer_sizes.outputSizeInBytes, &sphere_handle,
         &emitProperty,  // emitted property list
         1               // num emitted properties
     ));
@@ -325,13 +332,168 @@ void RenderState::buildMeshAccel()
         CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_gas_output_buffer), compacted_gas_size));
 
         // use handle as input and output
-        OPTIX_CHECK(optixAccelCompact(context, 0, gas_handle, d_gas_output_buffer, compacted_gas_size, &gas_handle));
+        OPTIX_CHECK(optixAccelCompact(context, 0, sphere_handle, d_gas_output_buffer, compacted_gas_size, &sphere_handle));
 
         CUDA_CHECK(cudaFree((void*)d_buffer_temp_output_gas_and_compacted_size));
     }
     else
     {
         d_gas_output_buffer = d_buffer_temp_output_gas_and_compacted_size;
+    }
+}
+
+void RenderState::buildTriangleMeshAccel() {
+    ///
+    // Spherical Inputs
+    ///
+    std::vector<OptixBuildInput> build_inputs(triangleMeshList.objects.size());
+
+    for (int meshID = 0; meshID < triangleMeshList.objects.size(); meshID++) {
+        OptixBuildInput build_input;
+        uint32_t build_flags;
+        triangleMeshList.objects[meshID]->build(build_input, build_flags);
+        build_inputs[meshID] = build_input;
+}
+
+    //
+    // copy mesh data to device
+    //
+    OptixAccelBuildOptions accel_options = {};
+    accel_options.buildFlags = OPTIX_BUILD_FLAG_ALLOW_COMPACTION | OPTIX_BUILD_FLAG_ALLOW_RANDOM_VERTEX_ACCESS;
+    accel_options.motionOptions.numKeys = 1;
+    accel_options.operation = OPTIX_BUILD_OPERATION_BUILD;
+
+    OptixAccelBufferSizes gas_buffer_sizes;
+    OPTIX_CHECK(optixAccelComputeMemoryUsage(context, &accel_options, build_inputs.data(), (int)triangleMeshList.objects.size(), &gas_buffer_sizes));
+    CUdeviceptr d_temp_buffer_gas;
+    CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_temp_buffer_gas), gas_buffer_sizes.tempSizeInBytes));
+
+    // non-compacted output
+    CUdeviceptr d_buffer_temp_output_gas_and_compacted_size;
+    size_t      compactedSizeOffset = roundUp<size_t>(gas_buffer_sizes.outputSizeInBytes, 8ull);
+    CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_buffer_temp_output_gas_and_compacted_size),
+        compactedSizeOffset + 8));
+
+    OptixAccelEmitDesc emitProperty = {};
+    emitProperty.type = OPTIX_PROPERTY_TYPE_COMPACTED_SIZE;
+    emitProperty.result = (CUdeviceptr)((char*)d_buffer_temp_output_gas_and_compacted_size + compactedSizeOffset);
+
+    OPTIX_CHECK(optixAccelBuild(context,
+        0,  // CUDA stream
+        &accel_options, build_inputs.data(),
+        (int)triangleMeshList.objects.size(),  // num build inputs
+        d_temp_buffer_gas, gas_buffer_sizes.tempSizeInBytes,
+        d_buffer_temp_output_gas_and_compacted_size, gas_buffer_sizes.outputSizeInBytes, &triangle_handle,
+        &emitProperty,  // emitted property list
+        1               // num emitted properties
+    ));
+
+    d_gas_output_buffer = d_buffer_temp_output_gas_and_compacted_size;
+
+    CUDA_CHECK(cudaFree((void*)d_temp_buffer_gas));
+
+    size_t compacted_gas_size;
+    CUDA_CHECK(cudaMemcpy(&compacted_gas_size, (void*)emitProperty.result, sizeof(size_t), cudaMemcpyDeviceToHost));
+
+    if (compacted_gas_size < gas_buffer_sizes.outputSizeInBytes)
+    {
+        CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_gas_output_buffer), compacted_gas_size));
+
+        // use handle as input and output
+        OPTIX_CHECK(optixAccelCompact(context, 0, triangle_handle, d_gas_output_buffer, compacted_gas_size, &triangle_handle));
+
+        CUDA_CHECK(cudaFree((void*)d_buffer_temp_output_gas_and_compacted_size));
+    }
+    else
+    {
+        d_gas_output_buffer = d_buffer_temp_output_gas_and_compacted_size;
+    }
+}
+
+void RenderState::buildIAS() {
+    std::vector<OptixInstance> instances;
+    OptixInstance instance = {};
+    // Common instance settings
+    instance.visibilityMask = 0xFF;
+    instance.flags = OPTIX_INSTANCE_FLAG_NONE;
+
+
+    memcpy(instance.transform, g_instances[0].transform, sizeof(float) * 12);
+    instance.sbtOffset = 0;
+    instance.instanceId = 0;
+    instance.traversableHandle = sphere_handle;
+    instances.push_back(instance);
+
+    memcpy(instance.transform, g_instances[0].transform, sizeof(float) * 12);
+    instance.sbtOffset = sphereMeshList.objects.size();
+    instance.traversableHandle = triangle_handle;
+    instances.push_back(instance);
+
+    size_t      instances_size_in_bytes = sizeof(OptixInstance) * instances.size();
+    CUDA_CHECK(cudaMalloc((void**)&d_instances, instances_size_in_bytes));
+    CUDA_CHECK(cudaMemcpy((void*)d_instances, instances.data(), instances_size_in_bytes, cudaMemcpyHostToDevice));
+
+    OptixBuildInput ias_instance_input;
+
+    ias_instance_input.type = OPTIX_BUILD_INPUT_TYPE_INSTANCES;
+    ias_instance_input.instanceArray.instances = d_instances;
+    ias_instance_input.instanceArray.numInstances = static_cast<int>(instances.size());
+
+    OptixAccelBuildOptions ias_accel_options = {};
+    ias_accel_options.buildFlags = OPTIX_BUILD_FLAG_ALLOW_COMPACTION | OPTIX_BUILD_FLAG_ALLOW_UPDATE;
+    ias_accel_options.motionOptions.numKeys = 1;
+    ias_accel_options.operation = OPTIX_BUILD_OPERATION_BUILD;
+
+    OptixAccelBufferSizes ias_buffer_sizes;
+    OPTIX_CHECK(optixAccelComputeMemoryUsage(context, &ias_accel_options, &ias_instance_input, 1, &ias_buffer_sizes));
+
+    // non-compacted output
+    CUdeviceptr d_buffer_temp_output_ias_and_compacted_size;
+    size_t compactedSizeOffset = roundUp<size_t>(ias_buffer_sizes.outputSizeInBytes, 8ull);
+    CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_buffer_temp_output_ias_and_compacted_size), compactedSizeOffset + 8));
+
+    CUdeviceptr d_ias_temp_buffer;
+    bool        needIASTempBuffer = true;
+    if (needIASTempBuffer)
+    {
+        CUDA_CHECK(cudaMalloc((void**)&d_ias_temp_buffer, ias_buffer_sizes.tempSizeInBytes));
+    }
+    else
+    {
+        //d_ias_temp_buffer = state.d_temp_buffer;
+    }
+
+    OptixAccelEmitDesc emitProperty = {};
+    emitProperty.type = OPTIX_PROPERTY_TYPE_COMPACTED_SIZE;
+    emitProperty.result = (CUdeviceptr)((char*)d_buffer_temp_output_ias_and_compacted_size + compactedSizeOffset);
+
+    OPTIX_CHECK(optixAccelBuild(context, 0, &ias_accel_options, &ias_instance_input, 1, d_ias_temp_buffer,
+        ias_buffer_sizes.tempSizeInBytes, d_buffer_temp_output_ias_and_compacted_size,
+        ias_buffer_sizes.outputSizeInBytes, &gas_handle, &emitProperty, 1));
+
+    if (needIASTempBuffer)
+    {
+        CUDA_CHECK(cudaFree((void*)d_ias_temp_buffer));
+    }
+
+    // Compress the IAS
+
+    size_t compacted_ias_size;
+    CUDA_CHECK(cudaMemcpy(&compacted_ias_size, (void*)emitProperty.result, sizeof(size_t), cudaMemcpyDeviceToHost));
+
+    if (compacted_ias_size < ias_buffer_sizes.outputSizeInBytes)
+    {
+        CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&d_ias_output_buffer), compacted_ias_size));
+
+        // use handle as input and output
+        OPTIX_CHECK(optixAccelCompact(context, 0, gas_handle, d_ias_output_buffer,
+            compacted_ias_size, &gas_handle));
+
+        CUDA_CHECK(cudaFree((void*)d_buffer_temp_output_ias_and_compacted_size));
+    }
+    else
+    {
+        d_ias_output_buffer = d_buffer_temp_output_ias_and_compacted_size;
     }
 }
 
@@ -343,7 +505,7 @@ void RenderState::createModule() {
 #endif
 
     pipeline_compile_options.usesMotionBlur = false;
-    pipeline_compile_options.traversableGraphFlags = OPTIX_TRAVERSABLE_GRAPH_FLAG_ALLOW_SINGLE_GAS;
+    pipeline_compile_options.traversableGraphFlags = OPTIX_TRAVERSABLE_GRAPH_FLAG_ALLOW_ANY;
     pipeline_compile_options.numPayloadValues = 2;
     pipeline_compile_options.numAttributeValues = 2;
 #ifdef DEBUG // Enables debug exceptions during optix launches. This may incur significant performance cost and should only be done during development.
@@ -489,7 +651,7 @@ void RenderState::createPipeline() {
         &continuation_stack_size
     ));
 
-    const uint32_t max_traversal_depth = 1;
+    const uint32_t max_traversal_depth = 2;
     OPTIX_CHECK(optixPipelineSetStackSize(
         pipeline,
         direct_callable_stack_size_from_traversal,
@@ -545,17 +707,31 @@ void RenderState::createSBT() {
     ));
 
     HitGroupRecord hitgroup_records[RAY_TYPE_COUNT * MAT_COUNT];
-    for (int meshID = 0; meshID < MAT_COUNT; meshID++)
+    for (int meshID = 0; meshID < sphereMeshList.objects.size(); meshID++)
     {
         //Since we only have one type of object
         HitGroupRecord rec;
         OPTIX_CHECK(optixSbtRecordPackHeader(radiance_hit_group, &rec));
-        rec.data.diffuse_color = meshList.objects[meshID]->get_sphere().diffuse_color;
-        rec.data.vertex = meshList.objects[meshID]->get_sphere().center;
-        rec.data.radius = meshList.objects[meshID]->get_sphere().radius;
-        rec.data.materialType = meshList.objects[meshID]->get_sphere().materialType;
-        rec.data.material = meshList.objects[meshID]->get_sphere().material;
+        rec.data.diffuse_color = sphereMeshList.objects[meshID]->get_sphere().diffuse_color;
+        rec.data.vertex = sphereMeshList.objects[meshID]->get_sphere().center;
+        rec.data.radius = sphereMeshList.objects[meshID]->get_sphere().radius;
+        rec.data.materialType = sphereMeshList.objects[meshID]->get_sphere().materialType;
+        rec.data.material = sphereMeshList.objects[meshID]->get_sphere().material;
+        rec.data.meshType = SPHERICAL;
         hitgroup_records[meshID] = rec;
+    }
+    for (int meshID = 0; meshID < triangleMeshList.objects.size(); meshID++) {
+        
+        //Since we only have one type of object
+        HitGroupRecord rec;
+        OPTIX_CHECK(optixSbtRecordPackHeader(radiance_hit_group, &rec));
+        rec.data.diffuse_color = triangleMeshList.objects[meshID]->get_triangles().material.diffuse_color;
+        rec.data.vertices   = reinterpret_cast<float3*>(triangleMeshList.objects[meshID]->d_vertices);
+        rec.data.indices    = reinterpret_cast<int3*>(triangleMeshList.objects[meshID]->d_indices );
+        rec.data.materialType = triangleMeshList.objects[meshID]->get_triangles().materialType;
+        rec.data.material = triangleMeshList.objects[meshID]->get_triangles().material;
+        hitgroup_records[sphereMeshList.objects.size() + meshID] = rec;
+        rec.data.meshType = TRIANGULAR;
     }
 
     CUDA_CHECK(cudaMemcpy(
@@ -592,25 +768,44 @@ void RenderState::cleanUp() {
     CUDA_CHECK(cudaFree(reinterpret_cast<void*>(d_params)));
 }
 
+void RenderState::Scene() {
+    sphereMeshList.clear();
+    triangleMeshList.clear();
+
+    std::vector<float3> vertices;
+    std::vector<int3> indices;
+
+    vertices.push_back(make_float3( 1.0f,  1.5f,  1.0f));
+    vertices.push_back(make_float3( 1.0f,  1.5f, -1.0f));
+    vertices.push_back(make_float3(-1.0f,  1.5f,  1.0f));
+    vertices.push_back(make_float3(-1.0f,  1.5f, -1.0f));
+
+    indices.push_back(make_int3(0, 1, 2));
+    indices.push_back(make_int3(1, 2, 3));
+
+    sphereMeshList.add(make_shared<sphereBuild>(make_float3(0.0f), 0.5f, DIFFUSE, make_float3(0.0f),
+        make_float3(0.7f, 0.3f, 0.3f), 0.5f, 1.5f));
+    sphereMeshList.add(make_shared<sphereBuild>(make_float3(0.0f, -100.5f, 0.0f), 100.f, DIFFUSE, make_float3(0.0f),
+        make_float3(0.8f, 0.8f, 0.0f), 1.f, 1.5f));
+    sphereMeshList.add(make_shared<sphereBuild>(make_float3(1.1f, 0.0f, 0.0f), 0.5f, SPECULAR, make_float3(0.0f),
+        make_float3(0.8f, 0.8f, 0.8f), 0.0f, 1.5f));
+    sphereMeshList.add(make_shared<sphereBuild>(make_float3(-1.1f, 0.0f, 0.0f), 0.5f, DIELECTRIC, make_float3(0.0f),
+        make_float3(0.7f, 0.3f, 0.3f), 0.5f, 2.0f));
+
+    triangleMeshList.add(make_shared<triangleBuild>(vertices, indices, DIFFUSE, make_float3(1.0f),
+        make_float3(0.7f, 0.3f, 0.3f), 0.5f, 1.5f));
+}
+
 RenderState::RenderState(unsigned int width, unsigned int height) {
     params.width = width;
     params.height = height;
 
-    meshList.clear();
-
-    meshList.add(make_shared<sphereBuild>(make_float3(0.0f), 0.5f, DIFFUSE, make_float3(0.0f),
-        make_float3(0.7f, 0.3f, 0.3f), 0.5f, 1.5f));
-    meshList.add(make_shared<sphereBuild>(make_float3(0.0f, -100.5f, 0.0f), 100.f, DIFFUSE, make_float3(0.0f),
-        make_float3(0.8f, 0.8f, 0.0f), 0.5f, 1.5f));
-    meshList.add(make_shared<sphereBuild>(make_float3(1.1f, 0.0f, 0.0f), 0.5f, SPECULAR, make_float3(0.0f),
-        make_float3(0.8f, 0.8f, 0.8f), 0.5f, 1.5f));
-    meshList.add(make_shared<sphereBuild>(make_float3(-1.1f, 0.0f, 0.0f), 0.5f, DIELECTRIC, make_float3(0.0f),
-        make_float3(0.7f, 0.3f, 0.3f), 0.5f, 1.5f));
-    meshList.add(make_shared<sphereBuild>(make_float3(-1.1f, 0.0f, 0.0f), -0.4f, DIELECTRIC, make_float3(0.0f),
-        make_float3(0.7f, 0.3f, 0.3f), 0.5f, 1.5f));
+    Scene();
 
     createContext();
-    buildMeshAccel();
+    buildSphereMeshAccel();
+    buildTriangleMeshAccel();
+    buildIAS();
     createModule();
     createProgramGroups();
     createPipeline();
@@ -633,4 +828,27 @@ void sphereBuild::build(OptixBuildInput& build_input, uint32_t& build_input_flag
 	build_input.sphereArray.sbtIndexOffsetBuffer = 0;
 	build_input.sphereArray.sbtIndexOffsetSizeInBytes = 0;
 	build_input.sphereArray.sbtIndexOffsetStrideInBytes = 0;
+}
+
+void triangleBuild::build(OptixBuildInput& build_input, uint32_t& build_input_flags) const {
+    build_input = {};
+    build_input.type = OPTIX_BUILD_INPUT_TYPE_TRIANGLES;
+
+    build_input.triangleArray.vertexFormat = OPTIX_VERTEX_FORMAT_FLOAT3;
+    build_input.triangleArray.vertexStrideInBytes = sizeof(float3);
+    build_input.triangleArray.numVertices = (int)triangular_mesh.vertices.size();
+    build_input.triangleArray.vertexBuffers = &d_vertices;
+
+    build_input.triangleArray.indexFormat = OPTIX_INDICES_FORMAT_UNSIGNED_INT3;
+    build_input.triangleArray.indexStrideInBytes = sizeof(int3);
+    build_input.triangleArray.numIndexTriplets = (int)triangular_mesh.indices.size();
+    build_input.triangleArray.indexBuffer = d_indices;
+
+    build_input_flags = 0;
+
+    build_input.triangleArray.flags = &build_input_flags;
+    build_input.triangleArray.numSbtRecords = 1;
+    build_input.triangleArray.sbtIndexOffsetBuffer = 0;
+    build_input.triangleArray.sbtIndexOffsetSizeInBytes = 0;
+    build_input.triangleArray.sbtIndexOffsetStrideInBytes = 0;
 }

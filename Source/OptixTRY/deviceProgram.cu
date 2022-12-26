@@ -275,6 +275,7 @@ extern "C" __global__ void __raygen__rg()
         prd.seed = seed;
 
         int depth = 0;
+        float3 atten = make_float3(1.f);
         for (;;) {
             traceRadiance(
                 params.handle,
@@ -284,6 +285,9 @@ extern "C" __global__ void __raygen__rg()
                 1e16f,  // tmax
                 &prd);
 
+            result += prd.emitted * atten;
+            atten = prd.attenuation;
+
             if (prd.done || depth >= 50) // TODO RR, variable for depth
                 break;
 
@@ -292,8 +296,6 @@ extern "C" __global__ void __raygen__rg()
 
             ++depth;
         }
-
-        result += prd.attenuation;
 
     } while (--i);
 
@@ -314,7 +316,7 @@ extern "C" __global__ void __raygen__rg()
 extern "C" __global__ void __miss__radiance()
 {
     RadiancePRD* prd = getPRD();
-    prd->attenuation *= make_float3(0.5, 0.7, 1.0);
+    prd->emitted = make_float3(0.f);
     prd->done = true;
 }
 
@@ -337,9 +339,22 @@ extern "C" __global__ void __closesthit__radiance()
     const float3 ray_dir = normalize(optixGetWorldRayDirection());
 
     float3 P = ray_orig + ray_dir * t_hit;
-    float3 normal = normalize(P - center) * (radius / fabs(radius));
+    
+    float3 normal;
+    float3 N;
 
-    const float3 N = faceforward(normal, -ray_dir, normal);
+    if (sbtData.meshType == SPHERICAL) {
+        normal   = normalize(P - center) * (radius / fabs(radius));
+        N        = faceforward(normal, -ray_dir, normal);
+    }
+    if (sbtData.meshType == TRIANGULAR) {
+        int3 index = sbtData.indices[primID];
+        const float3& A = sbtData.vertices[index.x];
+        const float3& B = sbtData.vertices[index.y];
+        const float3& C = sbtData.vertices[index.z];
+        normal = normalize(cross(B - A, C - A));
+        N = faceforward(normal, -ray_dir, normal);
+    }
 
     Ray ray_in;
     ray_in.origin = ray_orig;
@@ -355,7 +370,7 @@ extern "C" __global__ void __closesthit__radiance()
     RadiancePRD* prd = getPRD();
 
     if (prd->countEmitted)
-        prd->emitted = make_float3(0.0f);
+        prd->emitted = sbtData.material.emission;
     else
         prd->emitted = make_float3(0.0f);
     {
