@@ -26,11 +26,10 @@ struct RadiancePRD
     float3       attenuation;
     float3       origin;
     float3       direction;
-    float3       color;
     unsigned int seed;
     int          countEmitted;
     int          done;
-    int          pad;
+    bool         isInMedium;
 };
 
 
@@ -265,12 +264,12 @@ extern "C" __global__ void __raygen__rg()
         float3 ray_origin = eye;
 
         RadiancePRD prd;
-        prd.color = make_float3(0.f);
         prd.radiance = make_float3(0.f);
         prd.attenuation = make_float3(1.f);
         prd.countEmitted = true;
         prd.done = false;
         prd.seed = seed;
+        prd.isInMedium = false;
 
         int depth = 0;
         float3 atten = make_float3(1.f);
@@ -314,7 +313,7 @@ extern "C" __global__ void __raygen__rg()
 extern "C" __global__ void __miss__radiance()
 {
     RadiancePRD* prd = getPRD();
-    prd->emitted = make_float3(0.1f, 0.14f, 0.2f);
+    prd->emitted = make_float3(0.f);
     prd->done = true;
 }
 
@@ -327,59 +326,93 @@ extern "C" __global__ void __closesthit__radiance()
 
     float  t_hit = optixGetRayTmax();
 
-    // Backface hit not used.
-    //float  t_hit2 = __uint_as_float( optixGetAttribute_0() ); 
+    RadiancePRD* prd = getPRD();
 
+    unsigned int seed = prd->seed;
+    const float rand = rnd(seed);
+
+    const float3 rayDir = optixGetWorldRayDirection();
+    const float ray_length = length(rayDir);
+    const float sample_dist = sbtData.neg_inv_density * log(rand);
     const float3 ray_orig = optixGetWorldRayOrigin();
     const float3 ray_dir = normalize(optixGetWorldRayDirection());
-
-    float3 P = ray_orig + ray_dir * t_hit;
-    
-    float3 normal;
-    float3 N;
-
-    if (sbtData.meshType == SPHERICAL) {
-        const float3 center = sbtData.vertex;
-        const float radius = sbtData.radius;
-        normal   = normalize(P - center) * (radius / fabs(radius));
-        N        = faceforward(normal, -ray_dir, normal);
-    }
-    if (sbtData.meshType == TRIANGULAR) {
-        int3 index = sbtData.indices[primID];
-        const float3& A = sbtData.vertices[index.x];
-        const float3& B = sbtData.vertices[index.y];
-        const float3& C = sbtData.vertices[index.z];
-        normal = normalize(cross(B - A, C - A));
-        N = faceforward(normal, -ray_dir, normal);
-    }
 
     Ray ray_in;
     ray_in.origin = ray_orig;
     ray_in.direction = ray_dir;
 
-    HitData hitData;
-    hitData.N = N;
-    hitData.P = P;
-    hitData.normal = normal;
+    if (sample_dist < t_hit * ray_length && prd->isInMedium) {
+        const float x = 2.f * rnd(seed) - 1.f;
+        const float y = 2.f * rnd(seed) - 1.f;
+        const float z = 2.f * rnd(seed) - 1.f;
 
-    RadiancePRD* prd = getPRD();
+        const float3 dir = make_float3(x, y, z);
+        const float3 point = ray_in.origin + ray_dir * sample_dist;
+        prd->origin = point;
+        prd->direction = dir;
+        prd->attenuation *= sbtData.material.diffuse_color;
+    }
 
-    if (prd->countEmitted)
-        prd->emitted = sbtData.material.emission;
-    else
-        prd->emitted = make_float3(0.0f);
-    {
-        float3 attenuation = sbtData.material.diffuse_color;
-        if (sbtData.materialType == SPECULAR) {
-            bool test = false;
-            specular_scatter(ray_in, hitData, prd, attenuation, sbtData.material.fuzz);
+    else {
+
+        // Backface hit not used.
+        //float  t_hit2 = __uint_as_float( optixGetAttribute_0() ); 
+    
+        float3 P = ray_orig + ray_dir * t_hit;
+    
+        float3 normal;
+        float3 N;
+    
+        if (sbtData.meshType == SPHERICAL) {
+            const float3 center = sbtData.vertex;
+            const float radius = sbtData.radius;
+            normal = normalize(P - center) * (radius / fabs(radius));
+            N = faceforward(normal, -ray_dir, normal);
         }
-        else if(sbtData.materialType == DIFFUSE) {
-            diffuse_scatter(ray_in, hitData, prd, attenuation);
+        if (sbtData.meshType == TRIANGULAR) {
+            int3 index = sbtData.indices[primID];
+            const float3& A = sbtData.vertices[index.x];
+            const float3& B = sbtData.vertices[index.y];
+            const float3& C = sbtData.vertices[index.z];
+            normal = normalize(cross(B - A, C - A));
+            N = faceforward(normal, -ray_dir, normal);
         }
-        else if (sbtData.materialType == DIELECTRIC) {
-            dielectric_scatter(ray_in, hitData, prd, attenuation, sbtData.material.eta);
+    
+        Ray ray_in;
+        ray_in.origin = ray_orig;
+        ray_in.direction = ray_dir;
+    
+        HitData hitData;
+        hitData.N = N;
+        hitData.P = P;
+        hitData.normal = normal;
+    
+        if (prd->countEmitted)
+            prd->emitted = sbtData.material.emission;
+        else
+            prd->emitted = make_float3(0.0f);
+        {
+            float3 attenuation = sbtData.material.diffuse_color;
+            if (sbtData.materialType == SPECULAR) {
+                bool test = false;
+                specular_scatter(ray_in, hitData, prd, attenuation, sbtData.material.fuzz);
+            }
+            else if (sbtData.materialType == DIFFUSE) {
+                diffuse_scatter(ray_in, hitData, prd, attenuation);
+            }
+            else if (sbtData.materialType == DIELECTRIC) {
+                dielectric_scatter(ray_in, hitData, prd, attenuation, sbtData.material.eta);
+            }
+            else if (sbtData.materialType == MEDIUM) {
+                prd->isInMedium = !prd->isInMedium;
+                prd->direction = ray_in.direction;
+                prd->origin = P;
+            }
+            else if (sbtData.materialType == EMISSIVE) {
+                prd->done = true;
+                prd->emitted = sbtData.material.emission;
+            }
+            prd->attenuation *= attenuation;
         }
-        prd->attenuation *= attenuation;
     }
 }

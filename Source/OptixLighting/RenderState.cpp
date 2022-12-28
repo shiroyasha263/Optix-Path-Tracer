@@ -32,7 +32,7 @@ struct Instance
 const int32_t TRIANGLE_COUNT = 32;
 
 //TWEAK THIS WHENEVER CHANGE NUMBER OF OBJECTS
-const int32_t MAT_COUNT = 5;
+const int32_t MAT_COUNT = 6;
 const int32_t INST_COUNT = 2;
 
 const std::array<Instance, INST_COUNT> g_instances =
@@ -717,6 +717,7 @@ void RenderState::createSBT() {
         rec.data.materialType = sphereMeshList.objects[meshID]->get_sphere().materialType;
         rec.data.material = sphereMeshList.objects[meshID]->get_sphere().material;
         rec.data.meshType = SPHERICAL;
+        rec.data.neg_inv_density = -1.f;
         hitgroup_records[meshID] = rec;
     }
     for (int meshID = 0; meshID < triangleMeshList.objects.size(); meshID++) {
@@ -729,6 +730,7 @@ void RenderState::createSBT() {
         rec.data.materialType = triangleMeshList.objects[meshID]->get_triangles().materialType;
         rec.data.material = triangleMeshList.objects[meshID]->get_triangles().material;
         rec.data.meshType = TRIANGULAR;
+        rec.data.neg_inv_density = -10.f;
         hitgroup_records[sphereMeshList.objects.size() + meshID] = rec;
     }
 
@@ -772,6 +774,8 @@ void RenderState::Scene() {
 
     sphereMeshList.add(make_shared<sphereBuild>(make_float3(0.0f), 0.5f, DIFFUSE, make_float3(0.0f),
         make_float3(0.7f, 0.3f, 0.3f), 0.5f, 1.5f));
+    sphereMeshList.add(make_shared<sphereBuild>(make_float3(0.0f, 1.5f, 0.0f), 3.5f, MEDIUM, make_float3(0.0f),
+        make_float3(1.f), 0.5f, 1.5f));
     sphereMeshList.add(make_shared<sphereBuild>(make_float3(1.1f, 0.0f, 0.0f), 0.5f, SPECULAR, make_float3(0.0f),
         make_float3(0.8f, 0.8f, 0.8f), 0.0f, 1.5f));
     sphereMeshList.add(make_shared<sphereBuild>(make_float3(-1.1f, 0.0f, 0.0f), 0.5f, DIELECTRIC, make_float3(0.0f),
@@ -780,8 +784,8 @@ void RenderState::Scene() {
     std::vector<float3> vertices;
     std::vector<int3> indices;
 
-    vertices.push_back(make_float3(1.0f, 1.5f, 1.0f));
-    vertices.push_back(make_float3(1.0f, 1.5f, -1.0f));
+    vertices.push_back(make_float3( 1.0f, 1.5f, 1.0f));
+    vertices.push_back(make_float3( 1.0f, 1.5f, -1.0f));
     vertices.push_back(make_float3(-1.0f, 1.5f, 1.0f));
     vertices.push_back(make_float3(-1.0f, 1.5f, -1.0f));
 
@@ -802,8 +806,8 @@ void RenderState::Scene() {
     indices.push_back(make_int3(0, 1, 2));
     indices.push_back(make_int3(1, 2, 3));
 
-    triangleMeshList.add(make_shared<triangleBuild>(vertices, indices, DIFFUSE, make_float3(0.0f),
-        make_float3(0.7f, 0.3f, 0.3f), 0.5f, 1.5f));
+    triangleMeshList.add(make_shared<triangleBuild>(vertices, indices, SPECULAR, make_float3(0.0f),
+        make_float3(0.7f, 0.3f, 0.3f), 0.f, 1.5f));
 }
 
 RenderState::RenderState(unsigned int width, unsigned int height) {

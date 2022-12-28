@@ -15,7 +15,9 @@ enum MeshType {
 enum MaterialType {
     DIFFUSE,
     SPECULAR,
-    DIELECTRIC
+    DIELECTRIC,
+    EMISSIVE,
+    MEDIUM
 };
 
 enum PrimitiveTyoe {
@@ -78,6 +80,7 @@ struct HitGroupData
     MaterialType materialType;
     Material material;
     MeshType meshType;
+    float neg_inv_density;
 };
 
 struct SphereicalMesh {
