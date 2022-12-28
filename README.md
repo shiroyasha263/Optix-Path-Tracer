@@ -8,4 +8,4 @@ So, as of now I have made the following parts of my ray tracer -
  - OptixLambert: add a lambertian object
  - OptixTry: working on both a metalic and dielectric object
  
- ![Render 1](https://github.com/shiroyasha263/Optix-Ray-Tracer/blob/master/image.png)
+ ![Render 1](https://github.com/shiroyasha263/Optix-Ray-Tracer/blob/master/image1.png)
