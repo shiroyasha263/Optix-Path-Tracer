@@ -1,29 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTry\main.cpp">
+    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixLighting\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTry\RenderState.cpp">
+    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixLighting\build.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixLighting\RenderState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTry\Params.h">
+    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixLighting\Params.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTry\RenderState.h">
+    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixLighting\RenderState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixLighting\build.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTry\deviceProgram.cu">
+    <CustomBuild Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixLighting\deviceProgram.cu">
       <Filter>CUDA Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTry\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixLighting\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\lib\ptx\OptixTry_generated_deviceProgram.cu.ptx">
+    <None Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\lib\ptx\OptixLighting_generated_deviceProgram.cu.ptx">
       <Filter>PTX Files</Filter>
     </None>
   </ItemGroup>

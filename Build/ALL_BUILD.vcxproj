@@ -185,6 +185,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{600DC9EF-BE2B-3E20-B6C2-73950527457D}</Project>
       <Name>OptixLambert</Name>
     </ProjectReference>
+    <ProjectReference Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixLighting\OptixLighting.vcxproj">
+      <Project>{AC11650A-0B49-3350-BBF6-5254D7FAAF6B}</Project>
+      <Name>OptixLighting</Name>
+    </ProjectReference>
     <ProjectReference Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixPipeline\OptixPipeline.vcxproj">
       <Project>{816352D8-C8AA-38C5-9C3C-23A1F78ABCC4}</Project>
       <Name>OptixPipeline</Name>

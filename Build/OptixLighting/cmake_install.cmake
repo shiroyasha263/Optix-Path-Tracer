@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/OptixTry
+# Install script for directory: C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/OptixLighting
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

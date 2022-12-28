@@ -23,6 +23,7 @@
 #include <GLFW/glfw3.h>
 
 #include "Params.h"
+#include "build.h"
 
 #include <array>
 #include <cstring>
@@ -32,19 +33,6 @@
 #include <sstream>
 #include <string>
 
-enum MaterialType {
-    DIFFUSE,
-    SPECULAR,
-    DIELECTRIC
-};
-
-struct TriangularMesh {
-    std::vector<float3> vertices;
-    std::vector<int3> indices;
-    float3 diffuse_color;
-    MaterialType material;
-};
-
 class RenderState
 {
 public:
@@ -52,20 +40,28 @@ public:
     void initLaunchParams();
     void launchSubframe(sutil::CUDAOutputBuffer<uchar4>& output_buffer);
     void createContext();
-    void buildMeshAccel();
+    void buildSphereMeshAccel();
+    void buildTriangleMeshAccel();
+    void buildIAS();
     void createModule();
     void createProgramGroups();
     void createPipeline();
     void createSBT();
     void cleanUp();
+    void Scene();
 
 public:
 
     OptixDeviceContext context = 0;
 
     OptixTraversableHandle         gas_handle = 0;  // Traversable handle for triangle AS
+    OptixTraversableHandle         sphere_handle = 0;
+    OptixTraversableHandle         triangle_handle = 0;
+
     CUdeviceptr                    d_gas_output_buffer = 0;  // Triangle AS memory
     CUdeviceptr                    d_vertices = 0;
+    CUdeviceptr                    d_instances = 0;
+    CUdeviceptr                    d_ias_output_buffer = 0;
 
     OptixModule                    ptx_module = 0;
     OptixModule                    sphere_module = 0;
@@ -82,7 +78,6 @@ public:
 
     OptixShaderBindingTable        sbt = {};
 
-    std::vector<TriangularMesh>    meshes;
-    std::vector<CUdeviceptr>       d_vertex_buffer;
-    std::vector<CUdeviceptr>       d_index_buffer;
+    buildInputList                 sphereMeshList;
+    buildInputList                 triangleMeshList;
 };

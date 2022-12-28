@@ -64,9 +64,9 @@ endif()
 
 # Set these up as variables to make reading the generated file easier
 set(CMAKE_COMMAND "C:/Program Files/CMake/bin/cmake.exe") # path
-set(source_file "C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/OptixTry/deviceProgram.cu") # path
-set(NVCC_generated_dependency_file "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixTRY/CMakeFiles/OptixTry.dir//OptixTry_generated_deviceProgram.cu.ptx.NVCC-depend") # path
-set(cmake_dependency_file "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixTRY/CMakeFiles/OptixTry.dir//OptixTry_generated_deviceProgram.cu.ptx.depend") # path
+set(source_file "C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/OptixLighting/deviceProgram.cu") # path
+set(NVCC_generated_dependency_file "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixLighting/CMakeFiles/OptixTry.dir//OptixTry_generated_deviceProgram.cu.ptx.NVCC-depend") # path
+set(cmake_dependency_file "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixLighting/CMakeFiles/OptixTry.dir//OptixTry_generated_deviceProgram.cu.ptx.depend") # path
 set(CUDA_make2cmake "C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMake/FindCUDA/make2cmake.cmake") # path
 set(CUDA_parse_cubin "C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMake/FindCUDA/parse_cubin.cmake") # path
 set(build_cubin OFF) # bool

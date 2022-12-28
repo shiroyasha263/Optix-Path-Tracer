@@ -1,5 +1,4 @@
 #pragma once
-#include <vector>
 
 enum RayType
 {
@@ -7,28 +6,6 @@ enum RayType
     RAY_TYPE_COUNT
 };
 
-enum MeshType {
-    SPHERICAL,
-    TRIANGULAR
-};
-
-enum MaterialType {
-    DIFFUSE,
-    SPECULAR,
-    DIELECTRIC
-};
-
-enum PrimitiveTyoe {
-    TRIANGLE,
-    SPHERE
-};
-
-struct Material {
-    float3 emission;
-    float3 diffuse_color;
-    float fuzz;
-    float eta;
-};
 
 struct ParallelogramLight
 {
@@ -73,26 +50,6 @@ struct HitGroupData
 {
     float3  emission_color;
     float3  diffuse_color;
-    float3 vertex;
-    float radius;
-    float3* vertices;
-    int3* indices;
-    MaterialType materialType;
-    Material material;
-    MeshType meshType;
-};
-
-struct SphereicalMesh {
-    float3 center;
-    float radius;
-    float3 diffuse_color;
-    MaterialType materialType;
-    Material material;
-};
-
-struct TriangularMesh {
-    std::vector<float3> vertices;
-    std::vector<int3>   indices;
-    MaterialType materialType;
-    Material material;
+    float3* vertex;
+    int3*  index;
 };

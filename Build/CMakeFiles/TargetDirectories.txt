@@ -4,6 +4,7 @@ C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixHello/CMakeFiles/optixHello
 C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixPipeline/CMakeFiles/OptixPipeline.dir
 C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixWindow/CMakeFiles/OptixWindow.dir
 C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixSphere/CMakeFiles/OptixSphere.dir
+C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixLighting/CMakeFiles/OptixLighting.dir
 C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixTRY/CMakeFiles/OptixTry.dir
 C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixLambert/CMakeFiles/OptixLambert.dir
 C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/sutil/CMakeFiles/sutil_7_sdk.dir
