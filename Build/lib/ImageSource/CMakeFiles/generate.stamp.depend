@@ -3,9 +3,9 @@ C:/Program Files/CMake/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cm
 C:/Program Files/CMake/share/cmake-3.23/Modules/FindPackageMessage.cmake
 C:/Program Files/CMake/share/cmake-3.23/Modules/FindZLIB.cmake
 C:/Program Files/CMake/share/cmake-3.23/Modules/SelectLibraryConfigurations.cmake
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ImageSource/CMakeFiles/DeviceConstantImageKernels.dir/DeviceConstantImageKernels_generated_DeviceConstantImageKernels.cu.obj.depend
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ImageSource/CMakeFiles/DeviceMandelbrotImageKernels.dir/DeviceMandelbrotImageKernels_generated_DeviceMandelbrotImageKernels.cu.obj.depend
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMake/FindCUDA/run_nvcc.cmake
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMake/FindOpenEXR.cmake
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMake/FindZlibStatic.cmake
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/lib/ImageSource/CMakeLists.txt
+C:/Users/Vishu/Optix-Ray-Tracer/Build/lib/ImageSource/CMakeFiles/DeviceConstantImageKernels.dir/DeviceConstantImageKernels_generated_DeviceConstantImageKernels.cu.obj.depend
+C:/Users/Vishu/Optix-Ray-Tracer/Build/lib/ImageSource/CMakeFiles/DeviceMandelbrotImageKernels.dir/DeviceMandelbrotImageKernels_generated_DeviceMandelbrotImageKernels.cu.obj.depend
+C:/Users/Vishu/Optix-Ray-Tracer/Source/CMake/FindCUDA/run_nvcc.cmake
+C:/Users/Vishu/Optix-Ray-Tracer/Source/CMake/FindOpenEXR.cmake
+C:/Users/Vishu/Optix-Ray-Tracer/Source/CMake/FindZlibStatic.cmake
+C:/Users/Vishu/Optix-Ray-Tracer/Source/lib/ImageSource/CMakeLists.txt

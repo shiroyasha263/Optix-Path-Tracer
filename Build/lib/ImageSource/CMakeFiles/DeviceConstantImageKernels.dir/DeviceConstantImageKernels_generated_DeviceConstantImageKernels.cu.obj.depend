@@ -161,11 +161,11 @@ SET(CUDA_NVCC_DEPEND
  "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.6/include/vector_functions.h"
  "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.6/include/vector_functions.hpp"
  "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.6/include/vector_types.h"
- "C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/cuda/helpers.h"
- "C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/lib/ImageSource/DeviceConstantImageKernels.cu"
- "C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/lib/ImageSource/Exception.h"
- "C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/lib/ImageSource/include/ImageSource/DeviceConstantImageParams.h"
- "C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/sutil/Preprocessor.h"
- "C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/sutil/vec_math.h"
+ "C:/Users/Vishu/Optix-Ray-Tracer/Source/cuda/helpers.h"
+ "C:/Users/Vishu/Optix-Ray-Tracer/Source/lib/ImageSource/DeviceConstantImageKernels.cu"
+ "C:/Users/Vishu/Optix-Ray-Tracer/Source/lib/ImageSource/Exception.h"
+ "C:/Users/Vishu/Optix-Ray-Tracer/Source/lib/ImageSource/include/ImageSource/DeviceConstantImageParams.h"
+ "C:/Users/Vishu/Optix-Ray-Tracer/Source/sutil/Preprocessor.h"
+ "C:/Users/Vishu/Optix-Ray-Tracer/Source/sutil/vec_math.h"
 )
 

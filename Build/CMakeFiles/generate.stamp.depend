@@ -24,16 +24,16 @@ C:/Program Files/CMake/share/cmake-3.23/Modules/Platform/Windows-MSVC-CXX.cmake
 C:/Program Files/CMake/share/cmake-3.23/Modules/Platform/Windows-MSVC.cmake
 C:/Program Files/CMake/share/cmake-3.23/Modules/Platform/Windows.cmake
 C:/Program Files/CMake/share/cmake-3.23/Modules/Platform/WindowsPaths.cmake
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/CMakeFiles/3.23.1/CMakeCCompiler.cmake
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/CMakeFiles/3.23.1/CMakeCXXCompiler.cmake
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/CMakeFiles/3.23.1/CMakeRCCompiler.cmake
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/CMakeFiles/3.23.1/CMakeSystem.cmake
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMake/CompilerInfo.cmake
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMake/ConfigCompilerFlags.cmake
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMake/FindCUDA.cmake
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMake/FindCUDA/select_compute_arch.cmake
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMake/FindOptiX.cmake
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMake/Macros.cmake
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMake/sse_support.h.in
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMakeLists.txt
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/sampleConfig.h.in
+C:/Users/Vishu/Optix-Ray-Tracer/Build/CMakeFiles/3.23.1/CMakeCCompiler.cmake
+C:/Users/Vishu/Optix-Ray-Tracer/Build/CMakeFiles/3.23.1/CMakeCXXCompiler.cmake
+C:/Users/Vishu/Optix-Ray-Tracer/Build/CMakeFiles/3.23.1/CMakeRCCompiler.cmake
+C:/Users/Vishu/Optix-Ray-Tracer/Build/CMakeFiles/3.23.1/CMakeSystem.cmake
+C:/Users/Vishu/Optix-Ray-Tracer/Source/CMake/CompilerInfo.cmake
+C:/Users/Vishu/Optix-Ray-Tracer/Source/CMake/ConfigCompilerFlags.cmake
+C:/Users/Vishu/Optix-Ray-Tracer/Source/CMake/FindCUDA.cmake
+C:/Users/Vishu/Optix-Ray-Tracer/Source/CMake/FindCUDA/select_compute_arch.cmake
+C:/Users/Vishu/Optix-Ray-Tracer/Source/CMake/FindOptiX.cmake
+C:/Users/Vishu/Optix-Ray-Tracer/Source/CMake/Macros.cmake
+C:/Users/Vishu/Optix-Ray-Tracer/Source/CMake/sse_support.h.in
+C:/Users/Vishu/Optix-Ray-Tracer/Source/CMakeLists.txt
+C:/Users/Vishu/Optix-Ray-Tracer/Source/sampleConfig.h.in

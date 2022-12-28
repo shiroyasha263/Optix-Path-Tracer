@@ -1,5 +1,5 @@
-DeviceMandelbrotImageKernels.obj : C:/Users/Vishu/Downloads/Optix\ Ray\ Tracer/Source/lib/ImageSource/DeviceMandelbrotImageKernels.cu \
-    C:/Users/Vishu/Downloads/Optix\ Ray\ Tracer/Source/lib/ImageSource/DeviceMandelbrotImageKernels.cu \
+DeviceMandelbrotImageKernels.obj : C:/Users/Vishu/Optix-Ray-Tracer/Source/lib/ImageSource/DeviceMandelbrotImageKernels.cu \
+    C:/Users/Vishu/Optix-Ray-Tracer/Source/lib/ImageSource/DeviceMandelbrotImageKernels.cu \
     C:/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.6/include/cuda_runtime.h \
     C:/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.6/include/crt/host_config.h \
     C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/crtdefs.h \
@@ -105,13 +105,13 @@ DeviceMandelbrotImageKernels.obj : C:/Users/Vishu/Downloads/Optix\ Ray\ Tracer/S
     C:/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.6/include/surface_indirect_functions.h \
     C:/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.6/include/device_launch_parameters.h \
     C:/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.6/include/cuda.h \
-    C:/Users/Vishu/Downloads/Optix\ Ray\ Tracer/Source/cuda/helpers.h \
+    C:/Users/Vishu/Optix-Ray-Tracer/Source/cuda/helpers.h \
     C:/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.6/include/vector_types.h \
-    C:/Users/Vishu/Downloads/Optix\ Ray\ Tracer/Source/sutil/vec_math.h \
-    C:/Users/Vishu/Downloads/Optix\ Ray\ Tracer/Source/sutil/Preprocessor.h \
+    C:/Users/Vishu/Optix-Ray-Tracer/Source/sutil/vec_math.h \
+    C:/Users/Vishu/Optix-Ray-Tracer/Source/sutil/Preprocessor.h \
     C:/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.6/include/vector_functions.h \
-    C:/Users/Vishu/Downloads/Optix\ Ray\ Tracer/Source/lib/ImageSource/include/ImageSource/DeviceMandelbrotParams.h \
-    C:/Users/Vishu/Downloads/Optix\ Ray\ Tracer/Source/lib/ImageSource/Exception.h \
+    C:/Users/Vishu/Optix-Ray-Tracer/Source/lib/ImageSource/include/ImageSource/DeviceMandelbrotParams.h \
+    C:/Users/Vishu/Optix-Ray-Tracer/Source/lib/ImageSource/Exception.h \
     C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/iostream \
     C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/istream \
     C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/ostream \

@@ -64,18 +64,18 @@ endif()
 
 # Set these up as variables to make reading the generated file easier
 set(CMAKE_COMMAND "C:/Program Files/CMake/bin/cmake.exe") # path
-set(source_file "C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/lib/ImageSource/DeviceConstantImageKernels.cu") # path
-set(NVCC_generated_dependency_file "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ImageSource/CMakeFiles/DeviceConstantImageKernels.dir//DeviceConstantImageKernels_generated_DeviceConstantImageKernels.cu.obj.NVCC-depend") # path
-set(cmake_dependency_file "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ImageSource/CMakeFiles/DeviceConstantImageKernels.dir//DeviceConstantImageKernels_generated_DeviceConstantImageKernels.cu.obj.depend") # path
-set(CUDA_make2cmake "C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMake/FindCUDA/make2cmake.cmake") # path
-set(CUDA_parse_cubin "C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMake/FindCUDA/parse_cubin.cmake") # path
+set(source_file "C:/Users/Vishu/Optix-Ray-Tracer/Source/lib/ImageSource/DeviceConstantImageKernels.cu") # path
+set(NVCC_generated_dependency_file "C:/Users/Vishu/Optix-Ray-Tracer/Build/lib/ImageSource/CMakeFiles/DeviceConstantImageKernels.dir//DeviceConstantImageKernels_generated_DeviceConstantImageKernels.cu.obj.NVCC-depend") # path
+set(cmake_dependency_file "C:/Users/Vishu/Optix-Ray-Tracer/Build/lib/ImageSource/CMakeFiles/DeviceConstantImageKernels.dir//DeviceConstantImageKernels_generated_DeviceConstantImageKernels.cu.obj.depend") # path
+set(CUDA_make2cmake "C:/Users/Vishu/Optix-Ray-Tracer/Source/CMake/FindCUDA/make2cmake.cmake") # path
+set(CUDA_parse_cubin "C:/Users/Vishu/Optix-Ray-Tracer/Source/CMake/FindCUDA/parse_cubin.cmake") # path
 set(build_cubin OFF) # bool
 set(CUDA_HOST_COMPILER "$(VCInstallDir)Tools/MSVC/$(VCToolsVersion)/bin/Host$(Platform)/$(PlatformTarget)") # path
 # We won't actually use these variables for now, but we need to set this, in
 # order to force this file to be run again if it changes.
-set(generated_file_path "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/$(Configuration)") # path
-set(generated_file_internal "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/$(Configuration)/DeviceConstantImageKernels_generated_DeviceConstantImageKernels.cu.obj") # path
-set(generated_cubin_file_internal "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ptx/$(Configuration)/DeviceConstantImageKernels_generated_DeviceConstantImageKernels.cu.obj.cubin.txt") # path
+set(generated_file_path "C:/Users/Vishu/Optix-Ray-Tracer/Build/lib/ptx/$(Configuration)") # path
+set(generated_file_internal "C:/Users/Vishu/Optix-Ray-Tracer/Build/lib/ptx/$(Configuration)/DeviceConstantImageKernels_generated_DeviceConstantImageKernels.cu.obj") # path
+set(generated_cubin_file_internal "C:/Users/Vishu/Optix-Ray-Tracer/Build/lib/ptx/$(Configuration)/DeviceConstantImageKernels_generated_DeviceConstantImageKernels.cu.obj.cubin.txt") # path
 
 set(CUDA_REMOVE_GLOBAL_MEMORY_SPACE_WARNING ON)
 
@@ -87,7 +87,7 @@ set(CUDA_NVCC_FLAGS_RELEASE  ; )
 set(CUDA_NVCC_FLAGS_MINSIZEREL  ; )
 set(CUDA_NVCC_FLAGS_RELWITHDEBINFO  ; )
 set(nvcc_flags -m64;-D_USE_MATH_DEFINES;-DNOMINMAX) # list
-set(CUDA_NVCC_INCLUDE_ARGS "-IC:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.6/include;-IC:/Users/Vishu/Downloads/Optix Ray Tracer/include;-IC:/Users/Vishu/Downloads/Optix Ray Tracer/Source/cuda;-IC:/Users/Vishu/Downloads/Optix Ray Tracer/Source;-IC:/Users/Vishu/Downloads/Optix Ray Tracer/Build/include;-IC:/Users/Vishu/Downloads/Optix Ray Tracer/Build;-IC:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.6/include;-IC:/Users/Vishu/Downloads/Optix Ray Tracer/Source/lib/ImageSource/include") # list (needs to be in quotes to handle spaces properly).
+set(CUDA_NVCC_INCLUDE_ARGS "-IC:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.6/include;-IC:/Users/Vishu/Optix-Ray-Tracer/include;-IC:/Users/Vishu/Optix-Ray-Tracer/Source/cuda;-IC:/Users/Vishu/Optix-Ray-Tracer/Source;-IC:/Users/Vishu/Optix-Ray-Tracer/Build/include;-IC:/Users/Vishu/Optix-Ray-Tracer/Build;-IC:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.6/include;-IC:/Users/Vishu/Optix-Ray-Tracer/Source/lib/ImageSource/include") # list (needs to be in quotes to handle spaces properly).
 set(format_flag "-c") # string
 set(cuda_language_flag ) # list
 

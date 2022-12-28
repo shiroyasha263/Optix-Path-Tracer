@@ -1,5 +1,5 @@
-sphere.obj : C:/Users/Vishu/Downloads/Optix\ Ray\ Tracer/Source/cuda/sphere.cu \
-    C:/Users/Vishu/Downloads/Optix\ Ray\ Tracer/Source/cuda/sphere.cu \
+sphere.obj : C:/Users/Vishu/Optix-Ray-Tracer/Source/cuda/sphere.cu \
+    C:/Users/Vishu/Optix-Ray-Tracer/Source/cuda/sphere.cu \
     C:/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.6/include/cuda_runtime.h \
     C:/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.6/include/crt/host_config.h \
     C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/crtdefs.h \
@@ -104,19 +104,19 @@ sphere.obj : C:/Users/Vishu/Downloads/Optix\ Ray\ Tracer/Source/cuda/sphere.cu \
     C:/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.6/include/texture_indirect_functions.h \
     C:/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.6/include/surface_indirect_functions.h \
     C:/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.6/include/device_launch_parameters.h \
-    C:/Users/Vishu/Downloads/Optix\ Ray\ Tracer/include/optix.h \
-    C:/Users/Vishu/Downloads/Optix\ Ray\ Tracer/include/optix_device.h \
-    C:/Users/Vishu/Downloads/Optix\ Ray\ Tracer/include/optix_7_device.h \
-    C:/Users/Vishu/Downloads/Optix\ Ray\ Tracer/include/optix_7_types.h \
-    C:/Users/Vishu/Downloads/Optix\ Ray\ Tracer/include/internal/optix_7_device_impl.h \
-    C:/Users/Vishu/Downloads/Optix\ Ray\ Tracer/include/internal/optix_7_device_impl_exception.h \
+    C:/Users/Vishu/Optix-Ray-Tracer/include/optix.h \
+    C:/Users/Vishu/Optix-Ray-Tracer/include/optix_device.h \
+    C:/Users/Vishu/Optix-Ray-Tracer/include/optix_7_device.h \
+    C:/Users/Vishu/Optix-Ray-Tracer/include/optix_7_types.h \
+    C:/Users/Vishu/Optix-Ray-Tracer/include/internal/optix_7_device_impl.h \
+    C:/Users/Vishu/Optix-Ray-Tracer/include/internal/optix_7_device_impl_exception.h \
     C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cstdio \
-    C:/Users/Vishu/Downloads/Optix\ Ray\ Tracer/include/internal/optix_7_device_impl_transformations.h \
-    C:/Users/Vishu/Downloads/Optix\ Ray\ Tracer/Source/sutil/vec_math.h \
-    C:/Users/Vishu/Downloads/Optix\ Ray\ Tracer/Source/sutil/Preprocessor.h \
+    C:/Users/Vishu/Optix-Ray-Tracer/include/internal/optix_7_device_impl_transformations.h \
+    C:/Users/Vishu/Optix-Ray-Tracer/Source/sutil/vec_math.h \
+    C:/Users/Vishu/Optix-Ray-Tracer/Source/sutil/Preprocessor.h \
     C:/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.6/include/vector_functions.h \
     C:/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.6/include/vector_types.h \
-    C:/Users/Vishu/Downloads/Optix\ Ray\ Tracer/Source/cuda/sphere.h \
-    C:/Users/Vishu/Downloads/Optix\ Ray\ Tracer/Source/cuda/GeometryData.h \
-    C:/Users/Vishu/Downloads/Optix\ Ray\ Tracer/Source/cuda/BufferView.h \
+    C:/Users/Vishu/Optix-Ray-Tracer/Source/cuda/sphere.h \
+    C:/Users/Vishu/Optix-Ray-Tracer/Source/cuda/GeometryData.h \
+    C:/Users/Vishu/Optix-Ray-Tracer/Source/cuda/BufferView.h \
     C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cassert

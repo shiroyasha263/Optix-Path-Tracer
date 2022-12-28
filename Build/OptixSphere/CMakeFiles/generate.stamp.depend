@@ -1,4 +1,4 @@
 # CMake generation dependency list for this directory.
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixSphere/CMakeFiles/OptixSphere.dir/OptixSphere_generated_deviceProgram.cu.ptx.depend
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMake/FindCUDA/run_nvcc.cmake
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/OptixSphere/CMakeLists.txt
+C:/Users/Vishu/Optix-Ray-Tracer/Build/OptixSphere/CMakeFiles/OptixSphere.dir/OptixSphere_generated_deviceProgram.cu.ptx.depend
+C:/Users/Vishu/Optix-Ray-Tracer/Source/CMake/FindCUDA/run_nvcc.cmake
+C:/Users/Vishu/Optix-Ray-Tracer/Source/OptixSphere/CMakeLists.txt

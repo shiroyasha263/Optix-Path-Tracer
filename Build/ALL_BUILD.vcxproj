@@ -25,7 +25,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{49065D93-C072-358E-B4D6-92BAE934D1A1}</ProjectGuid>
+    <ProjectGuid>{2930E641-F2FD-3EC3-869F-2754FFC58C21}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
@@ -69,7 +69,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Vishu\Downloads\Optix Ray Tracer\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\cuda;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Vishu\Optix-Ray-Tracer\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\cuda;C:\Users\Vishu\Optix-Ray-Tracer\Source;C:\Users\Vishu\Optix-Ray-Tracer\Build\include;C:\Users\Vishu\Optix-Ray-Tracer\Build;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -79,7 +79,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Vishu\Downloads\Optix Ray Tracer\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\cuda;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Vishu\Optix-Ray-Tracer\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\cuda;C:\Users\Vishu\Optix-Ray-Tracer\Source;C:\Users\Vishu\Optix-Ray-Tracer\Build\include;C:\Users\Vishu\Optix-Ray-Tracer\Build;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -89,7 +89,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Vishu\Downloads\Optix Ray Tracer\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\cuda;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Vishu\Optix-Ray-Tracer\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\cuda;C:\Users\Vishu\Optix-Ray-Tracer\Source;C:\Users\Vishu\Optix-Ray-Tracer\Build\include;C:\Users\Vishu\Optix-Ray-Tracer\Build;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -99,7 +99,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Vishu\Downloads\Optix Ray Tracer\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\cuda;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Vishu\Optix-Ray-Tracer\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\cuda;C:\Users\Vishu\Optix-Ray-Tracer\Source;C:\Users\Vishu\Optix-Ray-Tracer\Build\include;C:\Users\Vishu\Optix-Ray-Tracer\Build;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -108,11 +108,11 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMakeLists.txt">
+    <CustomBuild Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/Vishu/Optix-Ray-Tracer/Source/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Vishu/Downloads/Optix Ray Tracer/Source" "-BC:/Users/Vishu/Downloads/Optix Ray Tracer/Build" --check-stamp-file "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/CMakeFiles/generate.stamp"
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Vishu/Optix-Ray-Tracer/Source -BC:/Users/Vishu/Optix-Ray-Tracer/Build --check-stamp-file C:/Users/Vishu/Optix-Ray-Tracer/Build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -120,12 +120,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\WindowsPaths.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\CMakeFiles\3.23.1\CMakeCCompiler.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\CMakeFiles\3.23.1\CMakeCXXCompiler.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\CMakeFiles\3.23.1\CMakeRCCompiler.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\CMakeFiles\3.23.1\CMakeSystem.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\CompilerInfo.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\ConfigCompilerFlags.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\FindCUDA.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\FindCUDA\select_compute_arch.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\FindOptiX.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\Macros.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\sse_support.h.in;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\sampleConfig.h.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\WindowsPaths.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Build\CMakeFiles\3.23.1\CMakeCCompiler.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Build\CMakeFiles\3.23.1\CMakeCXXCompiler.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Build\CMakeFiles\3.23.1\CMakeRCCompiler.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Build\CMakeFiles\3.23.1\CMakeSystem.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Source\CMake\CompilerInfo.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Source\CMake\ConfigCompilerFlags.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Source\CMake\FindCUDA.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Source\CMake\FindCUDA\select_compute_arch.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Source\CMake\FindOptiX.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Source\CMake\Macros.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Source\CMake\sse_support.h.in;C:\Users\Vishu\Optix-Ray-Tracer\Source\sampleConfig.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Vishu\Optix-Ray-Tracer\Build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/Vishu/Optix-Ray-Tracer/Source/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Vishu/Downloads/Optix Ray Tracer/Source" "-BC:/Users/Vishu/Downloads/Optix Ray Tracer/Build" --check-stamp-file "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/CMakeFiles/generate.stamp"
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Vishu/Optix-Ray-Tracer/Source -BC:/Users/Vishu/Optix-Ray-Tracer/Build --check-stamp-file C:/Users/Vishu/Optix-Ray-Tracer/Build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -133,12 +133,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\WindowsPaths.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\CMakeFiles\3.23.1\CMakeCCompiler.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\CMakeFiles\3.23.1\CMakeCXXCompiler.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\CMakeFiles\3.23.1\CMakeRCCompiler.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\CMakeFiles\3.23.1\CMakeSystem.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\CompilerInfo.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\ConfigCompilerFlags.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\FindCUDA.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\FindCUDA\select_compute_arch.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\FindOptiX.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\Macros.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\sse_support.h.in;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\sampleConfig.h.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\WindowsPaths.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Build\CMakeFiles\3.23.1\CMakeCCompiler.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Build\CMakeFiles\3.23.1\CMakeCXXCompiler.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Build\CMakeFiles\3.23.1\CMakeRCCompiler.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Build\CMakeFiles\3.23.1\CMakeSystem.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Source\CMake\CompilerInfo.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Source\CMake\ConfigCompilerFlags.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Source\CMake\FindCUDA.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Source\CMake\FindCUDA\select_compute_arch.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Source\CMake\FindOptiX.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Source\CMake\Macros.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Source\CMake\sse_support.h.in;C:\Users\Vishu\Optix-Ray-Tracer\Source\sampleConfig.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Vishu\Optix-Ray-Tracer\Build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/Vishu/Optix-Ray-Tracer/Source/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Vishu/Downloads/Optix Ray Tracer/Source" "-BC:/Users/Vishu/Downloads/Optix Ray Tracer/Build" --check-stamp-file "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/CMakeFiles/generate.stamp"
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Vishu/Optix-Ray-Tracer/Source -BC:/Users/Vishu/Optix-Ray-Tracer/Build --check-stamp-file C:/Users/Vishu/Optix-Ray-Tracer/Build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -146,12 +146,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\WindowsPaths.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\CMakeFiles\3.23.1\CMakeCCompiler.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\CMakeFiles\3.23.1\CMakeCXXCompiler.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\CMakeFiles\3.23.1\CMakeRCCompiler.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\CMakeFiles\3.23.1\CMakeSystem.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\CompilerInfo.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\ConfigCompilerFlags.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\FindCUDA.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\FindCUDA\select_compute_arch.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\FindOptiX.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\Macros.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\sse_support.h.in;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\sampleConfig.h.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\WindowsPaths.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Build\CMakeFiles\3.23.1\CMakeCCompiler.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Build\CMakeFiles\3.23.1\CMakeCXXCompiler.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Build\CMakeFiles\3.23.1\CMakeRCCompiler.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Build\CMakeFiles\3.23.1\CMakeSystem.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Source\CMake\CompilerInfo.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Source\CMake\ConfigCompilerFlags.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Source\CMake\FindCUDA.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Source\CMake\FindCUDA\select_compute_arch.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Source\CMake\FindOptiX.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Source\CMake\Macros.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Source\CMake\sse_support.h.in;C:\Users\Vishu\Optix-Ray-Tracer\Source\sampleConfig.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Vishu\Optix-Ray-Tracer\Build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/Vishu/Optix-Ray-Tracer/Source/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Vishu/Downloads/Optix Ray Tracer/Source" "-BC:/Users/Vishu/Downloads/Optix Ray Tracer/Build" --check-stamp-file "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/CMakeFiles/generate.stamp"
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Vishu/Optix-Ray-Tracer/Source -BC:/Users/Vishu/Optix-Ray-Tracer/Build --check-stamp-file C:/Users/Vishu/Optix-Ray-Tracer/Build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -159,62 +159,62 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\WindowsPaths.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\CMakeFiles\3.23.1\CMakeCCompiler.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\CMakeFiles\3.23.1\CMakeCXXCompiler.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\CMakeFiles\3.23.1\CMakeRCCompiler.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\CMakeFiles\3.23.1\CMakeSystem.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\CompilerInfo.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\ConfigCompilerFlags.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\FindCUDA.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\FindCUDA\select_compute_arch.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\FindOptiX.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\Macros.cmake;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\CMake\sse_support.h.in;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\sampleConfig.h.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\WindowsPaths.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Build\CMakeFiles\3.23.1\CMakeCCompiler.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Build\CMakeFiles\3.23.1\CMakeCXXCompiler.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Build\CMakeFiles\3.23.1\CMakeRCCompiler.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Build\CMakeFiles\3.23.1\CMakeSystem.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Source\CMake\CompilerInfo.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Source\CMake\ConfigCompilerFlags.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Source\CMake\FindCUDA.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Source\CMake\FindCUDA\select_compute_arch.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Source\CMake\FindOptiX.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Source\CMake\Macros.cmake;C:\Users\Vishu\Optix-Ray-Tracer\Source\CMake\sse_support.h.in;C:\Users\Vishu\Optix-Ray-Tracer\Source\sampleConfig.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Vishu\Optix-Ray-Tracer\Build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\ZERO_CHECK.vcxproj">
-      <Project>{9E291312-B483-3782-A0D4-B85E88A9008F}</Project>
+    <ProjectReference Include="C:\Users\Vishu\Optix-Ray-Tracer\Build\ZERO_CHECK.vcxproj">
+      <Project>{8B824DFD-6DC9-3A11-B4CA-FD306D677FBF}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\lib\DemandLoading\DemandLoading.vcxproj">
-      <Project>{497D0658-A1F8-3245-AE9F-82A9102D9CDE}</Project>
+    <ProjectReference Include="C:\Users\Vishu\Optix-Ray-Tracer\Build\lib\DemandLoading\DemandLoading.vcxproj">
+      <Project>{4EDAF1BB-5265-338E-9F2C-AF824FC1169E}</Project>
       <Name>DemandLoading</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\lib\ImageSource\ImageSource.vcxproj">
-      <Project>{A0DE7B95-D3D5-3F6F-95D4-C3D7C166534E}</Project>
+    <ProjectReference Include="C:\Users\Vishu\Optix-Ray-Tracer\Build\lib\ImageSource\ImageSource.vcxproj">
+      <Project>{5C5C84FD-2B10-3003-95B9-3C0AD21A7A80}</Project>
       <Name>ImageSource</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixPipeline\OptixPipeline.vcxproj">
-      <Project>{816352D8-C8AA-38C5-9C3C-23A1F78ABCC4}</Project>
+    <ProjectReference Include="C:\Users\Vishu\Optix-Ray-Tracer\Build\OptixPipeline\OptixPipeline.vcxproj">
+      <Project>{B67A460B-24B7-319C-87AE-F99EC79F5AED}</Project>
       <Name>OptixPipeline</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixSphere\OptixSphere.vcxproj">
-      <Project>{4799C8F9-F92C-304E-AF46-540E6017EA4C}</Project>
+    <ProjectReference Include="C:\Users\Vishu\Optix-Ray-Tracer\Build\OptixSphere\OptixSphere.vcxproj">
+      <Project>{2EAA71EF-B3B6-38FD-B34D-DF35ED62CDD0}</Project>
       <Name>OptixSphere</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixTRY\OptixTRY.vcxproj">
-      <Project>{6A4AE643-4A2D-3CC8-9321-4E92C3A99CC0}</Project>
+    <ProjectReference Include="C:\Users\Vishu\Optix-Ray-Tracer\Build\OptixTRY\OptixTRY.vcxproj">
+      <Project>{B9ADF86B-FE65-3C52-88EA-51AE82888BBD}</Project>
       <Name>OptixTRY</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixWindow\OptixWindow.vcxproj">
-      <Project>{4A9EFAFD-DAED-35CA-9BAE-FE7D68CFCA35}</Project>
+    <ProjectReference Include="C:\Users\Vishu\Optix-Ray-Tracer\Build\OptixWindow\OptixWindow.vcxproj">
+      <Project>{64AAFFCE-CF4F-3E7A-9D17-47121C8EECA8}</Project>
       <Name>OptixWindow</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\support\glad.vcxproj">
-      <Project>{CF5C0E27-9E50-3075-B391-9F586067FDE3}</Project>
+    <ProjectReference Include="C:\Users\Vishu\Optix-Ray-Tracer\Build\support\glad.vcxproj">
+      <Project>{AE6698FA-8FF3-372F-826A-5C32A4C2EFE8}</Project>
       <Name>glad</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\support\GLFW\src\glfw.vcxproj">
-      <Project>{AB4F29FE-315F-3E4E-A67E-489B158A6D76}</Project>
+    <ProjectReference Include="C:\Users\Vishu\Optix-Ray-Tracer\Build\support\GLFW\src\glfw.vcxproj">
+      <Project>{D4CF20EF-7E41-38A2-AE86-90D0065D56A2}</Project>
       <Name>glfw</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\support\imgui\imgui.vcxproj">
-      <Project>{EAD8DBDA-42D9-38FC-A2DE-584CA7494C4B}</Project>
+    <ProjectReference Include="C:\Users\Vishu\Optix-Ray-Tracer\Build\support\imgui\imgui.vcxproj">
+      <Project>{AE81622A-65D9-3744-9FE3-CA94ACB8FDB1}</Project>
       <Name>imgui</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\OptixHello\optixHello.vcxproj">
-      <Project>{39DF14FF-8DC6-365B-B495-7D78AC12AEA0}</Project>
+    <ProjectReference Include="C:\Users\Vishu\Optix-Ray-Tracer\Build\OptixHello\optixHello.vcxproj">
+      <Project>{36B110B3-8DC9-3B05-AF45-1C460B80AE2C}</Project>
       <Name>optixHello</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\sutil\sutil_7_sdk.vcxproj">
-      <Project>{67C25EE4-9E0C-3FF6-9C31-BCD001E9D2B8}</Project>
+    <ProjectReference Include="C:\Users\Vishu\Optix-Ray-Tracer\Build\sutil\sutil_7_sdk.vcxproj">
+      <Project>{BA2AD14B-0A94-3DF8-80DC-8CE16C933D5A}</Project>
       <Name>sutil_7_sdk</Name>
     </ProjectReference>
   </ItemGroup>

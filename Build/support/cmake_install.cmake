@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/support
+# Install script for directory: C:/Users/Vishu/Optix-Ray-Tracer/Source/support
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/Optix-Tutorial")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/OptiX-Samples")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,8 +34,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/support/GLFW/cmake_install.cmake")
-  include("C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/support/imgui/cmake_install.cmake")
+  include("C:/Users/Vishu/Optix-Ray-Tracer/Build/support/GLFW/cmake_install.cmake")
+  include("C:/Users/Vishu/Optix-Ray-Tracer/Build/support/imgui/cmake_install.cmake")
 
 endif()
 

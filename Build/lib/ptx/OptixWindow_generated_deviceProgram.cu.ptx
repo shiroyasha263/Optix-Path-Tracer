@@ -279,15 +279,15 @@ $L__BB2_4:
 	ret;
 
 }
-	.file	1 "C:\\Users\\Vishu\\Downloads\\Optix Ray Tracer\\Source\\OptixWindow\\deviceProgram.cu"
-	.file	2 "C:\\Users\\Vishu\\Downloads\\Optix Ray Tracer\\include\\internal/optix_7_device_impl.h"
-	.file	3 "C:/Users/Vishu/Downloads/Optix Ray Tracer/Source\\cuda/helpers.h"
-	.file	4 "C:/Users/Vishu/Downloads/Optix Ray Tracer/Source\\sutil/vec_math.h"
+	.file	1 "C:\\Users\\Vishu\\Optix-Ray-Tracer\\Source\\OptixWindow\\deviceProgram.cu"
+	.file	2 "C:\\Users\\Vishu\\Optix-Ray-Tracer\\include\\internal/optix_7_device_impl.h"
+	.file	3 "C:/Users/Vishu/Optix-Ray-Tracer/Source\\cuda/helpers.h"
+	.file	4 "C:/Users/Vishu/Optix-Ray-Tracer/Source\\sutil/vec_math.h"
 	.file	5 "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v11.6\\include\\crt\\math_functions.hpp"
 	.section	.debug_str
 	{
 $L__info_string0:
-.b8 95,90,78,52,55,95,73,78,84,69,82,78,65,76,95,56,97,98,99,49,53,54,53,95,49,54,95,100,101,118,105,99,101,80,114,111,103,114,97,109
+.b8 95,90,78,52,55,95,73,78,84,69,82,78,65,76,95,52,55,55,97,55,51,50,55,95,49,54,95,100,101,118,105,99,101,80,114,111,103,114,97,109
 .b8 95,99,117,95,53,50,98,101,55,100,99,54,49,57,111,112,116,105,120,71,101,116,76,97,117,110,99,104,73,110,100,101,120,69,118,0
 $L__info_string1:
 .b8 95,90,49,48,109,97,107,101,95,99,111,108,111,114,82,75,54,102,108,111,97,116,51,0
@@ -300,7 +300,7 @@ $L__info_string4:
 $L__info_string5:
 .b8 95,90,50,49,113,117,97,110,116,105,122,101,85,110,115,105,103,110,101,100,56,66,105,116,115,102,0
 $L__info_string6:
-.b8 95,90,78,52,55,95,73,78,84,69,82,78,65,76,95,56,97,98,99,49,53,54,53,95,49,54,95,100,101,118,105,99,101,80,114,111,103,114,97,109
+.b8 95,90,78,52,55,95,73,78,84,69,82,78,65,76,95,52,55,55,97,55,51,50,55,95,49,54,95,100,101,118,105,99,101,80,114,111,103,114,97,109
 .b8 95,99,117,95,53,50,98,101,55,100,99,54,51,109,105,110,69,106,106,0
 
 	}

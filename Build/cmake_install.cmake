@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/Vishu/Downloads/Optix Ray Tracer/Source
+# Install script for directory: C:/Users/Vishu/Optix-Ray-Tracer/Source
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/Optix-Tutorial")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/OptiX-Samples")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,15 +34,15 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixHello/cmake_install.cmake")
-  include("C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixPipeline/cmake_install.cmake")
-  include("C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixWindow/cmake_install.cmake")
-  include("C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixSphere/cmake_install.cmake")
-  include("C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixTRY/cmake_install.cmake")
-  include("C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/sutil/cmake_install.cmake")
-  include("C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/DemandLoading/cmake_install.cmake")
-  include("C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ImageSource/cmake_install.cmake")
-  include("C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/support/cmake_install.cmake")
+  include("C:/Users/Vishu/Optix-Ray-Tracer/Build/OptixHello/cmake_install.cmake")
+  include("C:/Users/Vishu/Optix-Ray-Tracer/Build/OptixPipeline/cmake_install.cmake")
+  include("C:/Users/Vishu/Optix-Ray-Tracer/Build/OptixWindow/cmake_install.cmake")
+  include("C:/Users/Vishu/Optix-Ray-Tracer/Build/OptixSphere/cmake_install.cmake")
+  include("C:/Users/Vishu/Optix-Ray-Tracer/Build/OptixTRY/cmake_install.cmake")
+  include("C:/Users/Vishu/Optix-Ray-Tracer/Build/sutil/cmake_install.cmake")
+  include("C:/Users/Vishu/Optix-Ray-Tracer/Build/lib/DemandLoading/cmake_install.cmake")
+  include("C:/Users/Vishu/Optix-Ray-Tracer/Build/lib/ImageSource/cmake_install.cmake")
+  include("C:/Users/Vishu/Optix-Ray-Tracer/Build/support/cmake_install.cmake")
 
 endif()
 
@@ -54,5 +54,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/Vishu/Optix-Ray-Tracer/Build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

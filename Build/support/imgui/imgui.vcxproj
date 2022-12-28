@@ -22,7 +22,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{EAD8DBDA-42D9-38FC-A2DE-584CA7494C4B}</ProjectGuid>
+    <ProjectGuid>{AE81622A-65D9-3744-9FE3-CA94ACB8FDB1}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
@@ -59,26 +59,26 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\lib\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Vishu\Optix-Ray-Tracer\Build\lib\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">imgui.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">imgui</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\lib\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Vishu\Optix-Ray-Tracer\Build\lib\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">imgui.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">imgui</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\lib\MinSizeRel\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Vishu\Optix-Ray-Tracer\Build\lib\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">imgui.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">imgui</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\lib\RelWithDebInfo\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Vishu\Optix-Ray-Tracer\Build\lib\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">imgui.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">imgui</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\Vishu\Downloads\Optix Ray Tracer\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\cuda;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\imgui\.;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\GLFW\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Vishu\Optix-Ray-Tracer\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\cuda;C:\Users\Vishu\Optix-Ray-Tracer\Source;C:\Users\Vishu\Optix-Ray-Tracer\Build\include;C:\Users\Vishu\Optix-Ray-Tracer\Build;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\imgui\.;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\GLFW\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /w34101 /w34189 /w34018 /w34389</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -98,10 +98,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;IMGUI_IMPL_OPENGL_LOADER_GLAD;_USE_MATH_DEFINES;NOMINMAX;GLFW_DLL;GLAD_GLAPI_EXPORT;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Vishu\Downloads\Optix Ray Tracer\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\cuda;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\imgui\.;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\GLFW\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Vishu\Optix-Ray-Tracer\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\cuda;C:\Users\Vishu\Optix-Ray-Tracer\Source;C:\Users\Vishu\Optix-Ray-Tracer\Build\include;C:\Users\Vishu\Optix-Ray-Tracer\Build;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\imgui\.;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\GLFW\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Vishu\Downloads\Optix Ray Tracer\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\cuda;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\imgui\.;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\GLFW\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Vishu\Optix-Ray-Tracer\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\cuda;C:\Users\Vishu\Optix-Ray-Tracer\Source;C:\Users\Vishu\Optix-Ray-Tracer\Build\include;C:\Users\Vishu\Optix-Ray-Tracer\Build;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\imgui\.;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\GLFW\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -114,7 +114,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\Vishu\Downloads\Optix Ray Tracer\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\cuda;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\imgui\.;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\GLFW\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Vishu\Optix-Ray-Tracer\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\cuda;C:\Users\Vishu\Optix-Ray-Tracer\Source;C:\Users\Vishu\Optix-Ray-Tracer\Build\include;C:\Users\Vishu\Optix-Ray-Tracer\Build;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\imgui\.;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\GLFW\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /w34101 /w34189 /w34018 /w34389</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DisableSpecificWarnings>4355;4996;4800</DisableSpecificWarnings>
@@ -136,10 +136,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IMGUI_IMPL_OPENGL_LOADER_GLAD;_USE_MATH_DEFINES;NOMINMAX;GLFW_DLL;GLAD_GLAPI_EXPORT;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Vishu\Downloads\Optix Ray Tracer\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\cuda;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\imgui\.;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\GLFW\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Vishu\Optix-Ray-Tracer\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\cuda;C:\Users\Vishu\Optix-Ray-Tracer\Source;C:\Users\Vishu\Optix-Ray-Tracer\Build\include;C:\Users\Vishu\Optix-Ray-Tracer\Build;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\imgui\.;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\GLFW\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Vishu\Downloads\Optix Ray Tracer\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\cuda;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\imgui\.;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\GLFW\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Vishu\Optix-Ray-Tracer\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\cuda;C:\Users\Vishu\Optix-Ray-Tracer\Source;C:\Users\Vishu\Optix-Ray-Tracer\Build\include;C:\Users\Vishu\Optix-Ray-Tracer\Build;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\imgui\.;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\GLFW\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -152,7 +152,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\Vishu\Downloads\Optix Ray Tracer\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\cuda;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\imgui\.;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\GLFW\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Vishu\Optix-Ray-Tracer\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\cuda;C:\Users\Vishu\Optix-Ray-Tracer\Source;C:\Users\Vishu\Optix-Ray-Tracer\Build\include;C:\Users\Vishu\Optix-Ray-Tracer\Build;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\imgui\.;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\GLFW\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /w34101 /w34189 /w34018 /w34389</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DisableSpecificWarnings>4355;4996;4800</DisableSpecificWarnings>
@@ -172,10 +172,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IMGUI_IMPL_OPENGL_LOADER_GLAD;_USE_MATH_DEFINES;NOMINMAX;GLFW_DLL;GLAD_GLAPI_EXPORT;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Vishu\Downloads\Optix Ray Tracer\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\cuda;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\imgui\.;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\GLFW\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Vishu\Optix-Ray-Tracer\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\cuda;C:\Users\Vishu\Optix-Ray-Tracer\Source;C:\Users\Vishu\Optix-Ray-Tracer\Build\include;C:\Users\Vishu\Optix-Ray-Tracer\Build;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\imgui\.;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\GLFW\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Vishu\Downloads\Optix Ray Tracer\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\cuda;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\imgui\.;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\GLFW\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Vishu\Optix-Ray-Tracer\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\cuda;C:\Users\Vishu\Optix-Ray-Tracer\Source;C:\Users\Vishu\Optix-Ray-Tracer\Build\include;C:\Users\Vishu\Optix-Ray-Tracer\Build;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\imgui\.;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\GLFW\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -188,7 +188,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\Vishu\Downloads\Optix Ray Tracer\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\cuda;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\imgui\.;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\GLFW\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Vishu\Optix-Ray-Tracer\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\cuda;C:\Users\Vishu\Optix-Ray-Tracer\Source;C:\Users\Vishu\Optix-Ray-Tracer\Build\include;C:\Users\Vishu\Optix-Ray-Tracer\Build;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\imgui\.;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\GLFW\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /w34101 /w34189 /w34018 /w34389</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -207,10 +207,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IMGUI_IMPL_OPENGL_LOADER_GLAD;_USE_MATH_DEFINES;NOMINMAX;GLFW_DLL;GLAD_GLAPI_EXPORT;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Vishu\Downloads\Optix Ray Tracer\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\cuda;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\imgui\.;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\GLFW\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Vishu\Optix-Ray-Tracer\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\cuda;C:\Users\Vishu\Optix-Ray-Tracer\Source;C:\Users\Vishu\Optix-Ray-Tracer\Build\include;C:\Users\Vishu\Optix-Ray-Tracer\Build;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\imgui\.;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\GLFW\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Vishu\Downloads\Optix Ray Tracer\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\cuda;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Build;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\imgui\.;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\GLFW\include;C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Vishu\Optix-Ray-Tracer\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\cuda;C:\Users\Vishu\Optix-Ray-Tracer\Source;C:\Users\Vishu\Optix-Ray-Tracer\Build\include;C:\Users\Vishu\Optix-Ray-Tracer\Build;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\imgui\.;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\GLFW\include;C:\Users\Vishu\Optix-Ray-Tracer\Source\support\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -222,11 +222,11 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\imgui\CMakeLists.txt">
+    <CustomBuild Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\support\imgui\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/support/imgui/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/Vishu/Optix-Ray-Tracer/Source/support/imgui/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Vishu/Downloads/Optix Ray Tracer/Source" "-BC:/Users/Vishu/Downloads/Optix Ray Tracer/Build" --check-stamp-file "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/support/imgui/CMakeFiles/generate.stamp"
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Vishu/Optix-Ray-Tracer/Source -BC:/Users/Vishu/Optix-Ray-Tracer/Build --check-stamp-file C:/Users/Vishu/Optix-Ray-Tracer/Build/support/imgui/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -235,11 +235,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\support\imgui\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Vishu\Optix-Ray-Tracer\Build\support\imgui\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/support/imgui/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/Vishu/Optix-Ray-Tracer/Source/support/imgui/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Vishu/Downloads/Optix Ray Tracer/Source" "-BC:/Users/Vishu/Downloads/Optix Ray Tracer/Build" --check-stamp-file "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/support/imgui/CMakeFiles/generate.stamp"
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Vishu/Optix-Ray-Tracer/Source -BC:/Users/Vishu/Optix-Ray-Tracer/Build --check-stamp-file C:/Users/Vishu/Optix-Ray-Tracer/Build/support/imgui/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -248,11 +248,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\support\imgui\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Vishu\Optix-Ray-Tracer\Build\support\imgui\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/support/imgui/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/Vishu/Optix-Ray-Tracer/Source/support/imgui/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Vishu/Downloads/Optix Ray Tracer/Source" "-BC:/Users/Vishu/Downloads/Optix Ray Tracer/Build" --check-stamp-file "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/support/imgui/CMakeFiles/generate.stamp"
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Vishu/Optix-Ray-Tracer/Source -BC:/Users/Vishu/Optix-Ray-Tracer/Build --check-stamp-file C:/Users/Vishu/Optix-Ray-Tracer/Build/support/imgui/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -261,11 +261,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\support\imgui\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Vishu\Optix-Ray-Tracer\Build\support\imgui\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/support/imgui/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/Vishu/Optix-Ray-Tracer/Source/support/imgui/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Vishu/Downloads/Optix Ray Tracer/Source" "-BC:/Users/Vishu/Downloads/Optix Ray Tracer/Build" --check-stamp-file "C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/support/imgui/CMakeFiles/generate.stamp"
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Vishu/Optix-Ray-Tracer/Source -BC:/Users/Vishu/Optix-Ray-Tracer/Build --check-stamp-file C:/Users/Vishu/Optix-Ray-Tracer/Build/support/imgui/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -274,39 +274,39 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\support\imgui\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Vishu\Optix-Ray-Tracer\Build\support\imgui\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\imgui\imconfig.h" />
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\imgui\imgui.cpp" />
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\imgui\imgui_demo.cpp" />
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\imgui\imgui_draw.cpp" />
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\imgui\imgui.h" />
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\imgui\imgui_impl_glfw.cpp" />
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\imgui\imgui_impl_glfw.h" />
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\imgui\imgui_impl_opengl3.cpp" />
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\imgui\imgui_impl_opengl3.h" />
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\imgui\imgui_internal.h" />
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\imgui\imgui_widgets.cpp" />
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\imgui\imstb_rectpack.h" />
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\imgui\imstb_textedit.h" />
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\support\imgui\imstb_truetype.h" />
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\support\imgui\imconfig.h" />
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\support\imgui\imgui.cpp" />
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\support\imgui\imgui_demo.cpp" />
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\support\imgui\imgui_draw.cpp" />
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\support\imgui\imgui.h" />
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\support\imgui\imgui_impl_glfw.cpp" />
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\support\imgui\imgui_impl_glfw.h" />
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\support\imgui\imgui_impl_opengl3.cpp" />
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\support\imgui\imgui_impl_opengl3.h" />
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\support\imgui\imgui_internal.h" />
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\support\imgui\imgui_widgets.cpp" />
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\support\imgui\imstb_rectpack.h" />
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\support\imgui\imstb_textedit.h" />
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\support\imgui\imstb_truetype.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\ZERO_CHECK.vcxproj">
-      <Project>{9E291312-B483-3782-A0D4-B85E88A9008F}</Project>
+    <ProjectReference Include="C:\Users\Vishu\Optix-Ray-Tracer\Build\ZERO_CHECK.vcxproj">
+      <Project>{8B824DFD-6DC9-3A11-B4CA-FD306D677FBF}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\support\glad.vcxproj">
-      <Project>{CF5C0E27-9E50-3075-B391-9F586067FDE3}</Project>
+    <ProjectReference Include="C:\Users\Vishu\Optix-Ray-Tracer\Build\support\glad.vcxproj">
+      <Project>{AE6698FA-8FF3-372F-826A-5C32A4C2EFE8}</Project>
       <Name>glad</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\support\GLFW\src\glfw.vcxproj">
-      <Project>{AB4F29FE-315F-3E4E-A67E-489B158A6D76}</Project>
+    <ProjectReference Include="C:\Users\Vishu\Optix-Ray-Tracer\Build\support\GLFW\src\glfw.vcxproj">
+      <Project>{D4CF20EF-7E41-38A2-AE86-90D0065D56A2}</Project>
       <Name>glfw</Name>
     </ProjectReference>
   </ItemGroup>

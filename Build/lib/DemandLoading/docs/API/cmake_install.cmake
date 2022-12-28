@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/lib/DemandLoading/docs/API
+# Install script for directory: C:/Users/Vishu/Optix-Ray-Tracer/Source/lib/DemandLoading/docs/API
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/Optix-Tutorial")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/OptiX-Samples")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

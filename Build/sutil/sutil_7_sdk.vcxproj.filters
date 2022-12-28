@@ -1,125 +1,125 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\sutil\Camera.cpp">
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\sutil\Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\sutil\GLDisplay.cpp">
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\sutil\GLDisplay.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\sutil\PPMLoader.cpp">
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\sutil\PPMLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\sutil\Scene.cpp">
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\sutil\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\sutil\sutil.cpp">
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\sutil\sutil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\sutil\Trackball.cpp">
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\sutil\Trackball.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\sampleConfig.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Build\sampleConfig.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\cuda\BufferView.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\cuda\BufferView.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\cuda\GeometryData.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\cuda\GeometryData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\cuda\Light.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\cuda\Light.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\cuda\LocalGeometry.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\cuda\LocalGeometry.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\cuda\MaterialData.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\cuda\MaterialData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\cuda\util.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\cuda\util.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\cuda\helpers.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\cuda\helpers.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\sutil\Aabb.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\sutil\Aabb.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\sutil\Camera.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\sutil\Camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\sutil\CUDAOutputBuffer.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\sutil\CUDAOutputBuffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\sutil\Exception.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\sutil\Exception.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\sutil\GLDisplay.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\sutil\GLDisplay.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\sutil\Matrix.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\sutil\Matrix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\sutil\PPMLoader.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\sutil\PPMLoader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\sutil\Preprocessor.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\sutil\Preprocessor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\sutil\Quaternion.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\sutil\Quaternion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\sutil\Record.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\sutil\Record.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\sutil\Scene.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\sutil\Scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\sutil\sutilapi.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\sutil\sutilapi.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\sutil\sutil.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\sutil\sutil.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\sutil\Trackball.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\sutil\Trackball.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\sutil\vec_math.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\sutil\vec_math.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\cuda\sphere.cu">
+    <CustomBuild Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\cuda\sphere.cu">
       <Filter>CUDA Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\cuda\whitted.cu">
+    <CustomBuild Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\cuda\whitted.cu">
       <Filter>CUDA Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\sutil\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\sutil\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\lib\ptx\sutil_generated_sphere.cu.ptx">
+    <None Include="C:\Users\Vishu\Optix-Ray-Tracer\Build\lib\ptx\sutil_generated_sphere.cu.ptx">
       <Filter>PTX Files</Filter>
     </None>
-    <None Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\lib\ptx\sutil_generated_whitted.cu.ptx">
+    <None Include="C:\Users\Vishu\Optix-Ray-Tracer\Build\lib\ptx\sutil_generated_whitted.cu.ptx">
       <Filter>PTX Files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CUDA Files">
-      <UniqueIdentifier>{AA01296C-8C52-3A01-8663-BAF28505ED59}</UniqueIdentifier>
+      <UniqueIdentifier>{6E619550-06AD-3DE4-8A9C-C128CB47BAD7}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{286C58BF-A2B2-330D-AA6D-4C16B59C1839}</UniqueIdentifier>
+      <UniqueIdentifier>{4CB14A54-9CE4-31AA-991B-97EA88B3DA11}</UniqueIdentifier>
     </Filter>
     <Filter Include="PTX Files">
-      <UniqueIdentifier>{671B97D7-B1FE-3E12-AE5D-C984D2ADB095}</UniqueIdentifier>
+      <UniqueIdentifier>{85E9A288-F273-3E0F-8917-14474155E541}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{331EA507-3B09-3374-A59C-F2B3EB1791E0}</UniqueIdentifier>
+      <UniqueIdentifier>{1CCF6FBD-3295-3AE9-8766-0EBD5FB6259E}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

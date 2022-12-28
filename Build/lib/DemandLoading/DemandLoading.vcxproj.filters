@@ -1,248 +1,248 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\DemandLoaderImpl.cpp">
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\DemandLoaderImpl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\DeviceContextImpl.cpp">
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\DeviceContextImpl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\PagingSystem.cpp">
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\PagingSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\RequestProcessor.cpp">
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\RequestProcessor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\RequestQueue.cpp">
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\RequestQueue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\ResourceRequestHandler.cpp">
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\ResourceRequestHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Ticket.cpp">
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Ticket.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Memory\DeviceContextPool.cpp">
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Memory\DeviceContextPool.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Memory\TilePool.cpp">
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Memory\TilePool.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Textures\BaseColorRequestHandler.cpp">
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Textures\BaseColorRequestHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Textures\DemandTextureImpl.cpp">
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Textures\DemandTextureImpl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Textures\DenseTexture.cpp">
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Textures\DenseTexture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Textures\SamplerRequestHandler.cpp">
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Textures\SamplerRequestHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Textures\SparseTexture.cpp">
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Textures\SparseTexture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Textures\TextureRequestHandler.cpp">
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Textures\TextureRequestHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Util\DeviceSet.cpp">
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Util\DeviceSet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Util\TraceFile.cpp">
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Util\TraceFile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\DemandLoaderImpl.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\DemandLoaderImpl.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\DeviceContextImpl.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\DeviceContextImpl.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\PageMappingsContext.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\PageMappingsContext.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\PageTableManager.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\PageTableManager.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\PagingSystem.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\PagingSystem.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\PagingSystemKernels.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\PagingSystemKernels.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\RequestContext.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\RequestContext.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\RequestHandler.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\RequestHandler.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\RequestProcessor.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\RequestProcessor.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\RequestQueue.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\RequestQueue.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\ResourceRequestHandler.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\ResourceRequestHandler.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\TicketImpl.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\TicketImpl.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\include\DemandLoading\DemandLoader.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\include\DemandLoading\DemandLoader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\include\DemandLoading\DemandTexture.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\include\DemandLoading\DemandTexture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\include\DemandLoading\DeviceContext.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\include\DemandLoading\DeviceContext.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\include\DemandLoading\Options.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\include\DemandLoading\Options.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\include\DemandLoading\Resource.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\include\DemandLoading\Resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\include\DemandLoading\Statistics.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\include\DemandLoading\Statistics.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\include\DemandLoading\Texture2D.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\include\DemandLoading\Texture2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\include\DemandLoading\Texture2DExtended.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\include\DemandLoading\Texture2DExtended.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\include\DemandLoading\Texture2DFootprint.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\include\DemandLoading\Texture2DFootprint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\include\DemandLoading\TextureDescriptor.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\include\DemandLoading\TextureDescriptor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\include\DemandLoading\TextureSampler.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\include\DemandLoading\TextureSampler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\include\DemandLoading\Ticket.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\include\DemandLoading\Ticket.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\include\DemandLoading\TileIndexing.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\include\DemandLoading\TileIndexing.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Memory\Allocators.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Memory\Allocators.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Memory\AsyncItemPool.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Memory\AsyncItemPool.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Memory\Buffers.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Memory\Buffers.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Memory\BulkMemory.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Memory\BulkMemory.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Memory\BulkPinnedItemPool.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Memory\BulkPinnedItemPool.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Memory\DeviceContextPool.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Memory\DeviceContextPool.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Memory\DeviceMemoryManager.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Memory\DeviceMemoryManager.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Memory\EventPool.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Memory\EventPool.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Memory\FixedPool.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Memory\FixedPool.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Memory\ItemPool.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Memory\ItemPool.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Memory\PinnedItemPool.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Memory\PinnedItemPool.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Memory\PinnedMemoryManager.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Memory\PinnedMemoryManager.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Memory\PinnedRequestContextPool.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Memory\PinnedRequestContextPool.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Memory\SamplerPool.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Memory\SamplerPool.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Memory\TileArena.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Memory\TileArena.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Memory\TilePool.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Memory\TilePool.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Textures\BaseColorRequestHandler.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Textures\BaseColorRequestHandler.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Textures\DemandTextureImpl.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Textures\DemandTextureImpl.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Textures\DenseTexture.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Textures\DenseTexture.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Textures\SamplerRequestHandler.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Textures\SamplerRequestHandler.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Textures\SparseTexture.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Textures\SparseTexture.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Textures\TextureRequestHandler.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Textures\TextureRequestHandler.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Util\CudaCallback.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Util\CudaCallback.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Util\DeviceSet.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Util\DeviceSet.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Util\Exception.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Util\Exception.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Util\Math.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Util\Math.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Util\MutexArray.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Util\MutexArray.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Util\NVTXProfiling.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Util\NVTXProfiling.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Util\Stopwatch.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Util\Stopwatch.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\Util\TraceFile.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\Util\TraceFile.h">
       <Filter>Header Files\Implementation</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\PagingSystemKernels.cu">
+    <CustomBuild Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\PagingSystemKernels.cu">
       <Filter>Source Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\DemandLoading\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\DemandLoading\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Object Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\lib\ptx\$(Configuration)\PagingSystemKernels_generated_PagingSystemKernels.cu.obj">
+    <Object Include="C:\Users\Vishu\Optix-Ray-Tracer\Build\lib\ptx\$(Configuration)\PagingSystemKernels_generated_PagingSystemKernels.cu.obj">
       <Filter>Object Files</Filter>
     </Object>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{286C58BF-A2B2-330D-AA6D-4C16B59C1839}</UniqueIdentifier>
+      <UniqueIdentifier>{4CB14A54-9CE4-31AA-991B-97EA88B3DA11}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Implementation">
-      <UniqueIdentifier>{75491632-038A-3A8C-9119-E56591A2E959}</UniqueIdentifier>
+      <UniqueIdentifier>{DB3E5DB8-26FE-3191-A2DC-A3E420E8EAD5}</UniqueIdentifier>
     </Filter>
     <Filter Include="Object Files">
-      <UniqueIdentifier>{35F1E03F-E910-3FD2-978D-4F46858DDDAB}</UniqueIdentifier>
+      <UniqueIdentifier>{C82A8EA3-E2F1-3B99-A827-C5241D29A060}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{331EA507-3B09-3374-A59C-F2B3EB1791E0}</UniqueIdentifier>
+      <UniqueIdentifier>{1CCF6FBD-3295-3AE9-8766-0EBD5FB6259E}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

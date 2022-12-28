@@ -1,80 +1,80 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\ImageSource\CheckerBoardImage.cpp">
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\ImageSource\CheckerBoardImage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\ImageSource\DeviceConstantImage.cpp">
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\ImageSource\DeviceConstantImage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\ImageSource\DeviceMandelbrotImage.cpp">
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\ImageSource\DeviceMandelbrotImage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\ImageSource\ImageSource.cpp">
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\ImageSource\ImageSource.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\ImageSource\TextureInfo.cpp">
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\ImageSource\TextureInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\ImageSource\Exception.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\ImageSource\Exception.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\ImageSource\Stopwatch.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\ImageSource\Stopwatch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\ImageSource\include\ImageSource\CheckerBoardImage.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\ImageSource\include\ImageSource\CheckerBoardImage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\ImageSource\include\ImageSource\DeviceConstantImage.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\ImageSource\include\ImageSource\DeviceConstantImage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\ImageSource\include\ImageSource\DeviceConstantImageParams.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\ImageSource\include\ImageSource\DeviceConstantImageParams.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\ImageSource\include\ImageSource\DeviceMandelbrotImage.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\ImageSource\include\ImageSource\DeviceMandelbrotImage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\ImageSource\include\ImageSource\DeviceMandelbrotParams.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\ImageSource\include\ImageSource\DeviceMandelbrotParams.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\ImageSource\include\ImageSource\ImageSource.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\ImageSource\include\ImageSource\ImageSource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\ImageSource\include\ImageSource\MultiCheckerImage.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\ImageSource\include\ImageSource\MultiCheckerImage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\ImageSource\include\ImageSource\TextureInfo.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\ImageSource\include\ImageSource\TextureInfo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\ImageSource\DeviceMandelbrotImageKernels.cu">
+    <CustomBuild Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\ImageSource\DeviceMandelbrotImageKernels.cu">
       <Filter>Source Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\ImageSource\DeviceConstantImageKernels.cu">
+    <CustomBuild Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\ImageSource\DeviceConstantImageKernels.cu">
       <Filter>Source Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\lib\ImageSource\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\lib\ImageSource\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Object Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\lib\ptx\$(Configuration)\DeviceMandelbrotImageKernels_generated_DeviceMandelbrotImageKernels.cu.obj">
+    <Object Include="C:\Users\Vishu\Optix-Ray-Tracer\Build\lib\ptx\$(Configuration)\DeviceMandelbrotImageKernels_generated_DeviceMandelbrotImageKernels.cu.obj">
       <Filter>Object Files</Filter>
     </Object>
-    <Object Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\lib\ptx\$(Configuration)\DeviceConstantImageKernels_generated_DeviceConstantImageKernels.cu.obj">
+    <Object Include="C:\Users\Vishu\Optix-Ray-Tracer\Build\lib\ptx\$(Configuration)\DeviceConstantImageKernels_generated_DeviceConstantImageKernels.cu.obj">
       <Filter>Object Files</Filter>
     </Object>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{286C58BF-A2B2-330D-AA6D-4C16B59C1839}</UniqueIdentifier>
+      <UniqueIdentifier>{4CB14A54-9CE4-31AA-991B-97EA88B3DA11}</UniqueIdentifier>
     </Filter>
     <Filter Include="Object Files">
-      <UniqueIdentifier>{35F1E03F-E910-3FD2-978D-4F46858DDDAB}</UniqueIdentifier>
+      <UniqueIdentifier>{C82A8EA3-E2F1-3B99-A827-C5241D29A060}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{331EA507-3B09-3374-A59C-F2B3EB1791E0}</UniqueIdentifier>
+      <UniqueIdentifier>{1CCF6FBD-3295-3AE9-8766-0EBD5FB6259E}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

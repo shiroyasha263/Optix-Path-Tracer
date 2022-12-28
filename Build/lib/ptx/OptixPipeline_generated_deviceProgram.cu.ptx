@@ -184,12 +184,12 @@ $L__BB2_4:
 	ret;
 
 }
-	.file	1 "C:\\Users\\Vishu\\Downloads\\Optix Ray Tracer\\Source\\OptixPipeline\\deviceProgram.cu"
-	.file	2 "C:\\Users\\Vishu\\Downloads\\Optix Ray Tracer\\include\\internal/optix_7_device_impl.h"
+	.file	1 "C:\\Users\\Vishu\\Optix-Ray-Tracer\\Source\\OptixPipeline\\deviceProgram.cu"
+	.file	2 "C:\\Users\\Vishu\\Optix-Ray-Tracer\\include\\internal/optix_7_device_impl.h"
 	.section	.debug_str
 	{
 $L__info_string0:
-.b8 95,90,78,52,55,95,73,78,84,69,82,78,65,76,95,102,48,55,98,97,98,98,48,95,49,54,95,100,101,118,105,99,101,80,114,111,103,114,97,109
+.b8 95,90,78,52,55,95,73,78,84,69,82,78,65,76,95,57,54,101,53,56,102,57,99,95,49,54,95,100,101,118,105,99,101,80,114,111,103,114,97,109
 .b8 95,99,117,95,53,50,98,101,55,100,99,54,49,57,111,112,116,105,120,71,101,116,76,97,117,110,99,104,73,110,100,101,120,69,118,0
 
 	}

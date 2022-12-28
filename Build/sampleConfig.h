@@ -28,9 +28,9 @@
 
 #pragma once
 
-#define SAMPLES_DIR "C:/Users/Vishu/Downloads/Optix Ray Tracer/Source"
-#define SAMPLES_PTX_DIR "C:\\Users\\Vishu\\Downloads\\Optix Ray Tracer\\Build\\lib\\ptx"
-#define SAMPLES_CUDA_DIR "C:/Users/Vishu/Downloads/Optix Ray Tracer/Source/cuda"
+#define SAMPLES_DIR "C:/Users/Vishu/Optix-Ray-Tracer/Source"
+#define SAMPLES_PTX_DIR "C:\\Users\\Vishu\\Optix-Ray-Tracer\\Build\\lib\\ptx"
+#define SAMPLES_CUDA_DIR "C:/Users/Vishu/Optix-Ray-Tracer/Source/cuda"
 
 // Include directories
 #define SAMPLES_RELATIVE_INCLUDE_DIRS \
@@ -40,7 +40,7 @@
   "lib/ImageSource/include", \
   ".", 
 #define SAMPLES_ABSOLUTE_INCLUDE_DIRS \
-  "C:/Users/Vishu/Downloads/Optix Ray Tracer/include", \
+  "C:/Users/Vishu/Optix-Ray-Tracer/include", \
   "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.6/include", 
 
 // Signal whether to use NVRTC or not

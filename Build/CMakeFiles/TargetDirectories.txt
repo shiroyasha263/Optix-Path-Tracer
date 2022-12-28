@@ -1,14 +1,14 @@
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/CMakeFiles/ALL_BUILD.dir
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/CMakeFiles/ZERO_CHECK.dir
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixHello/CMakeFiles/optixHello.dir
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixPipeline/CMakeFiles/OptixPipeline.dir
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixWindow/CMakeFiles/OptixWindow.dir
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixSphere/CMakeFiles/OptixSphere.dir
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/OptixTRY/CMakeFiles/OptixTRY.dir
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/sutil/CMakeFiles/sutil_7_sdk.dir
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/DemandLoading/CMakeFiles/DemandLoading.dir
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/lib/ImageSource/CMakeFiles/ImageSource.dir
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/support/CMakeFiles/glad.dir
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/support/GLFW/CMakeFiles/ALL_BUILD.dir
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/support/GLFW/src/CMakeFiles/glfw.dir
-C:/Users/Vishu/Downloads/Optix Ray Tracer/Build/support/imgui/CMakeFiles/imgui.dir
+C:/Users/Vishu/Optix-Ray-Tracer/Build/CMakeFiles/ALL_BUILD.dir
+C:/Users/Vishu/Optix-Ray-Tracer/Build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/Vishu/Optix-Ray-Tracer/Build/OptixHello/CMakeFiles/optixHello.dir
+C:/Users/Vishu/Optix-Ray-Tracer/Build/OptixPipeline/CMakeFiles/OptixPipeline.dir
+C:/Users/Vishu/Optix-Ray-Tracer/Build/OptixWindow/CMakeFiles/OptixWindow.dir
+C:/Users/Vishu/Optix-Ray-Tracer/Build/OptixSphere/CMakeFiles/OptixSphere.dir
+C:/Users/Vishu/Optix-Ray-Tracer/Build/OptixTRY/CMakeFiles/OptixTRY.dir
+C:/Users/Vishu/Optix-Ray-Tracer/Build/sutil/CMakeFiles/sutil_7_sdk.dir
+C:/Users/Vishu/Optix-Ray-Tracer/Build/lib/DemandLoading/CMakeFiles/DemandLoading.dir
+C:/Users/Vishu/Optix-Ray-Tracer/Build/lib/ImageSource/CMakeFiles/ImageSource.dir
+C:/Users/Vishu/Optix-Ray-Tracer/Build/support/CMakeFiles/glad.dir
+C:/Users/Vishu/Optix-Ray-Tracer/Build/support/GLFW/CMakeFiles/ALL_BUILD.dir
+C:/Users/Vishu/Optix-Ray-Tracer/Build/support/GLFW/src/CMakeFiles/glfw.dir
+C:/Users/Vishu/Optix-Ray-Tracer/Build/support/imgui/CMakeFiles/imgui.dir

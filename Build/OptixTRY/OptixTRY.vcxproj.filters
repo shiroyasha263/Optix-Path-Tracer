@@ -1,44 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\main.cpp">
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\OptixTRY\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\RenderState.cpp">
+    <ClCompile Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\OptixTRY\RenderState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\Params.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\OptixTRY\Params.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\RenderState.h">
+    <ClInclude Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\OptixTRY\RenderState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\deviceProgram.cu">
+    <CustomBuild Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\OptixTRY\deviceProgram.cu">
       <Filter>CUDA Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Source\OptixTRY\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\Vishu\Optix-Ray-Tracer\Source\OptixTRY\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\Users\Vishu\Downloads\Optix Ray Tracer\Build\lib\ptx\OptixTRY_generated_deviceProgram.cu.ptx">
+    <None Include="C:\Users\Vishu\Optix-Ray-Tracer\Build\lib\ptx\OptixTRY_generated_deviceProgram.cu.ptx">
       <Filter>PTX Files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CUDA Files">
-      <UniqueIdentifier>{AA01296C-8C52-3A01-8663-BAF28505ED59}</UniqueIdentifier>
+      <UniqueIdentifier>{6E619550-06AD-3DE4-8A9C-C128CB47BAD7}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{286C58BF-A2B2-330D-AA6D-4C16B59C1839}</UniqueIdentifier>
+      <UniqueIdentifier>{4CB14A54-9CE4-31AA-991B-97EA88B3DA11}</UniqueIdentifier>
     </Filter>
     <Filter Include="PTX Files">
-      <UniqueIdentifier>{671B97D7-B1FE-3E12-AE5D-C984D2ADB095}</UniqueIdentifier>
+      <UniqueIdentifier>{85E9A288-F273-3E0F-8917-14474155E541}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{331EA507-3B09-3374-A59C-F2B3EB1791E0}</UniqueIdentifier>
+      <UniqueIdentifier>{1CCF6FBD-3295-3AE9-8766-0EBD5FB6259E}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

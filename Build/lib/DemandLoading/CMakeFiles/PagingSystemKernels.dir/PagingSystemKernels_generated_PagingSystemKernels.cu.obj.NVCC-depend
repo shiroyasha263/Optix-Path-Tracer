@@ -1,5 +1,5 @@
-PagingSystemKernels.obj : C:/Users/Vishu/Downloads/Optix\ Ray\ Tracer/Source/lib/DemandLoading/PagingSystemKernels.cu \
-    C:/Users/Vishu/Downloads/Optix\ Ray\ Tracer/Source/lib/DemandLoading/PagingSystemKernels.cu \
+PagingSystemKernels.obj : C:/Users/Vishu/Optix-Ray-Tracer/Source/lib/DemandLoading/PagingSystemKernels.cu \
+    C:/Users/Vishu/Optix-Ray-Tracer/Source/lib/DemandLoading/PagingSystemKernels.cu \
     C:/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.6/include/cuda_runtime.h \
     C:/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.6/include/crt/host_config.h \
     C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/crtdefs.h \
@@ -104,10 +104,10 @@ PagingSystemKernels.obj : C:/Users/Vishu/Downloads/Optix\ Ray\ Tracer/Source/lib
     C:/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.6/include/texture_indirect_functions.h \
     C:/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.6/include/surface_indirect_functions.h \
     C:/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.6/include/device_launch_parameters.h \
-    C:/Users/Vishu/Downloads/Optix\ Ray\ Tracer/Source/lib/DemandLoading/PagingSystemKernels.h \
-    C:/Users/Vishu/Downloads/Optix\ Ray\ Tracer/Source/lib/DemandLoading/include/DemandLoading/DeviceContext.h \
+    C:/Users/Vishu/Optix-Ray-Tracer/Source/lib/DemandLoading/PagingSystemKernels.h \
+    C:/Users/Vishu/Optix-Ray-Tracer/Source/lib/DemandLoading/include/DemandLoading/DeviceContext.h \
     C:/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.6/include/cuda.h \
-    C:/Users/Vishu/Downloads/Optix\ Ray\ Tracer/Source/lib/DemandLoading/Util/Exception.h \
+    C:/Users/Vishu/Optix-Ray-Tracer/Source/lib/DemandLoading/Util/Exception.h \
     C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/iostream \
     C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/istream \
     C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/ostream \
@@ -165,4 +165,4 @@ PagingSystemKernels.obj : C:/Users/Vishu/Downloads/Optix\ Ray\ Tracer/Source/lib
     C:/Program\ Files\ (x86)/Windows\ Kits/10/include/10.0.19041.0/ucrt/locale.h \
     C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/sstream \
     C:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/string \
-    C:/Users/Vishu/Downloads/Optix\ Ray\ Tracer/Source/lib/DemandLoading/include/DemandLoading/Paging.h
+    C:/Users/Vishu/Optix-Ray-Tracer/Source/lib/DemandLoading/include/DemandLoading/Paging.h
